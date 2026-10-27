@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Braylin Jiménez · Data Scientist</title>
+<meta name="description" content="Portafolio de Braylin Jiménez, economista y data scientist en Santo Domingo. Machine learning, riesgo, salud y economía: modelos y productos de datos que se vuelven decisiones.">
+<meta name="author" content="Braylin A. Jiménez Reynoso">
+<meta name="theme-color" content="#07111f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_DO">
+<meta property="og:title" content="Braylin Jiménez · Data Scientist">
+<meta property="og:description" content="Machine learning, riesgo, salud y economía: modelos y productos de datos que se vuelven decisiones.">
+<meta property="og:url" content="https://braylinjr.github.io/">
+<meta property="og:image" content="https://braylinjr.github.io/assets/mando.jpg">
+<link rel="canonical" href="https://braylinjr.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1b2a'/%3E%3Crect x='5' y='20' width='4' height='7' rx='1' fill='%2300c9d4'/%3E%3Crect x='11' y='14' width='4' height='13' rx='1' fill='%2300c9d4'/%3E%3Crect x='17' y='9' width='4' height='18' rx='1' fill='%2300c9d4'/%3E%3Crect x='23' y='5' width='4' height='22' rx='1' fill='%2300c9d4' opacity='.6'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/apple-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07111f; --bg-2:#0b1728; --panel:#0f2138; --panel-2:#102842;
+  --text:#e8f1ff; --muted:#9fb2cc; --muted-2:#6e8099; --white:#fff;
+  --line:rgba(255,255,255,.12); --line-soft:rgba(255,255,255,.07);
+  --blue:#4aa3ff; --cyan:#42e8ff; --green:#3ee59f; --red:#ff6b6b; --gold:#ffd166; --violet:#a78bfa; --orange:#f4845f;
+  --shadow:0 28px 80px rgba(0,0,0,.45);
+  --r:24px;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--sans);
+  line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(900px 620px at 80% -6%, rgba(66,232,255,.10), transparent 60%),
+    radial-gradient(760px 640px at 4% 10%, rgba(62,229,159,.07), transparent 55%),
+    radial-gradient(900px 700px at 60% 105%, rgba(74,163,255,.07), transparent 60%),
+    linear-gradient(180deg,#07111f,#081424 55%,#07111f);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.6;
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:66px 66px,66px 66px;
+  mask-image:radial-gradient(circle at 50% 18%,#000,transparent 88%);
+}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+@media(max-width:560px){.wrap{padding:0 18px}}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(7,17,31,.74);border-bottom:1px solid var(--line-soft)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:13px;letter-spacing:.06em}
+.brand .mono-mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-family:var(--serif);font-size:16px;color:#07111f;background:linear-gradient(135deg,var(--cyan),var(--green))}
+.navlinks{display:flex;align-items:center;gap:22px;font-size:13.5px;color:var(--muted);font-weight:500}
+.navlinks a{transition:color .25s;position:relative}
+.navlinks a:hover{color:var(--text)}
+.navlinks a:not(.gh)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--cyan);transition:width .3s}
+.navlinks a:not(.gh):hover::after{width:100%}
+.navlinks a.gh{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:100px;padding:7px 13px;color:var(--text)}
+.navlinks a.gh:hover{border-color:var(--cyan)}
+.navlinks a.gh svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
+.menu-btn{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;place-items:center}
+.menu-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+@media(max-width:1180px){.brand .full{display:none}}
+@media(min-width:1181px){.brand .short{display:none}}
+@media(max-width:960px){
+  .menu-btn{display:grid}
+  .navlinks{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;padding:8px 18px 18px;background:rgba(7,17,31,.97);border-bottom:1px solid var(--line-soft)}
+  nav.open .navlinks{display:flex}
+  .navlinks a{padding:12px 0;width:100%;font-size:15px;border-bottom:1px solid var(--line-soft)}
+  .navlinks a::after{display:none}
+  .navlinks a.gh{width:auto;margin-top:14px;border-bottom:1px solid var(--line)}
+}
+
+/* ---------- HERO ---------- */
+header{position:relative;padding:84px 0 58px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--cyan);opacity:.8}
+.hero-h{font-family:var(--serif);font-weight:400;font-size:clamp(46px,8.5vw,106px);line-height:.95;letter-spacing:-.02em;margin:24px 0 0}
+.hero-h em{font-style:italic;background:linear-gradient(120deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{max-width:690px;margin-top:26px;font-size:clamp(16px,2vw,20px);color:var(--muted);font-weight:400}
+.hero-sub b{color:var(--text);font-weight:600}
+.now{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-size:13.5px;color:var(--muted);border:1px solid var(--line-soft);border-radius:100px;padding:7px 15px 7px 12px;background:rgba(255,255,255,.03)}
+.now i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(62,229,159,.16);flex-shrink:0}
+.now b{color:var(--text);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;letter-spacing:.03em;border:1px solid var(--line);border-radius:100px;padding:12px 20px;color:var(--text);transition:transform .25s,border-color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);border-color:var(--cyan)}
+.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7}
+.btn.pri{color:#07111f;font-weight:600;border-color:transparent;background:linear-gradient(135deg,var(--cyan),var(--green))}
+.btn.pri:hover{box-shadow:0 14px 34px -12px rgba(66,232,255,.6)}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin-top:48px;border-top:1px solid var(--line-soft)}
+.stat{flex:1;min-width:140px;padding:22px 22px 22px 0;border-right:1px solid var(--line-soft)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:var(--serif);font-size:clamp(28px,3.6vw,40px);line-height:1;letter-spacing:-.01em}
+.stat .n .u{font-family:var(--mono);font-size:.42em;color:var(--cyan);vertical-align:super;margin-left:2px}
+.stat .l{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+@media(max-width:680px){.stat{flex:1 1 42%;border-right:none;padding:22px 18px 18px 0}}
+
+.rev{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ---------- SECTION HEAD ---------- */
+section{padding:74px 0;position:relative}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
+.shead .idx{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:.18em}
+.shead h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.02;letter-spacing:-.015em;margin-top:10px}
+.shead p{color:var(--muted);max-width:460px;font-size:15px}
+
+/* ---------- 4 ÁREAS ---------- */
+.converge{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+@media(min-width:900px){.converge{grid-template-columns:.82fr 1.18fr}}
+.converge-svg{width:100%;max-width:420px;margin:0 auto}
+.converge-svg text{font-family:var(--mono)}
+.areas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:560px){.areas-grid{grid-template-columns:1fr}}
+.area{
+  border:1px solid var(--line-soft);border-radius:18px;padding:20px;cursor:pointer;text-align:left;color:inherit;font:inherit;
+  background:rgba(255,255,255,.035);backdrop-filter:blur(8px);
+  transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden;
+}
+.area:hover{transform:translateY(-3px);border-color:var(--ac);background:rgba(255,255,255,.06)}
+.area::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac)}
+.area .ai{width:32px;height:32px;color:var(--ac);margin-bottom:13px}
+.area h3{font-family:var(--serif);font-size:21px;font-weight:500;margin-bottom:6px}
+.area p{font-size:13px;color:var(--muted);line-height:1.5}
+.area .cnt{font-family:var(--mono);font-size:11px;color:var(--ac);margin-top:12px;letter-spacing:.05em}
+.ml{--ac:var(--blue)} .ec{--ac:var(--gold)} .sa{--ac:var(--green)} .ri{--ac:var(--red)}
+
+/* ---------- FILTERS ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.chip{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted);
+  border:1px solid var(--line);background:transparent;border-radius:100px;padding:9px 17px;cursor:pointer;
+  transition:all .25s;display:inline-flex;align-items:center;gap:8px;
+}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--cd,var(--muted))}
+.chip .n{opacity:.7}
+.chip:hover{color:var(--text);border-color:var(--line)}
+.chip.active{color:#07111f;background:var(--ca,var(--cyan));border-color:transparent;font-weight:600}
+.chip.active .dot{background:#07111f}
+.chip[data-f="ml"]{--cd:var(--blue);--ca:var(--blue)}
+.chip[data-f="ec"]{--cd:var(--gold);--ca:var(--gold)}
+.chip[data-f="sa"]{--cd:var(--green);--ca:var(--green)}
+.chip[data-f="ri"]{--cd:var(--red);--ca:var(--red)}
+
+/* ---------- PROJECT GRID ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:820px){.pgrid{grid-template-columns:1fr}}
+.card{
+  border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden;
+  background:rgba(255,255,255,.04);backdrop-filter:blur(10px);box-shadow:var(--shadow);
+  transition:border-color .35s,transform .35s,box-shadow .35s,opacity .4s;display:flex;flex-direction:column;position:relative;
+}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--sig,var(--cyan));opacity:.9;z-index:3}
+.card:hover{transform:translateY(-4px);border-color:var(--sig,var(--cyan));box-shadow:0 30px 80px -30px rgba(0,0,0,.85)}
+.card.hide{display:none}
+.card-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0a1322;cursor:pointer}
+.card-media img,.card-media video{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s;background:#0a1322}
+.card:hover .card-media img,.card:hover .card-media video{transform:scale(1.03)}
+.card-media.split{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#0d1b2a}
+.card-media.split img{object-position:center 62%}
+.card-media .art{position:absolute;inset:0;display:grid;place-items:center;padding-bottom:40px}
+.card-media .art svg{width:66%}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle at center,rgba(7,17,31,.12),rgba(7,17,31,.55));transition:background .3s}
+.card-media:hover .play{background:radial-gradient(circle at center,rgba(7,17,31,.02),rgba(7,17,31,.4))}
+.play span{width:62px;height:62px;border-radius:50%;background:var(--sig,var(--cyan));display:grid;place-items:center;box-shadow:0 12px 34px -8px var(--sig,var(--cyan));transition:transform .3s}
+.card-media:hover .play span{transform:scale(1.08)}
+.play svg{width:22px;height:22px;fill:#07111f;margin-left:3px}
+.play svg.ext{fill:none;stroke:#07111f;stroke-width:2;margin-left:0}
+.media-tag{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--text);background:rgba(7,17,31,.72);backdrop-filter:blur(6px);padding:5px 11px;border-radius:8px;border:1px solid var(--line)}
+.new-tag{position:absolute;right:14px;top:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:#07111f;background:var(--sig,var(--cyan));padding:4px 9px;border-radius:7px;font-weight:600}
+.card-body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:6px;border:1px solid var(--tc,var(--line));color:var(--tc,var(--muted))}
+.tag.ml{--tc:var(--blue)} .tag.ec{--tc:var(--gold)} .tag.sa{--tc:var(--green)} .tag.ri{--tc:var(--red)} .tag.sw{--tc:var(--violet)} .tag.ia{--tc:var(--cyan)} .tag.geo{--tc:var(--orange)}
+.card h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.6vw,28px);line-height:1.08;letter-spacing:-.01em}
+.card .pitch{font-size:14.5px;color:#c3d0e4;line-height:1.55}
+.kpis{display:flex;flex-wrap:wrap;gap:0;margin-top:4px;border-top:1px solid var(--line-soft)}
+.kpi{padding:13px 16px 4px 0;margin-right:16px}
+.kpi .k{font-family:var(--serif);font-size:24px;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.card-foot{margin-top:auto;padding-top:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card-foot .links{display:flex;gap:8px;flex-wrap:wrap}
+.card-foot .open-btn{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:var(--text);background:transparent;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;padding:0;transition:gap .3s,color .3s}
+.card-foot .open-btn:hover{gap:14px;color:var(--sig,var(--cyan))}
+.card-foot .open-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
+.repo-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:6px 12px;transition:all .25s}
+.repo-link:hover{color:var(--text);border-color:var(--sig,var(--cyan))}
+.repo-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6}
+.repo-link.live{color:var(--text);border-color:var(--sig,var(--cyan))}
+.repo-link.live i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(62,229,159,.18)}
+
+/* ---------- OTROS MODELOS ---------- */
+.more{margin-top:54px}
+.more-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.more-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,3vw,30px)}
+.more-head p{color:var(--muted);font-size:14px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.mini{border:1px solid var(--line-soft);border-radius:16px;padding:18px 18px 16px;background:rgba(255,255,255,.03);position:relative;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column;gap:8px}
+.mini::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac)}
+.mini:hover{border-color:var(--ac);transform:translateY(-2px)}
+.mini .mt{font-family:var(--serif);font-size:18px;font-weight:500;line-height:1.2}
+.mini p{font-size:13px;color:var(--muted);line-height:1.5}
+.mini .mm{margin-top:auto;padding-top:6px;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ac)}
+
+/* ---------- DOCENCIA ---------- */
+.teach-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.teach-grid{grid-template-columns:1fr 1.15fr}.teach.main{grid-row:span 3}}
+.teach{border:1px solid var(--line-soft);border-radius:18px;padding:20px 22px;background:rgba(255,255,255,.035);transition:border-color .3s}
+.teach:hover{border-color:var(--cyan)}
+.teach.main{background:linear-gradient(150deg,rgba(66,232,255,.12),rgba(62,229,159,.06) 60%,rgba(255,255,255,.02));border-color:rgba(66,232,255,.3);padding:28px;display:flex;flex-direction:column;justify-content:flex-end}
+.teach .t-k{font-family:var(--serif);font-size:clamp(56px,7vw,84px);line-height:1;letter-spacing:-.02em;margin-bottom:auto;padding-bottom:22px}
+.teach .t-k span{font-family:var(--mono);font-size:.32em;color:var(--cyan);vertical-align:super}
+.teach .t-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--cyan)}
+.teach h4{font-family:var(--serif);font-size:20px;font-weight:500;margin:6px 0 6px;line-height:1.2}
+.teach.main h4{font-size:clamp(24px,3vw,30px)}
+.teach p{font-size:13.5px;color:var(--muted);line-height:1.55}
+.teach.main p{font-size:14.5px;color:#c3d0e4}
+
+/* ---------- PREMIOS ---------- */
+.premios-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.award{
+  border:1px solid var(--line-soft);border-radius:var(--r);padding:38px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,209,102,.08),rgba(255,255,255,.02));backdrop-filter:blur(10px);
+}
+@media(max-width:560px){.award{padding:28px 22px}}
+.award::before{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,209,102,.18),transparent 70%)}
+.award-top{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.medal{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(255,209,102,.4);border-radius:100px;padding:7px 15px}
+.award h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4vw,40px);line-height:1.05;margin-bottom:8px}
+.award .award-meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;margin-bottom:16px}
+.award p{color:#c3d0e4;max-width:780px;font-size:15px}
+.award p + p{margin-top:12px}
+
+/* ---------- TIMELINE ---------- */
+.tl{position:relative;margin-left:6px}
+.tl::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tnode{position:relative;padding:0 0 38px 30px}
+.tnode:last-child{padding-bottom:0}
+.tnode::before{content:"";position:absolute;left:-4px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--cyan)}
+.tnode.cur::before{background:var(--cyan);box-shadow:0 0 0 4px rgba(66,232,255,.18)}
+.tnode .date{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--cyan)}
+.tnode .date small{color:var(--muted-2);margin-left:8px;font-size:11px}
+.tnode h4{font-family:var(--serif);font-size:21px;font-weight:500;margin:5px 0 2px}
+.tnode .org{font-size:14px;color:var(--text);font-weight:600}
+.tnode .desc{font-size:14px;color:#c3d0e4;margin-top:8px;max-width:760px;line-height:1.55}
+.tnode ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:6px;max-width:760px}
+.tnode li{position:relative;padding-left:18px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.tnode li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border:1px solid var(--cyan);border-radius:2px;transform:rotate(45deg)}
+.tnode li b{color:var(--text);font-weight:600}
+
+/* ---------- EDUCACIÓN ---------- */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.edu{border:1px solid var(--line-soft);border-radius:18px;padding:20px;background:rgba(255,255,255,.035);backdrop-filter:blur(8px);transition:border-color .3s,transform .3s}
+.edu:hover{transform:translateY(-3px);border-color:var(--blue)}
+.edu .d{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.05em}
+.edu .badge{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);border:1px solid rgba(62,229,159,.4);border-radius:6px;padding:3px 7px;margin-bottom:10px}
+.edu h5{font-family:var(--serif);font-size:17px;font-weight:500;margin:8px 0 6px;line-height:1.2}
+.edu span{font-size:12.5px;color:var(--muted)}
+
+/* ---------- STACK ---------- */
+.stack-wrap{display:grid;grid-template-columns:1fr;gap:38px}
+@media(min-width:820px){.stack-wrap{grid-template-columns:1.4fr 1fr}}
+.tgroup + .tgroup{margin-top:22px}
+.tgroup .gl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:11px}
+.tools{display:flex;flex-wrap:wrap;gap:11px}
+.tool{font-family:var(--mono);font-size:13px;border:1px solid var(--line-soft);border-radius:11px;padding:11px 16px;color:#c3d0e4;transition:all .25s;background:rgba(255,255,255,.03)}
+.tool:hover{border-color:var(--cyan);color:var(--text)}
+.tool small{color:var(--muted);font-size:11px;margin-left:7px}
+.certs h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);font-weight:500;margin-bottom:14px}
+.certs{display:flex;flex-direction:column;gap:12px}
+.cert{display:flex;gap:13px;align-items:baseline;border-bottom:1px solid var(--line-soft);padding-bottom:12px}
+.cert .c-n{font-size:14.5px;font-weight:600}
+.cert .c-s{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-left:auto;white-space:nowrap}
+
+/* ---------- CONTACT ---------- */
+.contact{border-top:1px solid var(--line-soft);padding:90px 0 60px}
+.contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6vw,68px);line-height:1;letter-spacing:-.02em;max-width:820px}
+.contact h2 em{font-style:italic;background:linear-gradient(120deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact .lead{color:var(--muted);max-width:620px;margin-top:20px;font-size:16px}
+.clinks{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+.clink{display:flex;align-items:center;gap:13px;border:1px solid var(--line-soft);border-radius:16px;padding:16px 20px;transition:all .3s;min-width:230px;background:rgba(255,255,255,.03)}
+@media(max-width:560px){.clink{min-width:0;width:100%}}
+.clink:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.clink.primary{background:linear-gradient(135deg,rgba(66,232,255,.14),rgba(62,229,159,.1));border-color:rgba(66,232,255,.35)}
+.clink svg{width:20px;height:20px;stroke:var(--cyan);fill:none;stroke-width:1.6;flex-shrink:0}
+.clink .cl-l{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.clink .cl-v{font-size:14.5px;color:var(--text);margin-top:2px}
+footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:70px}
+
+/* ---------- MODAL ---------- */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
+.modal.open{display:flex}
+.modal-bg{position:fixed;inset:0;background:rgba(4,9,17,.86);backdrop-filter:blur(8px);animation:fade .4s}
+.modal-box{position:relative;width:100%;max-width:940px;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;animation:rise .5s cubic-bezier(.2,.7,.2,1)}
+.modal-box::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--sig,var(--cyan));z-index:5}
+@media(max-width:560px){.modal{padding:16px 10px}}
+@keyframes fade{from{opacity:0}} @keyframes rise{from{opacity:0;transform:translateY(30px)}}
+.modal-x{position:absolute;top:16px;right:16px;z-index:6;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(7,17,31,.6);color:var(--text);cursor:pointer;font-size:20px;display:grid;place-items:center;transition:all .25s}
+.modal-x:hover{background:var(--sig,var(--cyan));color:#07111f;border-color:transparent}
+.m-pad{padding:38px 40px 44px}
+@media(max-width:560px){.m-pad{padding:28px 22px 32px}}
+.m-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sig,var(--cyan));padding-right:48px}
+.modal h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,5vw,42px);line-height:1.03;margin:12px 0 18px;letter-spacing:-.015em}
+.m-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.m-body{color:#c8d4e6;font-size:15px;line-height:1.65}
+.m-body h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sig,var(--cyan));margin:26px 0 12px}
+.m-body ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.m-body li{position:relative;padding-left:22px}
+.m-body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border:1px solid var(--sig,var(--cyan));border-radius:2px;transform:rotate(45deg)}
+.m-body li b,.m-body p b{color:var(--text)}
+.m-gallery{display:grid;gap:14px;margin:24px 0}
+.m-gallery.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:560px){.m-gallery.g2{grid-template-columns:1fr}}
+.m-gallery figure{border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;background:#fff}
+.m-gallery img{width:100%}
+.m-gallery figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);padding:9px 12px;background:var(--panel-2);border-top:1px solid var(--line-soft)}
+.m-video{border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;margin:8px 0 6px;background:#000}
+.m-video video{width:100%;display:block;max-height:68vh;object-fit:contain;background:#000}
+.m-vcap{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:0 0 22px;letter-spacing:.03em}
+.m-note{font-size:12.5px;color:var(--muted);border-left:2px solid var(--line);padding:4px 0 4px 16px;margin-top:20px;line-height:1.55}
+.m-src{font-family:var(--mono);font-size:11px;color:var(--muted-2);margin-top:18px;letter-spacing:.03em}
+.m-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.m-cta{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;font-weight:600;color:#07111f;background:linear-gradient(135deg,var(--cyan),var(--green));border-radius:100px;padding:12px 22px;transition:transform .25s,box-shadow .25s}
+.m-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(66,232,255,.6)}
+.m-cta svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+.m-cta.alt{background:transparent;color:var(--text);border:1px solid var(--line)}
+.m-cta.alt:hover{border-color:var(--sig,var(--cyan));box-shadow:none}
+.m-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.m-tab{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);background:transparent;border-radius:9px;padding:8px 13px;cursor:pointer;transition:all .25s}
+.m-tab.on{color:#07111f;background:var(--sig,var(--cyan));border-color:transparent;font-weight:600}
+.m-clip{display:none} .m-clip.on{display:block}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mono-mark">B</span>
+      <span class="full">BRAYLIN&nbsp;A.&nbsp;JIMÉNEZ&nbsp;REYNOSO</span>
+      <span class="short">BRAYLIN&nbsp;JIMÉNEZ</span>
+    </a>
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navlinks"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="navlinks" id="navlinks">
+      <a href="#areas">Áreas</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#premios">Premios</a>
+      <a href="#docencia">Docencia</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#educacion">Educación</a>
+      <a href="#stack">Stack</a>
+      <a href="#contacto">Contacto</a>
+      <a class="gh" href="https://github.com/braylinjr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top">
+  <div class="wrap">
+    <div class="eyebrow rev">QUANTITATIVE HEALTH RISK · RISK MODELING · DATA SCIENTIST — Santo Domingo, RD</div>
+    <h1 class="hero-h rev">Datos que se vuelven <em>decisiones</em>.</h1>
+    <p class="hero-sub rev">Soy <b>Braylin Jiménez</b>, economista. Especialista en riesgo cuantitativo y sistemas de salud. Diseño y gobierno modelos de ML que convierten datos clínicos, actuariales y financieros en ventajas competitivas reales — con el rigor técnico que exigen la banca, los seguros y las organizaciones de salud. Resultados que se sostienen bajo escrutinio.</p>
+    <div class="rev"><span class="now"><i></i><span><b>Coordinador de Inteligencia de Clientes</b> en Humano Seguros · Líder de la Escuela de Ciencia de Datos · Máster en Gestión de Sistemas de Salud (PUCMM) en curso</span></span></div>
+    <div class="cta-row rev">
+      <a class="btn pri" href="#proyectos">Ver proyectos <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      <a class="btn" href="https://www.linkedin.com/in/bajr2025" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.5M11 17v-4a2 2 0 0 1 4 0v4"/></svg>LinkedIn</a>
+      <a class="btn" href="mailto:braylinjr1511@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Escríbeme</a>
+    </div>
+    <div class="stats rev">
+      <div class="stat"><div class="n">1257<span class="u">h</span></div><div class="l">Ahorro operativo anual</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">Modelos ML en producción</div></div>
+      <div class="stat"><div class="n">52<span class="u">+</span></div><div class="l">Dashboards estratégicos</div></div>
+      <div class="stat"><div class="n">70<span class="u">+</span></div><div class="l">Colaboradores formados</div></div>
+      <div class="stat"><div class="n">1<span class="u">º</span></div><div class="l">Datathon Humano 2025 · Cat. BI</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- 4 ÁREAS -->
+<section id="areas">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">01 / Enfoque</div><h2>Cuatro áreas, una misma pregunta</h2></div>
+      <p>Domino cada una por separado —riesgo, salud, economía y machine learning— y sé combinarlas cuando un problema lo necesita. Toda decisión empieza con la misma pregunta: ¿cómo usamos los datos para decidir mejor? Toca un área para ver solo esos casos.</p>
+    </div>
+    <div class="converge rev">
+      <svg class="converge-svg" viewBox="0 0 340 340" role="img" aria-label="Diagrama de convergencia de las cuatro áreas">
+        <defs>
+          <radialGradient id="cg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#42e8ff" stop-opacity=".22"/><stop offset="100%" stop-color="#42e8ff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="170" cy="170" r="128" fill="url(#cg)"/>
+        <g stroke-width="1.1" opacity=".6">
+          <line x1="170" y1="170" x2="66" y2="80" stroke="#4aa3ff"/>
+          <line x1="170" y1="170" x2="274" y2="80" stroke="#ffd166"/>
+          <line x1="170" y1="170" x2="66" y2="260" stroke="#3ee59f"/>
+          <line x1="170" y1="170" x2="274" y2="260" stroke="#ff6b6b"/>
+        </g>
+        <g>
+          <circle cx="66" cy="80" r="23" fill="#0f2138" stroke="#4aa3ff" stroke-width="1.2"/>
+          <svg x="52" y="66" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4aa3ff" stroke-width="1.4"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.5l3.5 8M16.5 7.5l-3.5 8M8 6h8"/></svg>
+          <text x="66" y="44" font-size="11" fill="#e8f1ff" text-anchor="middle">ML</text>
+        </g>
+        <g>
+          <circle cx="274" cy="80" r="23" fill="#0f2138" stroke="#ffd166" stroke-width="1.2"/>
+          <svg x="260" y="66" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.4"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/><path d="M3 8l6-4 5 3 6-4"/></svg>
+          <text x="274" y="44" font-size="11" fill="#e8f1ff" text-anchor="middle">ECONOMÍA</text>
+        </g>
+        <g>
+          <circle cx="66" cy="260" r="23" fill="#0f2138" stroke="#3ee59f" stroke-width="1.2"/>
+          <svg x="52" y="246" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3ee59f" stroke-width="1.4"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg>
+          <text x="66" y="300" font-size="11" fill="#e8f1ff" text-anchor="middle">SALUD</text>
+        </g>
+        <g>
+          <circle cx="274" cy="260" r="23" fill="#0f2138" stroke="#ff6b6b" stroke-width="1.2"/>
+          <svg x="260" y="246" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="1.4"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg>
+          <text x="274" y="300" font-size="11" fill="#e8f1ff" text-anchor="middle">RIESGO</text>
+        </g>
+        <circle cx="170" cy="170" r="36" fill="#0b1728" stroke="#42e8ff" stroke-width="1.2"/>
+        <text x="170" y="167" font-family="Fraunces,serif" font-size="13" fill="#42e8ff" text-anchor="middle">Una</text>
+        <text x="170" y="182" font-family="Fraunces,serif" font-size="13" fill="#e8f1ff" text-anchor="middle">decisión</text>
+      </svg>
+      <div class="areas-grid">
+        <button class="area ml" data-filter="ml">
+          <svg class="ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.5l3.5 8M16.5 7.5l-3.5 8M8 6h8"/></svg>
+          <h3>Machine Learning</h3>
+          <p>Modelos de propensión, churn, uplift y detección de fraude que predicen comportamiento y priorizan la acción.</p>
+          <div class="cnt"></div>
+        </button>
+        <button class="area ec" data-filter="ec">
+          <svg class="ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/><path d="M3 8l6-4 5 3 6-4"/></svg>
+          <h3>Economía</h3>
+          <p>Lectura económica de los datos: valor de cliente, ROI, indicadores macro, política pública y series históricas.</p>
+          <div class="cnt"></div>
+        </button>
+        <button class="area sa" data-filter="sa">
+          <svg class="ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg>
+          <h3>Salud</h3>
+          <p>Sistemas y servicios de salud: adherencia, enfermedades crónicas, mercado farmacéutico y resultados poblacionales.</p>
+          <div class="cnt"></div>
+        </button>
+        <button class="area ri" data-filter="ri">
+          <svg class="ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg>
+          <h3>Riesgo</h3>
+          <p>Detección y gestión de riesgo: abandono, deterioro de cartera, fraude, fugas del sistema y riesgos naturales.</p>
+          <div class="cnt"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">02 / Trabajo</div><h2>Proyectos seleccionados</h2></div>
+      <p>Casos de inteligencia de cliente, seguros, salud pública y riesgo, todos con código abierto en GitHub. Filtra por área o explóralos todos.</p>
+    </div>
+    <div class="filters rev">
+      <button class="chip active" data-f="all">Todos <span class="n"></span></button>
+      <button class="chip" data-f="ml"><span class="dot"></span>Machine Learning <span class="n"></span></button>
+      <button class="chip" data-f="ec"><span class="dot"></span>Economía <span class="n"></span></button>
+      <button class="chip" data-f="sa"><span class="dot"></span>Salud <span class="n"></span></button>
+      <button class="chip" data-f="ri"><span class="dot"></span>Riesgo <span class="n"></span></button>
+    </div>
+
+    <div class="pgrid">
+
+      <!-- XPHARMACARE -->
+      <article class="card rev" data-areas="ml ec sa ri" style="--sig:var(--green)">
+        <div class="card-media" data-open="xpharma">
+          <img src="assets/mando.jpg" alt="XPharmaCare — Centro de Mando" loading="lazy">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="media-tag">PLATAFORMA · 4 MÓDULOS · POWER BI</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span></div>
+          <h3>XPharmaCare — Inteligencia de Cliente en Salud</h3>
+          <p class="pitch">Plataforma integral que convierte 8,000 clientes y RD$97.3M en ingresos en decisiones concretas de retención. Es el proyecto donde se unen las cuatro áreas: predice el abandono, mide su valor económico, entiende al paciente crónico y dirige la inversión solo a quien la oferta hace cambiar de opinión.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">RD$97.3M</div><div class="kl">Ingreso analizado</div></div>
+            <div class="kpi"><div class="k">x3.31</div><div class="kl">ROI de retención</div></div>
+            <div class="kpi"><div class="k">RD$2.7M</div><div class="kl">Ahorro vs. "todos"</div></div>
+            <div class="kpi"><div class="k">79.2%</div><div class="kl">Adherencia global</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="xpharma">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/xpharmacare" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RADAR -->
+      <article class="card rev" data-areas="ec sa" style="--sig:var(--cyan)">
+        <div class="card-media" data-open="radar">
+          <img src="assets/radar.jpg" alt="Radar Farma & Seguros RD — página pública" loading="lazy">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="new-tag">EN VIVO</div>
+          <div class="media-tag">PYTHON · GITHUB ACTIONS · PÁGINA PÚBLICA</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag sw">Automatización</span></div>
+          <h3>Radar Farma &amp; Seguros RD</h3>
+          <p class="pitch">El pulso del mercado farmacéutico y asegurador dominicano en una sola página: indicadores del Banco Central, normas de los reguladores y titulares de prensa, clasificados y priorizados con reglas públicas. Se actualiza solo cada 6 horas, sin intervención manual.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">30+</div><div class="kl">Fuentes monitoreadas</div></div>
+            <div class="kpi"><div class="k">6</div><div class="kl">Indicadores BCRD</div></div>
+            <div class="kpi"><div class="k">c/6 h</div><div class="kl">Actualización automática</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="radar">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links">
+              <a class="repo-link live" href="https://braylinjr.github.io/radar-farma-seguros-rd/#indicadores" target="_blank" rel="noopener"><i></i>Ver en vivo</a>
+              <a class="repo-link" href="https://github.com/BraylinJR/radar-farma-seguros-rd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIESGO CARTERA -->
+      <article class="card rev" data-areas="ml ec ri" style="--sig:var(--blue)">
+        <div class="card-media" data-open="riesgocartera">
+          <img src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="media-tag">STREAMLIT · SHAP · DATOS BCRD</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag ri">Riesgo</span></div>
+          <h3>Motor de Inteligencia de Riesgo de Cartera</h3>
+          <p class="pitch">Sistema de detección temprana de deterioro que evalúa 20,000 pólizas activas en tiempo real. Integra un simulador de escenario macro con variables BCRD, explicabilidad SHAP por póliza y descarga operativa para el equipo de gestión.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">DOP 132.0M</div><div class="kl">Prima analizada</div></div>
+            <div class="kpi"><div class="k">3x</div><div class="kl">Lift top decil</div></div>
+            <div class="kpi"><div class="k">DOP 26.8M</div><div class="kl">Prima en riesgo</div></div>
+            <div class="kpi"><div class="k">861</div><div class="kl">Pólizas en alerta</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="riesgocartera">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/BraylinJR/modelo_riesgo_cartera" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIESGOS NATURALES -->
+      <article class="card rev" data-areas="ri" style="--sig:var(--orange)">
+        <div class="card-media split" data-open="naturales">
+          <img src="assets/sismos.gif" alt="Animación de sismos en La Española" loading="lazy">
+          <img src="assets/huracanes.gif" alt="Animación de huracanes cerca de La Española" loading="lazy">
+          <div class="new-tag">NUEVO</div>
+          <div class="media-tag">SERIE · R · USGS + NOAA</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ri">Riesgo</span><span class="tag geo">Geoespacial</span></div>
+          <h3>La Española bajo riesgo: sismos y huracanes</h3>
+          <p class="pitch">Serie de visualización con datos públicos que muestra, año por año, dónde ha temblado la isla y por dónde han pasado las tormentas. Mapas y animaciones en R, con la lectura cuidadosa que exige el dato: más registros no siempre significa más riesgo.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">980</div><div class="kl">Sismos M4+ desde 1975</div></div>
+            <div class="kpi"><div class="k">48%</div><div class="kl">Ocurrieron en el mar</div></div>
+            <div class="kpi"><div class="k">73</div><div class="kl">Tormentas a &lt;100 km</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="naturales">Ver serie completa <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links">
+              <a class="repo-link" href="https://github.com/BraylinJR/la-isla-que-tiembla" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Sismos</a>
+              <a class="repo-link" href="https://github.com/BraylinJR/bajo-la-ruta-de-los-huracanes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Huracanes</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LINCE -->
+      <article class="card rev" data-areas="ml ri" style="--sig:var(--red)">
+        <div class="card-media" data-open="lince">
+          <div class="art" style="background:radial-gradient(circle at 50% 40%,#16243a,#0a1322)">
+            <svg viewBox="0 0 240 135" aria-hidden="true">
+              <g stroke="#9fb2cc" stroke-width=".8" opacity=".45">
+                <path d="M120 22L64 58M120 22L176 58M64 58L30 98M64 58L64 98M64 58L98 98M176 58L142 98M176 58L176 98M176 58L210 98"/>
+              </g>
+              <circle cx="120" cy="22" r="7" fill="#0f2138" stroke="#e8f1ff" stroke-width="1.1"/>
+              <circle cx="64" cy="58" r="6" fill="#0f2138" stroke="#e8f1ff" stroke-width="1"/>
+              <circle cx="176" cy="58" r="6" fill="#0f2138" stroke="#ff6b6b" stroke-width="1.2"/>
+              <g fill="#0f2138" stroke="#9fb2cc" stroke-width="1">
+                <circle cx="30" cy="98" r="5"/><circle cx="64" cy="98" r="5"/><circle cx="98" cy="98" r="5"/><circle cx="142" cy="98" r="5"/>
+              </g>
+              <g fill="#ff6b6b">
+                <circle cx="176" cy="98" r="5"/><circle cx="210" cy="98" r="5"/>
+              </g>
+              <g fill="none" stroke="#ff6b6b" stroke-width=".8" opacity=".55">
+                <circle cx="176" cy="98" r="10"/><circle cx="210" cy="98" r="10"/>
+              </g>
+              <text x="120" y="126" font-family="JetBrains Mono,monospace" font-size="8" fill="#9fb2cc" text-anchor="middle" letter-spacing="1">DIRECTOR → ENCARGADO → INTERMEDIARIO</text>
+            </svg>
+          </div>
+          <div class="new-tag">NUEVO</div>
+          <div class="media-tag">XGBOOST · SHAP · IA LOCAL (OLLAMA)</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ri">Riesgo</span><span class="tag ia">IA generativa</span></div>
+          <h3>Lince — Fraude en canales de venta de seguros</h3>
+          <p class="pitch">Ataca un fraude poco estudiado: intermediarios que emiten pólizas, cobran la comisión y las dejan cancelar en 90 días. Un modelo XGBoost a nivel de intermediario señala a los sospechosos con su porqué (SHAP) y un agente de IA que corre 100% en local redacta el informe de cada caso.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">0.91</div><div class="kl">AUC-ROC</div></div>
+            <div class="kpi"><div class="k">0.72</div><div class="kl">AUC-PR (azar: 0.08)</div></div>
+            <div class="kpi"><div class="k">~34K</div><div class="kl">Pólizas sintéticas</div></div>
+            <div class="kpi"><div class="k">150</div><div class="kl">Intermediarios evaluados</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="lince">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/BraylinJR/lince" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CHURN -->
+      <article class="card rev" data-areas="ml ec ri" style="--sig:var(--violet)">
+        <div class="card-media" data-open="churn">
+          <img src="assets/ibm.jpg" alt="Dashboard de Churn" loading="lazy">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="media-tag">DASHBOARD · R + SQL + POWER BI</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag ri">Riesgo</span></div>
+          <h3>Customer Intelligence — Predicción de Churn</h3>
+          <p class="pitch">Anticipar el abandono de clientes ya no es solo para grandes empresas. Un dashboard simple, visual y accionable pensado para MIPYMES: dice quién se va, cuándo y por qué, para actuar a tiempo.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">AUC-ROC 0.87</div><div class="kl">Acierto del modelo</div></div>
+            <div class="kpi"><div class="k">4 niveles</div><div class="kl">Score de riesgo accionable</div></div>
+            <div class="kpi"><div class="k">100%</div><div class="kl">Automatizado</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="churn">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/customer-churn-mipyme" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CORRUPCION -->
+      <article class="card rev" data-areas="ec sa ri" style="--sig:var(--gold)">
+        <div class="card-media" data-open="corrupcion">
+          <img src="assets/corrupcion-1.png" alt="Años de vida robados por la corrupción" loading="lazy">
+          <div class="play"><span><svg class="ext" viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span></div>
+          <div class="media-tag">INVESTIGACIÓN · PYTHON (OLS)</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span></div>
+          <h3>¿La corrupción mata? Los datos dicen que sí.</h3>
+          <p class="pitch">Investigación del Máster en Gestión de Sistemas de Salud (PUCMM). Pone a prueba la premisa "a mayor PIB, mejor salud" y encuentra que invertir no basta si el sistema tiene fugas: la integridad institucional es infraestructura vital.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">7.82</div><div class="kl">Años de vida "robados"</div></div>
+            <div class="kpi"><div class="k">10,069</div><div class="kl">Muertes anuales evitables</div></div>
+            <div class="kpi"><div class="k">2000–19</div><div class="kl">Serie histórica</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="corrupcion">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/corrupcion-salud-rd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- JOINLESS -->
+      <article class="card rev" data-areas="ml" style="--sig:var(--violet)">
+        <div class="card-media" data-open="joinless">
+          <div class="art" style="background:linear-gradient(135deg,#0b1728,#102842)">
+            <svg viewBox="0 0 200 110" aria-hidden="true">
+              <g fill="none" stroke="#a78bfa" stroke-width="1.2" opacity=".95">
+                <circle cx="72" cy="55" r="34"/><circle cx="128" cy="55" r="34"/>
+              </g>
+              <g fill="#a78bfa" opacity=".3">
+                <circle cx="60" cy="48" r="2.4"/><circle cx="68" cy="64" r="2.4"/><circle cx="80" cy="44" r="2.4"/><circle cx="84" cy="60" r="2.4"/>
+                <circle cx="120" cy="50" r="2.4"/><circle cx="132" cy="62" r="2.4"/><circle cx="140" cy="46" r="2.4"/>
+              </g>
+              <text x="100" y="58" font-family="JetBrains Mono,monospace" font-size="11" fill="#e8f1ff" text-anchor="middle">joinless</text>
+            </svg>
+          </div>
+          <div class="media-tag">PAQUETE DE R · PUBLICADO</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ml">ML</span><span class="tag sw">Software</span></div>
+          <h3>joinless — Paquete de R</h3>
+          <p class="pitch">Software estadístico que estima la relación entre dos conjuntos de datos mediante muestreo aleatorio, sin necesidad de una llave de unión perfecta. Publicado para optimizar uniones de datos complejas (record linkage).</p>
+          <div class="card-foot">
+            <button class="open-btn" data-open="joinless">Ver detalle <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/joinless" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="more rev">
+      <div class="more-head"><h3>Otros modelos y análisis</h3><p>Trabajo de riesgo, crédito, salud y economía con métricas auditables.</p></div>
+      <div class="mgrid">
+        <div class="mini ri"><div class="mt">Credit Scoring Engine</div><p>Pipeline de scoring crediticio que convierte la probabilidad de default a una escala 300–850 tipo buró, con descomposición SHAP a puntos y simulador de decisiones.</p><div class="mm">AUC 0.867 · Gini 0.734 · KS 0.563 · 150K clientes</div></div>
+        <div class="mini ri"><div class="mt">SAT-Cartera — Alerta temprana</div><p>Sistema de alerta temprana de deterioro crediticio con validación out-of-time, razones SHAP en español y alertas priorizadas por exposición.</p><div class="mm">AUC 0.874 · Lift 6.8x top decil</div></div>
+        <div class="mini ml"><div class="mt">Model Risk Management Framework</div><p>Gobernanza de modelos: inventario por niveles, monitoreo (PSI, CSI, decaimiento, fairness), alertas tipo semáforo y torre de control de modelos.</p><div class="mm">SR 11-7 · SS1/23 (PRA) · EU AI Act</div></div>
+        <div class="mini sa"><div class="mt">Centinela — Readmisiones hospitalarias</div><p>Prioriza pacientes por riesgo de reingreso a menos de 30 días, con el porqué de cada caso, simulador y monitoreo de estabilidad del modelo.</p><div class="mm">69K+ pacientes · 130 hospitales · top 10% capta ~1 de 4 reingresos</div></div>
+        <div class="mini ec"><div class="mt">Scoring alternativo con remesas</div><p>Inclusión financiera: scoring para población no bancarizada receptora de remesas, con datos del BCRD y del Banco Mundial y calibración isotónica.</p><div class="mm">AUC 0.778 · 659K dominicanos no bancarizados</div></div>
+        <div class="mini ec"><div class="mt">Inflación en salud, RD 2010–2026</div><p>Con series oficiales del BCRD: en 16 años los costos de salud no bajaron un solo mes y crecieron más que la inflación general.</p><div class="mm">IPC Salud +109% vs. IPC General +98%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREMIOS -->
+<section id="premios">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">03 / Reconocimientos</div><h2>Premios</h2></div>
+      <p>Reconocimientos que validan el trabajo. Esta sección crece con cada nuevo logro.</p>
+    </div>
+    <div class="premios-grid rev">
+      <div class="award">
+        <div class="award-top">
+          <span class="medal">★ RECONOCIMIENTO ESPECIAL</span>
+        </div>
+        <h3>Líder de Ciencia de Datos</h3>
+        <div class="award-meta">ESCUELA DE DATOS · GRUPO HUMANO · AGO 2026</div>
+        <p>Reconocimiento por liderar la Ruta de Ciencia de Datos de la Escuela de Datos 2026, el programa interno de formación en análisis y ciencia de datos para colaboradores de Humano Seguros y ARS Primera. Diseñé el contenido e impartí las sesiones, desde los fundamentos de Python hasta modelos supervisados.</p>
+        <p>Detrás de esa estrella hay meses de sesiones, materiales, ejercicios y gente que decidió aprender algo nuevo sin garantías de que sería fácil. Lo mejor no fue el premio: fue ver a colegas que empezaron sin escribir una línea de código terminar creando sus propios análisis.</p>
+      </div>
+      <div class="award">
+        <div class="award-top">
+          <span class="medal">★ 2º LUGAR GENERAL</span>
+          <span class="medal">★ 1er LUGAR · BUSINESS INTELLIGENCE</span>
+        </div>
+        <h3>Datathon Humano 2025</h3>
+        <div class="award-meta">GRUPO HUMANO · 2025</div>
+        <p>Detrás de este logro hay más que análisis y dashboards: hay un equipo con una conexión real, sincronía de ideas y una pasión compartida por transformar datos en decisiones. Con mis hermanos de pensamiento construimos algo eficiente, accionable, estético y efectivo — y, sobre todo, logramos que cada idea brillara más al combinar nuestras perspectivas.</p>
+        <p>Participar puso a prueba no solo nuestras habilidades técnicas, sino también nuestra capacidad de colaborar, crear y soñar con soluciones reales. Gracias a mi equipo por hacerlo posible, y a Humano por impulsar espacios que unen talento y propósito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCENCIA -->
+<section id="docencia">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">04 / Comunidad</div><h2>Docencia y cultura de datos</h2></div>
+      <p>Un modelo no sustituye el criterio humano: lo potencia. Por eso dedico tiempo a que más personas entiendan qué hay detrás de los datos.</p>
+    </div>
+    <div class="teach-grid rev">
+      <div class="teach main">
+        <div class="t-k">70<span>+</span></div>
+        <div class="t-meta">2026 · HUMANO SEGUROS Y ARS PRIMERA</div>
+        <h4>Escuela de Ciencia de Datos</h4>
+        <p>Lidero el programa interno de formación para colaboradores de distintas áreas, muchos sin experiencia previa programando: fundamentos de Python, exploración de datos antes de modelar y modelos supervisados (regresión, clasificación, métricas y cómo evitar el sobreajuste).</p>
+      </div>
+      <div class="teach">
+        <div class="t-meta">2026 · GRUPO HUMANO</div>
+        <h4>Líder de ruta · Datathon Humano 2026</h4>
+        <p>Dirección de equipos en la ruta de Data Science, con desafíos de analítica avanzada aplicada al sector asegurador.</p>
+      </div>
+      <div class="teach">
+        <div class="t-meta">2026 · CO-FUNDADOR</div>
+        <h4>Zephymetrics Consulting</h4>
+        <p>Cursos en vivo para profesionales y estudiantes: R para análisis de datos y SQL para análisis de datos, con datos del contexto dominicano y proyecto final aplicado.</p>
+      </div>
+      <div class="teach">
+        <div class="t-meta">JUL 2026 · CLUB JUVENIL UNESCO RD</div>
+        <h4>Panelista · "El Futuro es STEM"</h4>
+        <p>Conversatorio vocacional sobre carreras STEM, becas y lo que pide el mercado laboral, desde la experiencia de llegar a la ciencia de datos por curiosidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section id="trayectoria">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">05 / Recorrido</div><h2>Trayectoria</h2></div>
+      <p>De la gestión financiera al liderazgo de datos de alto impacto en el sector asegurador.</p>
+    </div>
+    <div class="tl rev">
+      <div class="tnode cur">
+        <div class="date">ABR 2025 — PRESENTE</div>
+        <h4>Coordinador de Inteligencia de Clientes</h4>
+        <div class="org">Humano Seguros (Grupo Humano) · Distrito Nacional</div>
+        <div class="desc">Lidero la estrategia de datos para optimizar la decisión ejecutiva y la retención en el sector asegurador.</div>
+        <ul>
+          <li>Diseño y despliegue de <b>8 modelos predictivos en producción</b> (propensión, churn, cross-sell y scoring de comportamiento), con validación out-of-time, explicabilidad SHAP y trazabilidad documentada de supuestos y versiones.</li>
+          <li>Participación en la revisión del <b>procedimiento de gobernanza de modelos de IA</b>: inventario, monitoreo y controles alineados con buenas prácticas regulatorias y de uso responsable de datos.</li>
+          <li>Trabajo con <b>Auditoría Interna y Riesgos</b> para que los modelos respondan a riesgos reales del negocio, integrando fuentes estructuradas y no estructuradas.</li>
+          <li>Pipelines ETL a gran escala en R, SQL y Python: <b>1,257 h de eficiencia operativa al año</b>.</li>
+          <li><b>+70% de visibilidad ejecutiva</b> con la automatización de <b>52+ dashboards</b> de riesgo, retención y rentabilidad, y soluciones en <b>Power Apps</b> para la captura de datos operativos.</li>
+          <li>Líder de la <b>Escuela de Ciencia de Datos</b> (70+ colaboradores) y de la ruta Data Science del <b>Datathon Humano 2026</b>.</li>
+        </ul>
+      </div>
+      <div class="tnode">
+        <div class="date">MAY 2024 — ABR 2025</div>
+        <h4>Técnico de Datos Estadísticos</h4>
+        <div class="org">Sistema Único de Beneficiarios (SIUBEN)</div>
+        <div class="desc">Análisis de Big Data poblacional con modelos de regresión y estadística inferencial para orientar la estrategia de política pública.</div>
+        <ul>
+          <li>Rol clave en el <b>diseño metodológico</b> de proyectos interinstitucionales de alto impacto con <b>INDOTEL, MINERD y MEPyD</b>.</li>
+          <li>Pipelines ETL avanzados que mejoraron de forma notable la <b>calidad de los datos</b> y su preparación para la toma de decisiones.</li>
+          <li><b>Análisis de cohortes</b> para identificar patrones demográficos y socioeconómicos críticos.</li>
+        </ul>
+      </div>
+      <div class="tnode">
+        <div class="date">OCT 2022 — ABR 2024</div>
+        <h4>Gestor de Cobros</h4>
+        <div class="org">Red Nacional de Cobros de Impagados</div>
+        <div class="desc">Recuperación de cartera de alto volumen con estrategias de negociación basadas en datos.</div>
+        <ul>
+          <li>Análisis de <b>patrones de mora y riesgo de impago</b> para priorizar gestiones y estructurar planes de pago personalizados.</li>
+          <li>Mejora de la tasa de recuperación y del flujo de caja con monitoreo riguroso de <b>KPIs financieros</b>.</li>
+        </ul>
+      </div>
+      <div class="tnode">
+        <div class="date">NOV 2021 — OCT 2022</div>
+        <h4>Encargado de Cuentas por Cobrar</h4>
+        <div class="org">SaluDom</div>
+        <div class="desc">Análisis financiero y control de ingresos para optimizar la liquidez de la empresa.</div>
+        <ul>
+          <li>Analítica de datos para <b>auditar comisiones</b> y modelar flujos de pago.</li>
+          <li>Evaluación de riesgo financiero con <b>análisis de crédito estructurado</b> y cumplimiento fiscal y regulatorio (formatos 607 y 608).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCACIÓN -->
+<section id="educacion">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">06 / Formación</div><h2>Educación</h2></div>
+      <p>Una base que une economía, contabilidad, gestión de salud, datos y dirección de proyectos.</p>
+    </div>
+    <div class="edu-grid rev">
+      <div class="edu">
+        <span class="badge">En curso</span>
+        <div class="d">2026 — 2027</div>
+        <h5>Máster en Gestión de Sistemas y Servicios de Salud</h5>
+        <span>Pontificia Universidad Católica Madre y Maestra (PUCMM)</span>
+      </div>
+      <div class="edu">
+        <div class="d">2026</div>
+        <h5>Diploma en Innovación y Gestión de Proyectos</h5>
+        <span>ENEB / Universidad Isabel I</span>
+      </div>
+      <div class="edu">
+        <div class="d">2025 — 2026</div>
+        <h5>Máster en Big Data &amp; Business Intelligence</h5>
+        <span>ENEB / Universidad Isabel I</span>
+      </div>
+      <div class="edu">
+        <div class="d">2019 — 2025</div>
+        <h5>Licenciatura en Economía</h5>
+        <span>Universidad Autónoma de Santo Domingo (UASD)</span>
+      </div>
+      <div class="edu">
+        <div class="d">2017 — 2019</div>
+        <h5>Técnico en Contabilidad y Finanzas</h5>
+        <span>Politécnico General Belisario Peguero Guerrero</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="shead rev">
+      <div><div class="idx">07 / Herramientas</div><h2>Stack técnico</h2></div>
+      <p>R y Python como lenguajes principales, con Power BI para la capa de reporte ejecutivo y automatización de punta a punta.</p>
+    </div>
+    <div class="stack-wrap rev">
+      <div>
+        <div class="tgroup">
+          <div class="gl">Lenguajes y datos</div>
+          <div class="tools">
+            <div class="tool">Python <small>Pandas · statsmodels · scikit-learn</small></div>
+            <div class="tool">R / RStudio <small>tidymodels · Shiny · ggplot2</small></div>
+            <div class="tool">SQL <small>MySQL · SQL Server</small></div>
+          </div>
+        </div>
+        <div class="tgroup">
+          <div class="gl">Machine learning e IA</div>
+          <div class="tools">
+            <div class="tool">Modelado <small>propensión · churn · uplift · fraude · crédito</small></div>
+            <div class="tool">XGBoost · LightGBM</div>
+            <div class="tool">Inferencia causal <small>grf · Causal Forest</small></div>
+            <div class="tool">SHAP <small>explicabilidad</small></div>
+            <div class="tool">LLMs locales <small>Ollama</small></div>
+          </div>
+        </div>
+        <div class="tgroup">
+          <div class="gl">Gobernanza y riesgo de modelos</div>
+          <div class="tools">
+            <div class="tool">SR 11-7 <small>EU AI Act · SS1/23</small></div>
+            <div class="tool">Monitoreo <small>PSI · CSI · decaimiento</small></div>
+            <div class="tool">Validación out-of-time</div>
+            <div class="tool">Fairness <small>uso responsable de datos</small></div>
+          </div>
+        </div>
+        <div class="tgroup">
+          <div class="gl">BI y producto</div>
+          <div class="tools">
+            <div class="tool">Power BI <small>DAX</small></div>
+            <div class="tool">Power Apps</div>
+            <div class="tool">Streamlit · Plotly</div>
+            <div class="tool">Geoespacial <small>sf · gganimate</small></div>
+          </div>
+        </div>
+        <div class="tgroup">
+          <div class="gl">Ingeniería</div>
+          <div class="tools">
+            <div class="tool">Git <small>GitHub Actions · Pages</small></div>
+            <div class="tool">ETL <small>pipelines automatizados</small></div>
+            <div class="tool">Linux <small>Bash / CLI</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="certs">
+        <h3>Certificaciones</h3>
+        <div class="cert"><span class="c-n">Data Analyst in Python</span><span class="c-s">DataCamp · 2025</span></div>
+        <div class="cert"><span class="c-n">Data Analyst in R</span><span class="c-s">DataCamp · 2025</span></div>
+        <div class="cert"><span class="c-n">Estadística Inferencial en R</span><span class="c-s">Fundación Empírica · 2024</span></div>
+        <div class="cert"><span class="c-n">Data Science Expert</span><span class="c-s">A2 Aprende y Aplica · 2024</span></div>
+        <div class="cert"><span class="c-n">Bases de datos SQL</span><span class="c-s">Platzi · 2024</span></div>
+        <div class="cert"><span class="c-n">Data Analyst</span><span class="c-s">Platzi · 2023</span></div>
+        <div class="cert"><span class="c-n">Business Intelligence y Data Management</span><span class="c-s">Platzi · 2022</span></div>
+        <h3 style="margin-top:14px">Idiomas</h3>
+        <div class="cert"><span class="c-n">Español · nativo</span></div>
+        <div class="cert"><span class="c-n">Inglés · C1 Avanzado</span><span class="c-s">EF SET 61/100 · 2026</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <h2 class="rev">Conversemos sobre <em>datos</em> y decisiones.</h2>
+    <p class="lead rev">Abierto a conversar sobre proyectos de riesgo, inteligencia de cliente y analítica en seguros, salud y banca, y sobre formación en datos para equipos.</p>
+    <div class="clinks rev">
+      <a class="clink primary" href="mailto:braylinjr1511@gmail.com">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <div><div class="cl-l">Email</div><div class="cl-v">braylinjr1511@gmail.com</div></div>
+      </a>
+      <a class="clink" href="https://www.linkedin.com/in/bajr2025" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.5M11 17v-4a2 2 0 0 1 4 0v4"/></svg>
+        <div><div class="cl-l">LinkedIn</div><div class="cl-v">in/bajr2025</div></div>
+      </a>
+      <a class="clink" href="https://github.com/braylinjr" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+        <div><div class="cl-l">GitHub</div><div class="cl-v">Ver repositorios</div></div>
+      </a>
+      <a class="clink" href="tel:+18498025706">
+        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <div><div class="cl-l">Teléfono</div><div class="cl-v">(849) 802 5706</div></div>
+      </a>
+      <div class="clink" style="cursor:default">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div><div class="cl-l">Ubicación</div><div class="cl-v">Santo Domingo, RD</div></div>
+      </div>
+    </div>
+    <footer><span>BRAYLIN A. JIMÉNEZ REYNOSO · ECONOMISTA &amp; DATA SCIENTIST</span><span>© 2026 · HECHO CON DATOS</span></footer>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box" id="modal-box">
+    <button class="modal-x" data-close aria-label="Cerrar">×</button>
+    <div class="m-pad" id="modal-content"></div>
+  </div>
+</div>
+
+<script id="proj-data" type="application/json">
+{
+ "xpharma": {
+  "sig":"var(--green)",
+  "eyebrow":"Plataforma de inteligencia de cliente",
+  "title":"XPharmaCare — Inteligencia de Cliente en Salud",
+  "tags":[["ml","ML"],["ec","Economía"],["sa","Salud"],["ri","Riesgo"]],
+  "lead":"Una plataforma integral en Power BI para una aseguradora/farmacéutica de salud, organizada en cuatro módulos. Sobre una base de 8,000 clientes y RD$97.3M en ingresos, traduce el comportamiento del cliente en decisiones de retención que se pueden ejecutar el mismo día. Es el proyecto que mejor resume mi trabajo: une las cuatro áreas en una sola herramienta.",
+  "clips":[
+    {"src":"assets/mando.mp4","poster":"assets/mando.jpg","label":"Centro de Mando","cap":"KPIs ejecutivos, distribución de riesgo de abandono, mapa de clientes por provincia y enfermedades crónicas."},
+    {"src":"assets/clientes.mp4","poster":"assets/clientes.jpg","label":"Clientes & Productos","cap":"Segmentación de clientes, perfil multidimensional y rentabilidad por medicamento y canal de venta."},
+    {"src":"assets/retencion.mp4","poster":"assets/retencion.jpg","label":"Retención & Operativo","cap":"Motor de retención con modelo de uplift y pulso operativo (sentimiento del call center y adherencia)."}
+  ],
+  "sections":[
+    {"h":"Qué resuelve","items":[
+      "<b>Centro de Mando:</b> visión ejecutiva en una pantalla — ingreso total, tasa de abandono (48.7%), adherencia (79.2%), CLV promedio y costo e ingreso neto después de retención.",
+      "<b>Clientes & Productos:</b> segmenta a cada cliente (Crónico Alto Valor, Crónico en Riesgo, Esporádico…) y lo perfila por valor, lealtad, frecuencia, adherencia y antigüedad. Incluye probabilidad de abandono por cliente y rentabilidad por producto y canal.",
+      "<b>Motor de Retención (uplift):</b> en vez de contactar a todos, clasifica a los clientes en Persuadible, Sure Thing, Lost Cause y Sleeping Dog para invertir solo donde la oferta realmente cambia la decisión.",
+      "<b>Pulso Operativo:</b> análisis de sentimiento de las interacciones (call center), adherencia global y red de sucursales."
+    ]},
+    {"h":"Impacto","items":[
+      "<b>ROI de retención x3.31</b> al dirigir la inversión con el modelo de uplift.",
+      "<b>RD$2.7M de ahorro</b> frente a la estrategia de \"contactar a todos\".",
+      "Toda la cadena conecta datos, modelo y visualización para que el equipo comercial actúe sin esperar a un analista."
+    ]}
+  ],
+  "stack":"Python (principal) · Power BI · R · SQL · modelado de uplift y churn",
+  "links":[{"url":"https://github.com/braylinjr/xpharmacare","label":"Ver repositorio en GitHub"}]
+ },
+ "riesgocartera": {
+  "sig":"var(--blue)",
+  "eyebrow":"Motor de inteligencia de riesgo · Seguros",
+  "title":"Motor de Inteligencia de Riesgo de Cartera",
+  "tags":[["ml","ML"],["ec","Economía"],["ri","Riesgo"]],
+  "lead":"Un motor de inteligencia de riesgo para carteras de seguros, construido en Streamlit. Sobre una base de 20,000 pólizas activas y DOP 132M en prima mensual, predice el deterioro a nivel de póliza, integra variables macroeconómicas del BCRD en tiempo real y genera la lista de acción que el equipo de gestión necesita para intervenir antes de que la mora se materialice. Incluye simulador de escenario macro y explicabilidad SHAP.",
+  "clips":[{"src":"assets/riesgo-cartera-demo.mp4","poster":"assets/riesgo-cartera.jpg","label":"Demo del sistema","cap":"Simulador de escenario macro, scoring por póliza con SHAP y descarga operativa del equipo de gestión."}],
+  "sections":[
+    {"h":"Qué resuelve","items":[
+      "<b>Simulador de escenario macro:</b> mueve inflación, tasa de política monetaria, desempleo y crecimiento IMAE — la cartera recalcula prima en riesgo, distribución por banda y alerta de pólizas en tiempo real.",
+      "<b>Detección temprana de deterioro:</b> el modelo genera un score base por póliza y lo ajusta con el estrés macro del momento. Cada póliza entra a una banda (Verde, Amarillo, Naranja, Rojo) con acción correspondiente.",
+      "<b>Explicabilidad SHAP:</b> no solo predice qué póliza está en riesgo. Explica por qué — días de mora, pagos tardíos, canal de venta, variación en prima de renovación.",
+      "<b>Operativo accionable:</b> el equipo descarga un CSV con la lista de pólizas priorizadas por score ajustado y banda de riesgo. 861 pólizas en gestión inmediata con el escenario actual."
+    ]},
+    {"h":"Impacto","items":[
+      "<b>DOP 132.0M</b> de prima mensual evaluada en tiempo real.",
+      "<b>DOP 26.8M</b> en prima en riesgo identificada bajo escenario base.",
+      "<b>Lift 3x</b> en el decil superior.",
+      "<b>861 pólizas</b> en alerta inmediata listas para gestión operativa.",
+      "<b>4 variables macro del BCRD</b> integradas con recalibración en tiempo real."
+    ]}
+  ],
+  "stack":"Python · Streamlit · Scikit-learn · SHAP · Pandas · datos macro oficiales del BCRD",
+  "links":[{"url":"https://github.com/BraylinJR/modelo_riesgo_cartera","label":"Ver repositorio en GitHub"}]
+ },
+ "lince": {
+  "sig":"var(--red)",
+  "eyebrow":"Detección de fraude · Seguros · IA local",
+  "title":"Lince — Fraude en canales de venta de seguros",
+  "tags":[["ml","ML"],["ri","Riesgo"],["ia","IA generativa"]],
+  "lead":"La mayoría de los proyectos de fraude en seguros se enfoca en reclamos falsos. Lince ataca un ángulo poco atendido: el fraude del canal de ventas. El esquema es la <b>cancelación temprana masiva</b>: un intermediario emite pólizas, cobra la comisión inicial y las pólizas se cancelan en los primeros 90 días, dejando a la aseguradora con el gasto de adquisición y sin la prima que lo justificaba.",
+  "sections":[
+    {"h":"Cómo funciona","items":[
+      "<b>Datos sintéticos realistas:</b> ~34,000 pólizas emitidas por 150 intermediarios bajo una estructura comercial jerárquica (director → encargado → intermediario) en 15 provincias. El patrón de fraude se siembra en el 8% de los intermediarios, con <b>ruido de etiquetas</b> deliberado para simular auditorías imperfectas.",
+      "<b>Modelo XGBoost a nivel de intermediario</b> (no de póliza, para evitar fuga de información), con validación cruzada estratificada y scores out-of-fold. La jerarquía y la zona se excluyen a propósito como variables y se usan después para agregar el riesgo.",
+      "<b>Explicabilidad SHAP:</b> cada alerta sale con los factores que la explican.",
+      "<b>Agente de IA 100% local (Ollama):</b> toma el ranking de sospechosos y redacta un informe de investigación por caso, en lenguaje claro para un equipo de riesgo no técnico. Ningún dato sale de la computadora."
+    ]},
+    {"h":"Resultados","items":[
+      "<b>AUC-ROC ~0.91</b> y <b>AUC-PR ~0.72</b> frente a un baseline aleatorio de 0.08.",
+      "<b>Hallazgo favorito:</b> algunos intermediarios fraudulentos tenían etiqueta negativa (auditoría no los confirmó) y el modelo igual los marca con scores altísimos. Los encuentra por su comportamiento, no por su etiqueta: justo los casos de reinvestigación prioritaria.",
+      "<b>Diseño responsable:</b> el prompt del agente prohíbe afirmar culpabilidad. El score es una sospecha estadística, no una prueba."
+    ]}
+  ],
+  "note":"Todo el proyecto usa datos 100% sintéticos generados por el propio código; ninguna cifra proviene de datos reales de ninguna empresa. El repositorio contiene el prototipo metodológico (licencia PolyForm Noncommercial 1.0.0); la versión de producto, Lince Pro, es software cerrado.",
+  "stack":"Python · XGBoost · SHAP · Pandas · Ollama (LLM local)",
+  "links":[
+    {"url":"https://github.com/BraylinJR/lince","label":"Ver repositorio en GitHub"},
+    {"url":"https://github.com/BraylinJR/lince/blob/HEAD/lince_publico/docs/Lince_Documento_Metodologico.pdf","label":"Documento metodológico (PDF)","alt":true,"icon":"doc"}
+  ]
+ },
+ "churn": {
+  "sig":"var(--violet)",
+  "eyebrow":"Dashboard de churn para MIPYMES",
+  "title":"Customer Intelligence — Predicción de Churn",
+  "tags":[["ml","ML"],["ec","Economía"],["ri","Riesgo"]],
+  "lead":"Anticipar el abandono de clientes ya no es solo para grandes empresas. Construí este dashboard pensado para MIPYMES: simple, visual y accionable. Dice quién se va, cuándo y por qué — para actuar a tiempo.",
+  "clips":[{"src":"assets/ibm.mp4","poster":"assets/ibm.jpg","label":"Customer Overview","cap":"Visión 360 del cliente: riesgo de churn, CLTV, segmentación geográfica y por oferta."}],
+  "sections":[
+    {"h":"Cómo funciona","items":[
+      "Predice el <b>riesgo de abandono (0–1)</b> en niveles claros: Low / Medium / High / Critical.",
+      "El motor es una <b>regresión logística en R (tidymodels)</b> con cerca de <b>95% de acierto</b>.",
+      "Está <b>automatizado de punta a punta con SQL/MySQL</b>: los datos se actualizan, el modelo recalcula y Power BI refresca el riesgo solo.",
+      "Organiza la cartera en <b>tiers por valor (CLTV)</b> — Strategic, Growth, Core, Long Tail — para priorizar dónde invertir.",
+      "Base lista para <b>clustering</b> y perfilado del cliente común.",
+      "Incluye una <b>hoja de detalle descargable</b> con cada cliente y su nivel de riesgo, para accionar de inmediato."
+    ]}
+  ],
+  "stack":"R (tidymodels) · SQL / MySQL · Power BI",
+  "links":[{"url":"https://github.com/braylinjr/customer-churn-mipyme","label":"Ver repositorio en GitHub"}]
+ },
+ "radar": {
+  "sig":"var(--cyan)",
+  "eyebrow":"Producto de datos · Automatización · Página pública",
+  "title":"Radar Farma & Seguros RD",
+  "tags":[["ec","Economía"],["sa","Salud"],["sw","Automatización"]],
+  "lead":"Una página pública, gratuita y de actualización automática que reúne los indicadores del Banco Central, los documentos regulatorios y los titulares de República Dominicana sobre <b>farmacias, laboratorios, medicamentos y seguros</b>. Cada 6 horas recolecta, clasifica, prioriza y publica sin intervención manual.",
+  "clips":[{"src":"assets/radar-demo.mp4","poster":"assets/radar-demo.jpg","label":"Recorrido por la página","cap":"Indicadores económicos del BCRD, prioridad alta, regulación y noticias clasificadas en la página pública."}],
+  "sections":[
+    {"h":"Cómo funciona","items":[
+      "<b>Recolecta</b> de 30+ fuentes (RSS, sitemaps de prensa y páginas de organismos como SIS, SISALRIL, DIGEMAPS y CNSS). Si una falla, sigue con las demás.",
+      "<b>Clasifica</b> cada titular por sector (Farmacia, Laboratorios, ARS, Seguros generales, Regulación), por tema (precios, regulación, fusiones, resultados, alertas sanitarias…) y por empresa u organismo, con reglas por palabras clave.",
+      "<b>Prioriza</b> con reglas explícitas y muestra el motivo: alta si menciona una ley, decreto o resolución con número, una reforma, tarifa o cambio de cobertura.",
+      "<b>Elimina duplicados</b> entre medios y conserva los enlaces alternativos.",
+      "<b>Lee 6 indicadores oficiales del BCRD:</b> inflación interanual y acumulada, tasa de política monetaria, IMAE, PIB real del sector salud e inflación del grupo Salud."
+    ]},
+    {"h":"Ingeniería","items":[
+      "Corrida automática cada 6 horas con <b>GitHub Actions</b> y publicación en <b>GitHub Pages</b>.",
+      "<b>Pruebas automáticas</b> en cada cambio y panel de estado por fuente, con aviso a los 3 fallos seguidos; si un indicador falla, conserva el último valor bueno marcado como desactualizado.",
+      "<b>Respeta los derechos de los medios:</b> guarda solo título, medio, fecha y enlace; no copia textos ni imágenes.",
+      "Página con buscador, filtros, gráfico semanal por tema, resumen semanal, modo claro/oscuro y diseño móvil."
+    ]}
+  ],
+  "note":"Proyecto personal e independiente. No representa la posición de ninguna empresa.",
+  "stack":"Python · GitHub Actions · GitHub Pages · YAML · JavaScript",
+  "links":[
+    {"url":"https://braylinjr.github.io/radar-farma-seguros-rd/#indicadores","label":"Abrir la página en vivo","icon":"ext"},
+    {"url":"https://github.com/BraylinJR/radar-farma-seguros-rd","label":"Repositorio","alt":true}
+  ]
+ },
+ "corrupcion": {
+  "sig":"var(--gold)",
+  "eyebrow":"Investigación · Salud pública y economía",
+  "title":"¿La corrupción mata? Los datos dicen que sí.",
+  "tags":[["ec","Economía"],["sa","Salud"],["ri","Riesgo"]],
+  "lead":"Como parte del Máster en Gestión de Sistemas de Salud (PUCMM), inicié una investigación para validar una premisa básica: \"a mayor PIB, mejores resultados en salud\". Al cruzar crecimiento económico y mortalidad cardiovascular en República Dominicana, los datos mostraban inconsistencias. La respuesta estaba en lo que pasa cuando la corrupción bloquea esa inversión.",
+  "gallery":[
+    {"img":"assets/corrupcion-1.png","cap":"Años de vida \"robados\" por la corrupción — RD encabeza la lista (-7.8 años)."},
+    {"img":"assets/corrupcion-2.png","cap":"Vidas perdidas anualmente por corrupción (mortalidad cardiovascular)."},
+    {"img":"assets/corrupcion-3.png","cap":"Mapa de calor: correlación entre corrupción y salud pública."},
+    {"img":"assets/corrupcion-4.png","cap":"Misma matriz de correlación, escala monocromática."}
+  ],
+  "sections":[
+    {"h":"El mecanismo del daño","items":[
+      "↑ Corrupción → ↓ inversión real en salud → ↓ calidad de los servicios → ↓ esperanza de vida.",
+      "Invertir recursos no basta si el sistema tiene fugas. La transparencia no es un lujo ético: es infraestructura vital para que el presupuesto de salud se traduzca en vida."
+    ]},
+    {"h":"Hallazgos para RD","items":[
+      "<b>7.82 años de vida robados:</b> reducción en la esperanza de vida atribuible a la ineficiencia sistémica.",
+      "<b>10,069 muertes anuales:</b> fallecimientos cardiovasculares que, estadísticamente, no ocurrirían en un entorno de transparencia.",
+      "Por cada <b>+0.1 en el índice de corrupción</b>, la esperanza de vida cae en promedio <b>0.96 años</b> (≈ 11 meses)."
+    ]}
+  ],
+  "note":"Nota técnica: el índice V-Dem (v2x_corr) se mide de 0 a 1; un cambio de 0.1 representa el 10% del espectro de integridad institucional. Se trata de un análisis correlacional sobre la serie 2000–2019, proyectado a la población de 2025 para cuantificar el impacto humano hoy.",
+  "stack":"Python · Pandas · statsmodels (regresión OLS)",
+  "src":"Fuentes: Public Sector Corruption Index (V-Dem) · World Bank Open Data · WHO Global Health Observatory · Oficina Nacional de Estadística (RD)",
+  "links":[{"url":"https://github.com/braylinjr/corrupcion-salud-rd","label":"Ver repositorio en GitHub"}]
+ },
+ "naturales": {
+  "sig":"var(--orange)",
+  "eyebrow":"Serie · Riesgos naturales de La Española",
+  "title":"La Española bajo riesgo: sismos y huracanes",
+  "tags":[["ri","Riesgo"],["geo","Geoespacial"]],
+  "lead":"Empezó con una curiosidad: el 27 de septiembre de 2026 tembló cerca de Guaymate (4.8) y casi nadie se enteró. ¿Cuánto tiembla realmente en la isla? De ahí nació una serie personal con datos públicos sobre los riesgos naturales de La Española: cada entrega reúne décadas de registros, los cruza con la geografía y los cuenta en un mapa y una animación año por año, con scripts en R que cualquiera puede replicar. La pregunta de fondo es de riesgo y de seguros: no si volverá a pasar, sino cuándo, y si estamos protegidos.",
+  "clips":[
+    {"src":"assets/sismos.mp4","poster":"assets/sismos-poster.jpg","label":"La isla que tiembla","cap":"Sismos de magnitud 4 o más en La Española, 1975–2026 (USGS)."},
+    {"src":"assets/huracanes.mp4","poster":"assets/huracanes-poster.jpg","label":"Bajo la ruta de los huracanes","cap":"Tormentas que pasaron a menos de 100 km de la isla desde 1950 (IBTrACS, NOAA)."}
+  ],
+  "gallery":[
+    {"img":"assets/sismos-mapa.jpg","cap":"Mapa de sismos con los más fuertes señalados."},
+    {"img":"assets/huracanes-mapa.jpg","cap":"Trayectorias: en color, los huracanes más fuertes según su fuerza en cada tramo."}
+  ],
+  "sections":[
+    {"h":"La isla que tiembla","items":[
+      "<b>980 sismos</b> de magnitud 4 o más desde 1975; <b>93</b> de magnitud 5 o más y <b>6</b> de magnitud 6 o más.",
+      "El <b>48%</b> ocurrió en el mar. <b>180</b> ocurrieron a menos de 100 km de Santo Domingo y otros 180 a menos de 100 km de Santiago.",
+      "Los más fuertes: Haití 2021 (7.2), Haití 2010 (7.0) y uno de 6.9 frente a San Pedro de Macorís en 1984."
+    ]},
+    {"h":"Bajo la ruta de los huracanes","items":[
+      "<b>73 tormentas</b> pasaron a menos de 100 km de la isla desde 1950.",
+      "Entre los más fuertes: Flora (1963), Cleo (1964), Inez (1966), David (1979), Allen (1980) e Irma (2017).",
+      "Cada tramo se colorea según la fuerza que tenía en ese momento, para ver dónde se intensificaron o debilitaron."
+    ]},
+    {"h":"Leer bien el dato","items":[
+      "Hoy se registran más eventos que antes, pero <b>no porque haya más actividad</b>: los instrumentos y satélites detectan lo que antes pasaba sin registrar.",
+      "Los mapas muestran dónde ha ocurrido, no predicen dónde ocurrirá; y una trayectoria cercana no siempre implica daño."
+    ]}
+  ],
+  "stack":"R · ggplot2 · sf · gganimate · rnaturalearth",
+  "src":"Fuentes: USGS Earthquake Catalog · IBTrACS (NOAA). Datos de dominio público.",
+  "links":[
+    {"url":"https://github.com/BraylinJR/la-isla-que-tiembla","label":"Repositorio · Sismos"},
+    {"url":"https://github.com/BraylinJR/bajo-la-ruta-de-los-huracanes","label":"Repositorio · Huracanes","alt":true}
+  ]
+ },
+ "joinless": {
+  "sig":"var(--violet)",
+  "eyebrow":"Software estadístico · Paquete de R",
+  "title":"joinless — Paquete de R",
+  "tags":[["ml","ML"],["sw","Software"]],
+  "lead":"joinless es un paquete de R, publicado, que estima la relación entre dos conjuntos de datos mediante muestreo aleatorio. Nació de un problema común al trabajar con datos del mundo real: unir tablas que no comparten una llave perfecta. En vez de forzar una unión exacta, estima estadísticamente la correspondencia entre los datasets.",
+  "sections":[
+    {"h":"Para qué sirve","items":[
+      "Optimiza <b>uniones de datos complejas</b> donde no existe una clave común confiable (record linkage, fuzzy matching).",
+      "Usa <b>muestreo aleatorio</b> para estimar la relación entre los conjuntos, en lugar de un emparejamiento determinista.",
+      "Publicado como paquete reutilizable de R."
+    ]}
+  ],
+  "stack":"R · diseño de paquetes",
+  "links":[{"url":"https://github.com/braylinjr/joinless","label":"Ver repositorio en GitHub"}]
+ }
+}
+</script>
+
+<script>
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rev').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,6)*0.05)+'s';io.observe(el)});
+
+// Menú móvil
+const nav=document.getElementById('nav'),menuBtn=document.getElementById('menu-btn');
+menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}));
+
+// Filtros y conteos por área (se calculan de las tarjetas)
+const chips=document.querySelectorAll('.chip');
+const cards=document.querySelectorAll('.card');
+const count=f=>[...cards].filter(c=>f==='all'||c.dataset.areas.split(' ').includes(f)).length;
+chips.forEach(c=>{c.querySelector('.n').textContent=count(c.dataset.f)});
+document.querySelectorAll('.area').forEach(a=>{const n=count(a.dataset.filter);a.querySelector('.cnt').textContent=`${n} proyecto${n===1?'':'s'} →`});
+function applyFilter(f){
+  chips.forEach(c=>c.classList.toggle('active',c.dataset.f===f));
+  cards.forEach(card=>card.classList.toggle('hide',!(f==='all'||card.dataset.areas.split(' ').includes(f))));
+}
+chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.f)));
+document.querySelectorAll('.area').forEach(a=>a.addEventListener('click',()=>{
+  applyFilter(a.dataset.filter);
+  document.getElementById('proyectos').scrollIntoView({behavior:'smooth'});
+}));
+
+// Modal de casos
+const DATA=JSON.parse(document.getElementById('proj-data').textContent);
+const modal=document.getElementById('modal');
+const modalBox=document.getElementById('modal-box');
+const mc=document.getElementById('modal-content');
+const ICON={
+  gh:'<svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>',
+  ext:'<svg viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>',
+  doc:'<svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>'
+};
+let lastFocus=null;
+function tagHtml(tags){return tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}
+function clipHtml(c){return `<div class="m-video"><video controls playsinline preload="none" poster="${c.poster}" src="${c.src}"></video></div><p class="m-vcap">${c.cap}</p>`}
+
+function buildModal(key){
+  const d=DATA[key];
+  modalBox.style.setProperty('--sig',d.sig||'var(--cyan)');
+  let html=`<div class="m-eyebrow">${d.eyebrow}</div><h3 id="modal-title">${d.title}</h3><div class="m-tags">${tagHtml(d.tags)}</div>`;
+  html+=`<div class="m-body"><p>${d.lead}</p>`;
+  if(d.clips){
+    if(d.clips.length>1){
+      html+=`<div class="m-tabs">`+d.clips.map((c,i)=>`<button class="m-tab ${i===0?'on':''}" data-clip="${i}">${c.label}</button>`).join('')+`</div>`;
+      html+=d.clips.map((c,i)=>`<div class="m-clip ${i===0?'on':''}" data-clipbody="${i}">${clipHtml(c)}</div>`).join('');
+    }else html+=clipHtml(d.clips[0]);
+  }
+  if(d.gallery){
+    html+=`<div class="m-gallery ${d.galleryCols===1?'':'g2'}">`+d.gallery.map(g=>`<figure><img loading="lazy" src="${g.img}" alt=""><figcaption>${g.cap}</figcaption></figure>`).join('')+`</div>`;
+  }
+  d.sections.forEach(s=>{html+=`<h4>${s.h}</h4><ul>`+s.items.map(it=>`<li>${it}</li>`).join('')+`</ul>`;});
+  if(d.note) html+=`<div class="m-note">${d.note}</div>`;
+  html+=`<h4>Herramientas</h4><p>${d.stack}</p>`;
+  if(d.src) html+=`<div class="m-src">${d.src}</div>`;
+  if(d.links) html+=`<div class="m-ctas">`+d.links.map(l=>`<a class="m-cta ${l.alt?'alt':''}" href="${l.url}" target="_blank" rel="noopener">${ICON[l.icon||'gh']} ${l.label}</a>`).join('')+`</div>`;
+  html+=`</div>`;
+  mc.innerHTML=html;
+  mc.querySelectorAll('.m-tab').forEach(t=>t.addEventListener('click',()=>{
+    const i=t.dataset.clip;
+    mc.querySelectorAll('.m-tab').forEach(x=>x.classList.toggle('on',x===t));
+    mc.querySelectorAll('[data-clipbody]').forEach(b=>{
+      const on=b.dataset.clipbody===i;b.classList.toggle('on',on);
+      if(!on){const v=b.querySelector('video');if(v)v.pause();}
+    });
+  }));
+}
+function openModal(key){
+  if(!DATA[key])return;
+  lastFocus=document.activeElement;
+  buildModal(key);
+  modal.classList.add('open');document.body.style.overflow='hidden';modal.scrollTop=0;
+  history.replaceState(null,'','#caso-'+key);
+  modal.querySelector('.modal-x').focus();
+}
+function closeModal(){
+  if(!modal.classList.contains('open'))return;
+  modal.classList.remove('open');document.body.style.overflow='';mc.querySelectorAll('video').forEach(v=>v.pause());
+  history.replaceState(null,'',location.pathname+location.search);
+  if(lastFocus)lastFocus.focus();
+}
+document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>openModal(el.dataset.open)));
+modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+// Enlace directo a un caso: /#caso-lince
+const m=location.hash.match(/^#caso-(\w+)$/);if(m)openModal(m[1]);
+</script>
+</body>
+</html>
