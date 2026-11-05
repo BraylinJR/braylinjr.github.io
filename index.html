@@ -376,7 +376,16 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
 .modal.open{display:flex}
 .modal-bg{position:fixed;inset:0;background:rgba(4,9,17,.86);backdrop-filter:blur(8px);animation:fade .4s}
-.modal-box{position:relative;width:100%;max-width:940px;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;animation:rise .5s cubic-bezier(.2,.7,.2,1)}
+.modal-box{position:relative;width:100%;max-width:940px;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;animation:pop .2s ease-out}
+@keyframes pop{from{opacity:0;transform:scale(.98)}}
+.m-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 40px 22px;border-top:1px solid var(--line-soft);background:rgba(7,17,31,.35)}
+.m-navbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--text);background:transparent;border:1px solid var(--line);border-radius:100px;padding:10px 16px;cursor:pointer;transition:border-color .25s}
+.m-navbtn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7}
+.m-navbtn:hover:not(:disabled){border-color:var(--sig,var(--cyan))}
+.m-navbtn:disabled{opacity:.35;cursor:default}
+@media(max-width:560px){.m-nav{display:grid;grid-template-columns:1fr 1fr;padding:14px 16px 18px}.m-copy{grid-column:1/-1;order:-1}.m-lbl{display:none}}
+.m-toast{position:fixed;left:50%;bottom:28px;z-index:210;transform:translate(-50%,12px);background:var(--panel-2);border:1px solid var(--cyan);color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 18px;border-radius:100px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.m-toast.on{opacity:1;transform:translate(-50%,0)}
 .modal-box::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--sig,var(--cyan));z-index:5}
 @media(max-width:560px){.modal{padding:16px 10px}}
 @keyframes fade{from{opacity:0}} @keyframes rise{from{opacity:0;transform:translateY(30px)}}
@@ -1055,7 +1064,13 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   <div class="modal-box" id="modal-box">
     <button class="modal-x" data-close aria-label="Cerrar">×</button>
     <div class="m-pad" id="modal-content"></div>
+    <div class="m-nav">
+      <button type="button" class="m-navbtn" id="m-prev">← <span class="m-lbl">Caso </span>anterior</button>
+      <button type="button" class="m-navbtn m-copy" id="m-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copiar enlace</button>
+      <button type="button" class="m-navbtn" id="m-next"><span class="m-lbl">Caso </span>siguiente →</button>
+    </div>
   </div>
+  <div class="m-toast" id="m-toast" role="status" aria-live="polite"></div>
 </div>
 
 <script id="proj-data" type="application/json">
@@ -1442,23 +1457,80 @@ function buildModal(key){
     });
   }));
 }
+let curKey=null;
+const mPrev=document.getElementById('m-prev'),mNext=document.getElementById('m-next'),mCopy=document.getElementById('m-copy'),toast=document.getElementById('m-toast');
+// Orden de navegación = tarjetas visibles + "Más análisis", en el orden de la página
+function orden(){
+  const ks=[];
+  document.querySelectorAll('.card:not(.hide) [data-open], .mini[data-open]').forEach(el=>{if(!ks.includes(el.dataset.open))ks.push(el.dataset.open)});
+  return ks;
+}
+function navState(){
+  const ks=orden(),i=ks.indexOf(curKey),had=document.activeElement;
+  mPrev.disabled=i<=0;mNext.disabled=i<0||i>=ks.length-1;
+  if(had&&had.disabled)([mPrev,mNext].find(b=>!b.disabled)||mCopy).focus();
+}
+function irA(delta){
+  const ks=orden(),i=ks.indexOf(curKey),k=ks[i+delta];
+  if(i<0||!k)return;
+  mc.querySelectorAll('video').forEach(v=>v.pause());
+  buildModal(k);curKey=k;modal.scrollTop=0;
+  history.replaceState(null,'','#caso-'+k);
+  navState();
+}
 function openModal(key){
   if(!DATA[key])return;
   lastFocus=document.activeElement;
-  buildModal(key);
+  buildModal(key);curKey=key;
   modal.classList.add('open');document.body.style.overflow='hidden';modal.scrollTop=0;
   history.replaceState(null,'','#caso-'+key);
+  navState();
   modal.querySelector('.modal-x').focus();
 }
 function closeModal(){
   if(!modal.classList.contains('open'))return;
   modal.classList.remove('open');document.body.style.overflow='';mc.querySelectorAll('video').forEach(v=>v.pause());
   history.replaceState(null,'',location.pathname+location.search);
-  if(lastFocus)lastFocus.focus();
+  if(lastFocus&&document.contains(lastFocus))lastFocus.focus();
 }
+let tt;
+function avisar(t){toast.textContent=t;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1800)}
+function copiarRespaldo(t){
+  const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;opacity:0';
+  modal.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();mCopy.focus();return ok;
+}
+mCopy.addEventListener('click',async()=>{
+  const url='https://braylinjr.github.io/#caso-'+curKey;let ok=true;
+  try{await navigator.clipboard.writeText(url)}catch(e){ok=copiarRespaldo(url)}
+  avisar(ok?'Enlace copiado':'No se pudo copiar el enlace');
+});
+mPrev.addEventListener('click',()=>irA(-1));
+mNext.addEventListener('click',()=>irA(1));
 document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>openModal(el.dataset.open)));
 modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{
+  if(!modal.classList.contains('open'))return;
+  if(e.key==='Escape'){closeModal();return}
+  if(e.key==='Tab'){
+    // Mantiene el foco dentro de la ventana
+    const f=[...modal.querySelectorAll('a[href],button:not([disabled]),video[controls],[tabindex]:not([tabindex="-1"])')].filter(el=>el.getClientRects().length);
+    if(!f.length)return;
+    const first=f[0],last=f[f.length-1],a=document.activeElement;
+    if(e.shiftKey&&(a===first||!modal.contains(a))){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&(a===last||!modal.contains(a))){e.preventDefault();first.focus()}
+    return;
+  }
+  if((e.key==='ArrowLeft'||e.key==='ArrowRight')&&!e.altKey&&!e.ctrlKey&&!e.metaKey&&!(e.target.closest&&e.target.closest('video,input,textarea,select'))){
+    e.preventDefault();irA(e.key==='ArrowLeft'?-1:1);
+  }
+});
+// Deslizar en el celular
+let sx=null,sy=0;
+modalBox.addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('video')){sx=null;return}sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+modalBox.addEventListener('touchend',e=>{
+  if(sx==null)return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;sx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)irA(dx<0?1:-1);
+},{passive:true});
 // Enlace directo a un caso: /#caso-lince
 const m=location.hash.match(/^#caso-(\w+)$/);if(m)openModal(m[1]);
 
