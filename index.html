@@ -76,6 +76,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .navlinks a.gh:hover{border-color:var(--cyan)}
 .navlinks a.gh svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
 .nav-btns{display:inline-flex;gap:8px;align-items:center}
+.navlinks a[aria-current="true"]{color:var(--text)}
+.navlinks a[aria-current="true"]::after{width:100%}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--green));transform-origin:0 50%;transform:scaleX(var(--p,0));pointer-events:none}
+@supports (animation-timeline: scroll()){
+  .progress{animation:progreso linear both;animation-timeline:scroll(root)}
+  @keyframes progreso{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
 .menu-btn{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;place-items:center}
 .menu-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
 @media(max-width:1180px){.brand .full{display:none}}
@@ -432,6 +439,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       </span>
     </div>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </nav>
 
 <!-- HERO -->
@@ -1348,6 +1356,21 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
 const nav=document.getElementById('nav'),menuBtn=document.getElementById('menu-btn');
 menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
 document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}));
+
+// Barra de progreso (respaldo en JS si no hay animation-timeline) y enlace de la sección visible
+if(!(window.CSS&&CSS.supports('animation-timeline: scroll()'))){
+  const bar=nav.querySelector('.progress');let tk=false;
+  const upd=()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.setProperty('--p',h>0?Math.min(1,scrollY/h):0);tk=false};
+  addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});upd();
+}
+if('IntersectionObserver' in window){
+  const links=[...document.querySelectorAll('#navlinks a[href^="#"]')];
+  const so=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    links.forEach(a=>{if(a.getAttribute('href')==='#'+e.target.id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+  }),{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('header[id],section[id]').forEach(s=>so.observe(s));
+}
 
 // "NUEVO" solo durante 60 días desde la publicación (data-pub)
 document.querySelectorAll('.new-tag[data-pub]').forEach(t=>{if((Date.now()-Date.parse(t.dataset.pub))/864e5>60)t.remove()});
