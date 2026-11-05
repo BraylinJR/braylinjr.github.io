@@ -160,6 +160,7 @@ section{padding:74px 0;position:relative}
 .card-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0a1322;cursor:pointer}
 .card-media img,.card-media video{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s;background:#0a1322}
 .card:hover .card-media img,.card:hover .card-media video{transform:scale(1.03)}
+.card-media img.chart-dark{filter:invert(.9) hue-rotate(180deg) saturate(1.15) brightness(.95);object-position:center 30%}
 .card-media.split{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#0d1b2a}
 .card-media.split img{object-position:center 62%}
 .card-media .art{position:absolute;inset:0;display:grid;place-items:center;padding-bottom:40px}
@@ -559,7 +560,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <!-- CORRUPCION -->
       <article class="card rev" data-areas="farmacia economia" style="--sig:var(--gold)">
         <div class="card-media" data-open="corrupcion">
-          <img src="assets/corrupcion-1.png" alt="Años de vida robados por la corrupción" loading="lazy">
+          <img class="chart-dark" src="assets/corrupcion-1.png" alt="Gráfico: años de vida robados por la corrupción, República Dominicana encabeza la lista" loading="lazy">
           <div class="play"><span><svg class="ext" viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span></div>
           <div class="media-tag">INVESTIGACIÓN · PYTHON (OLS)</div>
         </div>
