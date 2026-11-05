@@ -132,7 +132,13 @@ header>.wrap{position:relative;z-index:1}
 
 .rev{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .rev.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  *:not(.progress),*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .card:hover,.talk:hover,.mini:hover,.btn:hover,.edu:hover,.clink:hover,.m-cta:hover{transform:none!important}
+  .card:hover .card-media img,.card:hover .card-media video{transform:none}
+}
 
 /* ---------- PULSO DEL SECTOR ---------- */
 html:not(.js) .pulso{display:none}
