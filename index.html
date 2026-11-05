@@ -1382,7 +1382,9 @@ const reduceMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
   const mq=matchMedia('(prefers-reduced-motion: reduce)');
   if(mq.addEventListener)mq.addEventListener('change',()=>{if(mq.matches){stop();draw()}else start()});
-  let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{size();draw()},150)});
+  // Se ajusta al alto real de la portada (cambia al cargar las fuentes o al girar el celular)
+  let rt;const ajustar=()=>{clearTimeout(rt);rt=setTimeout(()=>{size();draw()},150)};
+  if('ResizeObserver' in window)new ResizeObserver(ajustar).observe(hdr);else window.addEventListener('resize',ajustar);
   hdr.addEventListener('pointermove',e=>{const r=hdr.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top}});
   hdr.addEventListener('pointerleave',()=>{mouse=null});
 })();
@@ -1443,7 +1445,10 @@ function applyFilter(f,guardar=true){
     chips.forEach(c=>{const on=c.dataset.f===f;c.classList.toggle('active',on);c.setAttribute('aria-pressed',on)});
     cards.forEach(card=>card.classList.toggle('hide',!(f==='all'||card.dataset.areas.split(' ').includes(f))));
   };
-  if(guardar&&document.startViewTransition&&!reduceMotion())document.startViewTransition(run);else run();
+  if(guardar&&document.startViewTransition&&!reduceMotion()){
+    // Un clic rápido salta la transición anterior: se ignora el aviso para no ensuciar la consola
+    const vt=document.startViewTransition(run);vt.ready.catch(()=>{});vt.finished.catch(()=>{});
+  }else run();
   if(guardar){const u=new URL(location.href);if(f==='all')u.searchParams.delete('f');else u.searchParams.set('f',f);history.replaceState(null,'',u)}
 }
 chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.f)));
@@ -1503,9 +1508,10 @@ let curKey=null;
 const mPrev=document.getElementById('m-prev'),mNext=document.getElementById('m-next'),mCopy=document.getElementById('m-copy'),toast=document.getElementById('m-toast');
 // Orden de navegación = tarjetas visibles + "Más análisis", en el orden de la página
 function orden(){
-  const ks=[];
-  document.querySelectorAll('.card:not(.hide) [data-open], .mini[data-open]').forEach(el=>{if(!ks.includes(el.dataset.open))ks.push(el.dataset.open)});
-  return ks;
+  const tomar=sel=>{const ks=[];document.querySelectorAll(sel).forEach(el=>{if(!ks.includes(el.dataset.open))ks.push(el.dataset.open)});return ks};
+  const ks=tomar('.card:not(.hide) [data-open], .mini[data-open]');
+  // Si el caso abierto quedó fuera del filtro (enlace directo), se navega por todos
+  return ks.includes(curKey)?ks:tomar('.card [data-open], .mini[data-open]');
 }
 function navState(){
   const ks=orden(),i=ks.indexOf(curKey),had=document.activeElement;
@@ -1533,7 +1539,11 @@ function closeModal(){
   if(!modal.classList.contains('open'))return;
   modal.classList.remove('open');document.body.style.overflow='';mc.querySelectorAll('video').forEach(v=>v.pause());
   history.replaceState(null,'',location.pathname+location.search);
-  if(lastFocus&&document.contains(lastFocus))lastFocus.focus();
+  // El foco vuelve a la tarjeta del caso que estaba abierto (aunque se haya navegado con ← →)
+  const destino=document.querySelector(`.card:not(.hide) .card-media[data-open="${curKey}"], .mini[data-open="${curKey}"]`);
+  if(destino)destino.focus();
+  else if(lastFocus&&lastFocus!==document.body&&document.contains(lastFocus))lastFocus.focus();
+  else document.getElementById('contenido').focus({preventScroll:true});
 }
 let tt;
 function avisar(t){toast.textContent=t;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1800)}
@@ -1616,8 +1626,11 @@ async function cargarPulso(){
   const box=document.getElementById('pulso');if(!box)return;
   const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),4000);
   try{
-    const [ind,res]=await Promise.all(['indicadores.json','resumen_semanal.json'].map(f=>
+    // Los indicadores son obligatorios; si solo falla el resumen de noticias, se muestran sin esa línea
+    const [pi,pr]=await Promise.allSettled(['indicadores.json','resumen_semanal.json'].map(f=>
       fetch(RAW+f,{signal:ctl.signal,cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})));
+    if(pi.status!=='fulfilled')throw pi.reason;
+    const ind=pi.value,res=pr.status==='fulfilled'?pr.value:null;
     const horas=(Date.now()-Date.parse(ind.actualizado))/36e5;
     if(!Number.isFinite(horas)||horas>14*24)throw new Error('datos viejos');
     const tarjetas=PULSO_IDS.map(id=>(ind.tarjetas||[]).find(t=>t.id===id)).filter(Boolean);
