@@ -257,7 +257,9 @@ button.mini{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 .tnode li b{color:var(--text);font-weight:600}
 
 /* ---------- EDUCACIÓN ---------- */
-.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.edu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.edu-grid{grid-template-columns:1fr}}
 .edu{border:1px solid var(--line-soft);border-radius:18px;padding:20px;background:rgba(255,255,255,.035);backdrop-filter:blur(8px);transition:border-color .3s,transform .3s}
 .edu:hover{transform:translateY(-3px);border-color:var(--blue)}
 .edu .d{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.05em}
@@ -730,7 +732,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 <section id="educacion">
   <div class="wrap">
     <div class="shead rev">
-      <div><div class="idx">06 / Formación</div><h2>Educación</h2></div>
+      <div><div class="idx">06 / Formación</div><h2>Formación</h2></div>
       <p>Una base que une economía, contabilidad, gestión de salud, datos y dirección de proyectos.</p>
     </div>
     <div class="edu-grid rev">
@@ -739,6 +741,12 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         <div class="d">2026 — 2027</div>
         <h5>Máster en Gestión de Sistemas y Servicios de Salud</h5>
         <span>Pontificia Universidad Católica Madre y Maestra (PUCMM)</span>
+      </div>
+      <div class="edu">
+        <span class="badge">En curso</span>
+        <div class="d">2026</div>
+        <h5>Programa Especializado en Gestión de Seguros</h5>
+        <span>Universidad Iberoamericana (UNIBE)</span>
       </div>
       <div class="edu">
         <div class="d">2026</div>
