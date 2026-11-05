@@ -175,6 +175,9 @@ section{padding:74px 0;position:relative}
 .card-body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
 .tags{display:flex;flex-wrap:wrap;gap:7px}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:6px;border:1px solid var(--tc,var(--line));color:var(--tc,var(--muted))}
+.origin{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:6px;border:1px dashed var(--muted-2);color:var(--muted)}
+.origin svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.6;flex-shrink:0}
+.m-origin{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:-8px 0 22px;font-size:13px;color:var(--muted)}
 .tag.ml{--tc:var(--blue)} .tag.ec{--tc:var(--gold)} .tag.sa{--tc:var(--green)} .tag.ri{--tc:var(--red)} .tag.sw{--tc:var(--violet)} .tag.ia{--tc:var(--cyan)} .tag.geo{--tc:var(--orange)}
 .card h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.6vw,28px);line-height:1.08;letter-spacing:-.01em}
 .card .pitch{font-size:14.5px;color:#c3d0e4;line-height:1.55}
@@ -435,7 +438,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
           <div class="media-tag">XGBOOST · SHAP · IA LOCAL (OLLAMA)</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ml">ML</span><span class="tag ri">Riesgo</span><span class="tag ia">IA generativa</span></div>
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ri">Riesgo</span><span class="tag ia">IA generativa</span><span class="origin" title="Origen de los datos: Generados por el propio código del proyecto"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos sintéticos</span></div>
           <h3>Lince — Fraude en canales de venta de seguros</h3>
           <p class="pitch">Ataca un fraude poco estudiado: intermediarios que emiten pólizas, cobran la comisión y las dejan cancelar en 90 días. Un modelo XGBoost a nivel de intermediario señala a los sospechosos con su porqué (SHAP) y un agente de IA que corre 100% en local redacta el informe de cada caso.</p>
           <div class="kpis">
@@ -460,7 +463,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
           <div class="media-tag">PYTHON · GITHUB ACTIONS · PÁGINA PÚBLICA</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag sw">Automatización</span></div>
+          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag sw">Automatización</span><span class="origin" title="Origen de los datos: BCRD, reguladores y prensa"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos públicos en vivo</span></div>
           <h3>Radar Farma &amp; Seguros RD</h3>
           <p class="pitch">El pulso del mercado farmacéutico y asegurador dominicano en una sola página: indicadores del Banco Central, normas de los reguladores y titulares de prensa, clasificados y priorizados con reglas públicas. Se actualiza solo cada 6 horas, sin intervención manual.</p>
           <div class="kpis">
@@ -486,7 +489,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
           <div class="media-tag">PLATAFORMA · 4 MÓDULOS · POWER BI</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span></div>
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span><span class="origin" title="Origen de los datos: Generados para el proyecto con contexto de República Dominicana"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos sintéticos</span></div>
           <h3>XPharmaCare — Inteligencia de Cliente en Salud</h3>
           <p class="pitch">Plataforma integral que convierte 8,000 clientes y RD$97.3M en ingresos en decisiones concretas de retención: predice el abandono, mide su valor económico, entiende al paciente crónico y dirige la inversión solo a quien la oferta hace cambiar de opinión.</p>
           <div class="kpis">
@@ -507,12 +510,12 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         <div class="card-media" data-open="riesgocartera">
           <img src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-          <div class="media-tag">STREAMLIT · SHAP · DATOS BCRD</div>
+          <div class="media-tag">STREAMLIT · SHAP · ESCENARIO MACRO</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag ri">Riesgo</span></div>
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag ri">Riesgo</span><span class="origin" title="Origen de los datos: Cartera y variables macro simuladas por el propio código"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos sintéticos</span></div>
           <h3>Motor de Inteligencia de Riesgo de Cartera</h3>
-          <p class="pitch">Sistema de detección temprana de deterioro que evalúa 20,000 pólizas activas en tiempo real. Integra un simulador de escenario macro con variables BCRD, explicabilidad SHAP por póliza y descarga operativa para el equipo de gestión.</p>
+          <p class="pitch">Sistema de detección temprana de deterioro que evalúa 20,000 pólizas activas en tiempo real. Integra un simulador de escenario macro (inflación, tasa de política monetaria, desempleo e IMAE), explicabilidad SHAP por póliza y descarga operativa para el equipo de gestión.</p>
           <div class="kpis">
             <div class="kpi"><div class="k">DOP 132.0M</div><div class="kl">Prima analizada</div></div>
             <div class="kpi"><div class="k">3x</div><div class="kl">Lift top decil</div></div>
@@ -535,7 +538,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
           <div class="media-tag">SERIE · R · USGS + NOAA</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ri">Riesgo</span><span class="tag geo">Geoespacial</span></div>
+          <div class="tags"><span class="tag ri">Riesgo</span><span class="tag geo">Geoespacial</span><span class="origin" title="Origen de los datos: USGS y NOAA"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos públicos</span></div>
           <h3>La Española bajo riesgo: sismos y huracanes</h3>
           <p class="pitch">Serie de visualización con datos públicos que muestra, año por año, dónde ha temblado la isla y por dónde han pasado las tormentas. Mapas y animaciones en R, con la lectura cuidadosa que exige el dato: más registros no siempre significa más riesgo. Una base para pensar el riesgo catastrófico en los seguros del país.</p>
           <div class="kpis">
@@ -561,7 +564,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
           <div class="media-tag">INVESTIGACIÓN · PYTHON (OLS)</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span></div>
+          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span><span class="origin" title="Origen de los datos: V-Dem y Banco Mundial"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos públicos</span></div>
           <h3>¿La corrupción mata? Los datos dicen que sí.</h3>
           <p class="pitch">Investigación del Máster en Gestión de Sistemas de Salud (PUCMM). Pone a prueba la premisa "a mayor PIB, mejor salud" y encuentra que invertir no basta si el sistema tiene fugas: la integridad institucional es infraestructura vital.</p>
           <div class="kpis">
@@ -594,7 +597,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
           <div class="media-tag">PAQUETE DE R · PUBLICADO</div>
         </div>
         <div class="card-body">
-          <div class="tags"><span class="tag ml">ML</span><span class="tag sw">Software</span></div>
+          <div class="tags"><span class="tag ml">ML</span><span class="tag sw">Software</span><span class="origin" title="Origen de los datos: Paquete de R de código abierto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>Software publicado</span></div>
           <h3>joinless — Paquete de R</h3>
           <p class="pitch">Software estadístico que estima la relación entre dos conjuntos de datos mediante muestreo aleatorio, sin necesidad de una llave de unión perfecta. Publicado para optimizar uniones de datos complejas (record linkage).</p>
           <div class="card-foot">
@@ -609,7 +612,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
     <div class="more rev">
       <div class="more-head"><h3>Más análisis</h3><p>Salud, economía y clientes, fuera de los casos principales.</p></div>
       <div class="mgrid">
-        <button type="button" class="mini vi mini-open" data-open="churn"><span class="mt">Churn para mipymes</span><span class="mp">Dashboard de abandono de clientes con un conjunto de datos de ejemplo (IBM Telco).</span><span class="mm">R + SQL + Power BI · Ver caso →</span></button>
+        <button type="button" class="mini vi mini-open" data-open="churn"><span class="mt">Churn para mipymes</span><span class="mp">Dashboard de abandono de clientes con un conjunto de datos de ejemplo (IBM Telco).</span><span class="origin"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Datos de ejemplo (IBM Telco)</span><span class="mm">R + SQL + Power BI · Ver caso →</span></button>
         <div class="mini sa"><div class="mt">Centinela — Readmisiones hospitalarias</div><p>Prioriza pacientes por riesgo de reingreso a menos de 30 días, con el porqué de cada caso y un simulador para puntuar pacientes nuevos.</p><div class="mm">69K+ pacientes · 130 hospitales · top 10% capta ~1 de 4 reingresos</div></div>
         <div class="mini ec"><div class="mt">Inflación en salud, RD 2010–2026</div><p>Con series oficiales del BCRD: en 16 años los costos de salud no bajaron un solo mes y crecieron más que la inflación general.</p><div class="mm">IPC Salud +109% vs. IPC General +98%</div></div>
       </div>
@@ -921,6 +924,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Plataforma de inteligencia de cliente",
   "title":"XPharmaCare — Inteligencia de Cliente en Salud",
   "tags":[["ml","ML"],["ec","Economía"],["sa","Salud"],["ri","Riesgo"]],
+  "origen":{"label": "Datos sintéticos", "base": "Generados para el proyecto con contexto de República Dominicana"},
+  "sintetico":true,
   "lead":"Una plataforma integral en Power BI para una aseguradora/farmacéutica de salud, organizada en cuatro módulos. Sobre una base de 8,000 clientes y RD$97.3M en ingresos, traduce el comportamiento del cliente en decisiones de retención que se pueden ejecutar el mismo día.",
   "clips":[
     {"src":"assets/mando.mp4","poster":"assets/mando.jpg","label":"Centro de Mando","cap":"KPIs ejecutivos, distribución de riesgo de abandono, mapa de clientes por provincia y enfermedades crónicas."},
@@ -948,7 +953,9 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Motor de inteligencia de riesgo · Seguros",
   "title":"Motor de Inteligencia de Riesgo de Cartera",
   "tags":[["ml","ML"],["ec","Economía"],["ri","Riesgo"]],
-  "lead":"Un motor de inteligencia de riesgo para carteras de seguros, construido en Streamlit. Sobre una base de 20,000 pólizas activas y DOP 132M en prima mensual, predice el deterioro a nivel de póliza, integra variables macroeconómicas del BCRD en tiempo real y genera la lista de acción que el equipo de gestión necesita para intervenir antes de que la mora se materialice. Incluye simulador de escenario macro y explicabilidad SHAP.",
+  "origen":{"label": "Datos sintéticos", "base": "Cartera y variables macro simuladas por el propio código"},
+  "sintetico":true,
+  "lead":"Un motor de inteligencia de riesgo para carteras de seguros, construido en Streamlit. Sobre una base de 20,000 pólizas activas y DOP 132M en prima mensual, predice el deterioro a nivel de póliza, lo ajusta con un escenario macroeconómico (inflación, tasa de política monetaria, desempleo e IMAE) y genera la lista de acción que el equipo de gestión necesita para intervenir antes de que la mora se materialice. Incluye simulador de escenario macro y explicabilidad SHAP.",
   "clips":[{"src":"assets/riesgo-cartera-demo.mp4","poster":"assets/riesgo-cartera.jpg","label":"Demo del sistema","cap":"Simulador de escenario macro, scoring por póliza con SHAP y descarga operativa del equipo de gestión."}],
   "sections":[
     {"h":"Qué resuelve","items":[
@@ -962,10 +969,10 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       "<b>DOP 26.8M</b> en prima en riesgo identificada bajo escenario base.",
       "<b>Lift 3x</b> en el decil superior.",
       "<b>861 pólizas</b> en alerta inmediata listas para gestión operativa.",
-      "<b>4 variables macro del BCRD</b> integradas con recalibración en tiempo real."
+      "<b>4 variables macro</b> con recalibración inmediata; la capa está preparada para conectarse a las series del BCRD."
     ]}
   ],
-  "stack":"Python · Streamlit · Scikit-learn · SHAP · Pandas · datos macro oficiales del BCRD",
+  "stack":"Python · Streamlit · Scikit-learn · SHAP · Pandas · capa macro preparada para series del BCRD",
   "links":[{"url":"https://github.com/BraylinJR/modelo_riesgo_cartera","label":"Ver repositorio en GitHub"}]
  },
  "lince": {
@@ -973,6 +980,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Detección de fraude · Seguros · IA local",
   "title":"Lince — Fraude en canales de venta de seguros",
   "tags":[["ml","ML"],["ri","Riesgo"],["ia","IA generativa"]],
+  "origen":{"label": "Datos sintéticos", "base": "Generados por el propio código del proyecto"},
   "lead":"La mayoría de los proyectos de fraude en seguros se enfoca en reclamos falsos. Lince ataca un ángulo poco atendido: el fraude del canal de ventas. El esquema es la <b>cancelación temprana masiva</b>: un intermediario emite pólizas, cobra la comisión inicial y las pólizas se cancelan en los primeros 90 días, dejando a la aseguradora con el gasto de adquisición y sin la prima que lo justificaba.",
   "sections":[
     {"h":"Cómo funciona","items":[
@@ -999,6 +1007,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Dashboard de abandono de clientes · Mipymes",
   "title":"Churn para mipymes",
   "tags":[["ml","ML"],["ec","Economía"],["ri","Riesgo"]],
+  "origen":{"label": "Datos de ejemplo (IBM Telco)", "base": "Conjunto de datos público de IBM"},
   "lead":"Anticipar el abandono de clientes ya no es solo para grandes empresas. Construí este dashboard pensado para MIPYMES: simple, visual y accionable. Dice quién se va, cuándo y por qué — para actuar a tiempo.",
   "clips":[{"src":"assets/ibm.mp4","poster":"assets/ibm.jpg","label":"Customer Overview","cap":"Visión 360 del cliente: riesgo de churn, CLTV, segmentación geográfica y por oferta."}],
   "sections":[
@@ -1019,6 +1028,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Producto de datos · Automatización · Página pública",
   "title":"Radar Farma & Seguros RD",
   "tags":[["ec","Economía"],["sa","Salud"],["sw","Automatización"]],
+  "origen":{"label": "Datos públicos en vivo", "base": "BCRD, reguladores y prensa"},
   "lead":"Una página pública, gratuita y de actualización automática que reúne los indicadores del Banco Central, los documentos regulatorios y los titulares de República Dominicana sobre <b>farmacias, laboratorios, medicamentos y seguros</b>. Cada 6 horas recolecta, clasifica, prioriza y publica sin intervención manual.",
   "clips":[{"src":"assets/radar-demo.mp4","poster":"assets/radar-demo.jpg","label":"Recorrido por la página","cap":"Indicadores económicos del BCRD, prioridad alta, regulación y noticias clasificadas en la página pública."}],
   "sections":[
@@ -1048,6 +1058,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Investigación · Salud pública y economía",
   "title":"¿La corrupción mata? Los datos dicen que sí.",
   "tags":[["ec","Economía"],["sa","Salud"],["ri","Riesgo"]],
+  "origen":{"label": "Datos públicos", "base": "V-Dem y Banco Mundial"},
   "lead":"Como parte del Máster en Gestión de Sistemas de Salud (PUCMM), inicié una investigación para validar una premisa básica: \"a mayor PIB, mejores resultados en salud\". Al cruzar crecimiento económico y mortalidad cardiovascular en República Dominicana, los datos mostraban inconsistencias. La respuesta estaba en lo que pasa cuando la corrupción bloquea esa inversión.",
   "gallery":[
     {"img":"assets/corrupcion-1.png","cap":"Años de vida \"robados\" por la corrupción — RD encabeza la lista (-7.8 años)."},
@@ -1076,6 +1087,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Serie · Riesgos naturales de La Española",
   "title":"La Española bajo riesgo: sismos y huracanes",
   "tags":[["ri","Riesgo"],["geo","Geoespacial"]],
+  "origen":{"label": "Datos públicos", "base": "USGS y NOAA"},
   "lead":"Empezó con una curiosidad: el 27 de septiembre de 2026 tembló cerca de Guaymate (4.8) y casi nadie se enteró. ¿Cuánto tiembla realmente en la isla? De ahí nació una serie personal con datos públicos sobre los riesgos naturales de La Española: cada entrega reúne décadas de registros, los cruza con la geografía y los cuenta en un mapa y una animación año por año, con scripts en R que cualquiera puede replicar. La pregunta de fondo es de riesgo y de seguros: no si volverá a pasar, sino cuándo, y si estamos protegidos.",
   "clips":[
     {"src":"assets/sismos.mp4","poster":"assets/sismos-poster.jpg","label":"La isla que tiembla","cap":"Sismos de magnitud 4 o más en La Española, 1975–2026 (USGS)."},
@@ -1113,6 +1125,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Software estadístico · Paquete de R",
   "title":"joinless — Paquete de R",
   "tags":[["ml","ML"],["sw","Software"]],
+  "origen":{"label": "Software publicado", "base": "Paquete de R de código abierto"},
   "lead":"joinless es un paquete de R, publicado, que estima la relación entre dos conjuntos de datos mediante muestreo aleatorio. Nació de un problema común al trabajar con datos del mundo real: unir tablas que no comparten una llave perfecta. En vez de forzar una unión exacta, estima estadísticamente la correspondencia entre los datasets.",
   "sections":[
     {"h":"Para qué sirve","items":[
@@ -1155,7 +1168,9 @@ const mc=document.getElementById('modal-content');
 const ICON={
   gh:'<svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>',
   ext:'<svg viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>',
-  doc:'<svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>'
+  doc:'<svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>',
+  db:'<svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>',
+  pkg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>'
 };
 let lastFocus=null;
 function tagHtml(tags){return tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}
@@ -1165,6 +1180,7 @@ function buildModal(key){
   const d=DATA[key];
   modalBox.style.setProperty('--sig',d.sig||'var(--cyan)');
   let html=`<div class="m-eyebrow">${d.eyebrow}</div><h3 id="modal-title">${d.title}</h3><div class="m-tags">${tagHtml(d.tags)}</div>`;
+  if(d.origen) html+=`<div class="m-origin"><span class="origin">${d.origen.label.startsWith('Software')?ICON.pkg:ICON.db} ${d.origen.label}</span><span>Base: ${d.origen.base}</span></div>`;
   html+=`<div class="m-body"><p>${d.lead}</p>`;
   if(d.clips){
     if(d.clips.length>1){
@@ -1176,6 +1192,7 @@ function buildModal(key){
     html+=`<div class="m-gallery ${d.galleryCols===1?'':'g2'}">`+d.gallery.map(g=>`<figure><img loading="lazy" src="${g.img}" alt=""><figcaption>${g.cap}</figcaption></figure>`).join('')+`</div>`;
   }
   d.sections.forEach(s=>{html+=`<h4>${s.h}</h4><ul>`+s.items.map(it=>`<li>${it}</li>`).join('')+`</ul>`;});
+  if(d.sintetico) html+=`<div class="m-note">Los datos son sintéticos y replican un problema real de seguros. Ninguna cifra viene de una empresa.</div>`;
   if(d.note) html+=`<div class="m-note">${d.note}</div>`;
   html+=`<h4>Herramientas</h4><p>${d.stack}</p>`;
   if(d.src) html+=`<div class="m-src">${d.src}</div>`;
