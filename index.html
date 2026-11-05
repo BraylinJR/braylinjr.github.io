@@ -30,6 +30,7 @@
   --blue:#4aa3ff; --cyan:#42e8ff; --green:#3ee59f; --red:#ff6b6b; --gold:#ffd166; --violet:#a78bfa; --orange:#f4845f;
   --shadow:0 28px 80px rgba(0,0,0,.45);
   --r:24px;
+  --sec-gap:clamp(72px,10vw,140px);
   --serif:"Fraunces",Georgia,serif;
   --sans:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,monospace;
@@ -57,6 +58,8 @@ body::after{
   mask-image:radial-gradient(circle at 50% 18%,#000,transparent 88%);
 }
 a{color:inherit;text-decoration:none}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
 img,video{max-width:100%;display:block}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
@@ -104,7 +107,7 @@ header{position:relative;padding:84px 0 58px;overflow:hidden}
 header>.wrap{position:relative;z-index:1}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .eyebrow::before{content:"";width:30px;height:1px;background:var(--cyan);opacity:.8}
-.hero-h{font-family:var(--serif);font-weight:400;font-size:clamp(46px,8.5vw,106px);line-height:.95;letter-spacing:-.02em;margin:24px 0 0}
+.hero-h{font-family:var(--serif);font-weight:400;font-size:clamp(44px,8.5vw,106px);line-height:.95;letter-spacing:-.02em;margin:24px 0 0}
 .hero-h em{font-style:italic;background:linear-gradient(120deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-sub{max-width:690px;margin-top:26px;font-size:clamp(16px,2vw,20px);color:var(--muted);font-weight:400}
 .hero-sub b{color:var(--text);font-weight:600}
@@ -159,7 +162,7 @@ section.pulso{padding:0;display:grid;grid-template-rows:1fr;transition:grid-temp
 @media(prefers-reduced-motion:reduce){section.pulso{transition:none}.pk.sk,.live-dot{animation:none}}
 
 /* ---------- SECTION HEAD ---------- */
-section{padding:74px 0;position:relative}
+section{padding:calc(var(--sec-gap)/2) 0;position:relative}
 .shead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
 .shead .idx{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:.18em}
 .shead h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.02;letter-spacing:-.015em;margin-top:10px}
@@ -358,7 +361,7 @@ button.mini{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 .cert .c-s{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-left:auto;white-space:nowrap}
 
 /* ---------- CONTACT ---------- */
-.contact{border-top:1px solid var(--line-soft);padding:90px 0 60px}
+.contact{border-top:1px solid var(--line-soft);padding:calc(var(--sec-gap)/2) 0 60px}
 .contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6vw,68px);line-height:1;letter-spacing:-.02em;max-width:820px}
 .contact h2 em{font-style:italic;background:linear-gradient(120deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
 .contact .lead{color:var(--muted);max-width:620px;margin-top:20px;font-size:16px}
