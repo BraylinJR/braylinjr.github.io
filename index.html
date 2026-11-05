@@ -434,7 +434,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 .m-gallery.g2{grid-template-columns:repeat(2,1fr)}
 @media(max-width:560px){.m-gallery.g2{grid-template-columns:1fr}}
 .m-gallery figure{border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;background:#fff}
-.m-gallery img{width:100%}
+.m-gallery img{width:100%;height:auto}
 .m-gallery figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);padding:9px 12px;background:var(--panel-2);border-top:1px solid var(--line-soft)}
 .m-video{border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;margin:8px 0 6px;background:#000}
 .m-video video{width:100%;display:block;max-height:68vh;object-fit:contain;background:#000}
@@ -590,7 +590,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <!-- RADAR -->
       <article class="card rev" data-areas="seguros farmacia economia" style="--sig:var(--cyan)">
         <div class="card-media" data-open="radar" role="button" tabindex="0" aria-label="Ver caso: Radar Farma &amp; Seguros RD">
-          <img src="assets/radar.jpg" alt="Radar Farma & Seguros RD — página pública" loading="lazy">
+          <img width="1280" height="720" src="assets/radar.jpg" alt="Radar Farma & Seguros RD — página pública" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
           <div class="new-tag">EN VIVO</div>
           <div class="media-tag">PYTHON · GITHUB ACTIONS · PÁGINA PÚBLICA</div>
@@ -617,7 +617,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <!-- XPHARMACARE -->
       <article class="card rev" data-areas="farmacia seguros" style="--sig:var(--green)">
         <div class="card-media" data-open="xpharma" role="button" tabindex="0" aria-label="Ver caso: XPharmaCare — Inteligencia de Cliente en Salud">
-          <img src="assets/mando.jpg" alt="XPharmaCare — Centro de Mando" loading="lazy">
+          <img width="1100" height="619" src="assets/mando.jpg" alt="XPharmaCare — Centro de Mando" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
           <div class="media-tag">PLATAFORMA · 4 MÓDULOS · POWER BI</div>
         </div>
@@ -641,7 +641,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <!-- RIESGO CARTERA -->
       <article class="card rev" data-areas="seguros economia" style="--sig:var(--blue)">
         <div class="card-media" data-open="riesgocartera" role="button" tabindex="0" aria-label="Ver caso: Motor de Inteligencia de Riesgo de Cartera">
-          <img src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
+          <img width="1280" height="720" src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
           <div class="media-tag">STREAMLIT · SHAP · ESCENARIO MACRO</div>
         </div>
@@ -665,8 +665,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <!-- RIESGOS NATURALES -->
       <article class="card rev" data-areas="seguros" style="--sig:var(--orange)">
         <div class="card-media split" data-open="naturales" role="button" tabindex="0" aria-label="Ver caso: La Española bajo riesgo: sismos y huracanes">
-          <img src="assets/sismos.gif" alt="Animación de sismos en La Española" loading="lazy">
-          <img src="assets/huracanes.gif" alt="Animación de huracanes cerca de La Española" loading="lazy">
+          <img width="1080" height="1080" src="assets/sismos.gif" alt="Animación de sismos en La Española" loading="lazy">
+          <img width="1080" height="1080" src="assets/huracanes.gif" alt="Animación de huracanes cerca de La Española" loading="lazy">
           <div class="new-tag" data-pub="2026-10-03">NUEVO</div>
           <div class="media-tag">SERIE · R · USGS + NOAA</div>
         </div>
@@ -692,7 +692,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <!-- CORRUPCION -->
       <article class="card rev" data-areas="farmacia economia" style="--sig:var(--gold)">
         <div class="card-media" data-open="corrupcion" role="button" tabindex="0" aria-label="Ver caso: ¿La corrupción mata? Los datos dicen que sí.">
-          <img class="chart-dark" src="assets/corrupcion-1.png" alt="Gráfico: años de vida robados por la corrupción, República Dominicana encabeza la lista" loading="lazy">
+          <img width="1280" height="768" class="chart-dark" src="assets/corrupcion-1.png" alt="Gráfico: años de vida robados por la corrupción, República Dominicana encabeza la lista" loading="lazy">
           <div class="play"><span><svg class="ext" viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span></div>
           <div class="media-tag">INVESTIGACIÓN · PYTHON (OLS)</div>
         </div>
@@ -1251,10 +1251,10 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "origen":{"label": "Datos públicos", "base": "V-Dem y Banco Mundial"},
   "lead":"Como parte del Máster en Gestión de Sistemas de Salud (PUCMM), inicié una investigación para validar una premisa básica: \"a mayor PIB, mejores resultados en salud\". Al cruzar crecimiento económico y mortalidad cardiovascular en República Dominicana, los datos mostraban inconsistencias. La respuesta estaba en lo que pasa cuando la corrupción bloquea esa inversión.",
   "gallery":[
-    {"img":"assets/corrupcion-1.png","cap":"Años de vida \"robados\" por la corrupción — RD encabeza la lista (-7.8 años)."},
-    {"img":"assets/corrupcion-2.png","cap":"Vidas perdidas anualmente por corrupción (mortalidad cardiovascular)."},
-    {"img":"assets/corrupcion-3.png","cap":"Mapa de calor: correlación entre corrupción y salud pública."},
-    {"img":"assets/corrupcion-4.png","cap":"Misma matriz de correlación, escala monocromática."}
+    {"img":"assets/corrupcion-1.png","w":1280,"h":768,"cap":"Años de vida \"robados\" por la corrupción — RD encabeza la lista (-7.8 años)."},
+    {"img":"assets/corrupcion-2.png","w":1280,"h":768,"cap":"Vidas perdidas anualmente por corrupción (mortalidad cardiovascular)."},
+    {"img":"assets/corrupcion-3.png","w":907,"h":732,"cap":"Mapa de calor: correlación entre corrupción y salud pública."},
+    {"img":"assets/corrupcion-4.png","w":907,"h":732,"cap":"Misma matriz de correlación, escala monocromática."}
   ],
   "sections":[
     {"h":"El mecanismo del daño","items":[
@@ -1284,8 +1284,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
     {"src":"assets/huracanes.mp4","poster":"assets/huracanes-poster.jpg","label":"Bajo la ruta de los huracanes","cap":"Tormentas que pasaron a menos de 100 km de la isla desde 1950 (IBTrACS, NOAA)."}
   ],
   "gallery":[
-    {"img":"assets/sismos-mapa.jpg","cap":"Mapa de sismos con los más fuertes señalados."},
-    {"img":"assets/huracanes-mapa.jpg","cap":"Trayectorias: en color, los huracanes más fuertes según su fuerza en cada tramo."}
+    {"img":"assets/sismos-mapa.jpg","w":1280,"h":800,"cap":"Mapa de sismos con los más fuertes señalados."},
+    {"img":"assets/huracanes-mapa.jpg","w":1280,"h":800,"cap":"Trayectorias: en color, los huracanes más fuertes según su fuerza en cada tramo."}
   ],
   "sections":[
     {"h":"La isla que tiembla","items":[
@@ -1475,7 +1475,7 @@ function buildModal(key){
     }else html+=clipHtml(d.clips[0]);
   }
   if(d.gallery){
-    html+=`<div class="m-gallery ${d.galleryCols===1?'':'g2'}">`+d.gallery.map(g=>`<figure><img loading="lazy" src="${g.img}" alt=""><figcaption>${g.cap}</figcaption></figure>`).join('')+`</div>`;
+    html+=`<div class="m-gallery ${d.galleryCols===1?'':'g2'}">`+d.gallery.map(g=>`<figure><img loading="lazy" src="${g.img}" ${g.w?`width="${g.w}" height="${g.h}"`:''} alt=""><figcaption>${g.cap}</figcaption></figure>`).join('')+`</div>`;
   }
   d.sections.forEach(s=>{html+=`<h4>${s.h}</h4><ul>`+s.items.map(it=>`<li>${it}</li>`).join('')+`</ul>`;});
   if(d.sintetico) html+=`<div class="m-note">Los datos son sintéticos y replican un problema real de seguros. Ninguna cifra viene de una empresa.</div>`;
