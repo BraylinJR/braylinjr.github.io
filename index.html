@@ -1380,11 +1380,19 @@ const chips=document.querySelectorAll('.chip');
 const cards=document.querySelectorAll('.card');
 const count=f=>[...cards].filter(c=>f==='all'||c.dataset.areas.split(' ').includes(f)).length;
 chips.forEach(c=>{c.querySelector('.n').textContent=count(c.dataset.f)});
-function applyFilter(f){
-  chips.forEach(c=>{const on=c.dataset.f===f;c.classList.toggle('active',on);c.setAttribute('aria-pressed',on)});
-  cards.forEach(card=>card.classList.toggle('hide',!(f==='all'||card.dataset.areas.split(' ').includes(f))));
+cards.forEach((c,i)=>{c.style.viewTransitionName='caso-'+i});
+function applyFilter(f,guardar=true){
+  const run=()=>{
+    chips.forEach(c=>{const on=c.dataset.f===f;c.classList.toggle('active',on);c.setAttribute('aria-pressed',on)});
+    cards.forEach(card=>card.classList.toggle('hide',!(f==='all'||card.dataset.areas.split(' ').includes(f))));
+  };
+  if(guardar&&document.startViewTransition&&!reduceMotion())document.startViewTransition(run);else run();
+  if(guardar){const u=new URL(location.href);if(f==='all')u.searchParams.delete('f');else u.searchParams.set('f',f);history.replaceState(null,'',u)}
 }
 chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.f)));
+// Filtro compartible: ?f=seguros
+const f0=new URLSearchParams(location.search).get('f');
+if(f0&&[...chips].some(c=>c.dataset.f===f0))applyFilter(f0,false);
 
 // Modal de casos
 const DATA=JSON.parse(document.getElementById('proj-data').textContent);
