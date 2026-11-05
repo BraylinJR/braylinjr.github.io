@@ -73,6 +73,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .navlinks a.gh{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:100px;padding:7px 13px;color:var(--text)}
 .navlinks a.gh:hover{border-color:var(--cyan)}
 .navlinks a.gh svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
+.nav-btns{display:inline-flex;gap:8px;align-items:center}
 .menu-btn{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;place-items:center}
 .menu-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
 @media(max-width:1180px){.brand .full{display:none}}
@@ -83,7 +84,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
   nav.open .navlinks{display:flex}
   .navlinks a{padding:12px 0;width:100%;font-size:15px;border-bottom:1px solid var(--line-soft)}
   .navlinks a::after{display:none}
-  .navlinks a.gh{width:auto;margin-top:14px;border-bottom:1px solid var(--line)}
+  .navlinks a.gh{width:auto;margin-top:14px;border-bottom:1px solid var(--line);padding:9px 15px}
 }
 
 /* ---------- HERO ---------- */
@@ -360,15 +361,15 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
     </a>
     <button class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navlinks"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <div class="navlinks" id="navlinks">
-      <a href="#areas">Áreas</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#premios">Premios</a>
-      <a href="#docencia">Docencia</a>
+      <a href="#proyectos">Casos</a>
+      <a href="#conferencias">Conferencias</a>
       <a href="#trayectoria">Trayectoria</a>
-      <a href="#educacion">Educación</a>
-      <a href="#stack">Stack</a>
+      <a href="#educacion">Formación</a>
       <a href="#contacto">Contacto</a>
-      <a class="gh" href="https://github.com/braylinjr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+      <span class="nav-btns">
+      <a class="gh cv" href="assets/Braylin_Jimenez_CV.pdf" download="Braylin_Jimenez_CV.pdf"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>CV</a>
+      <a class="gh"href="https://github.com/braylinjr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+      </span>
     </div>
   </div>
 </nav>
