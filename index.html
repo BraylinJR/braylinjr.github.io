@@ -25,7 +25,7 @@
 <style>
 :root{
   --bg:#07111f; --bg-2:#0b1728; --panel:#0f2138; --panel-2:#102842;
-  --text:#e8f1ff; --muted:#9fb2cc; --muted-2:#6e8099; --white:#fff;
+  --text:#e8f1ff; --muted:#9fb2cc; --muted-2:#8193ad; --white:#fff;
   --line:rgba(255,255,255,.12); --line-soft:rgba(255,255,255,.07);
   --blue:#4aa3ff; --cyan:#42e8ff; --green:#3ee59f; --red:#ff6b6b; --gold:#ffd166; --violet:#a78bfa; --orange:#f4845f;
   --shadow:0 28px 80px rgba(0,0,0,.45);
@@ -62,6 +62,10 @@ h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
 img,video{max-width:100%;display:block}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.card-media:focus-visible{outline-offset:-3px;border-radius:var(--r) var(--r) 0 0}
+main:focus{outline:none}
+.skip{position:absolute;left:16px;top:-60px;z-index:300;background:var(--cyan);color:#07111f;font-family:var(--mono);font-size:13px;font-weight:600;padding:10px 16px;border-radius:10px;transition:top .2s}
+.skip:focus{top:12px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 @media(max-width:560px){.wrap{padding:0 18px}}
 
@@ -437,6 +441,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 </style>
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 
 <nav id="nav">
   <div class="wrap">
@@ -460,6 +465,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   </div>
   <div class="progress" aria-hidden="true"></div>
 </nav>
+
+<main id="contenido" tabindex="-1">
 
 <!-- HERO -->
 <header id="top">
@@ -525,7 +532,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- LINCE -->
       <article class="card rev" data-areas="seguros" style="--sig:var(--red)">
-        <div class="card-media" data-open="lince">
+        <div class="card-media" data-open="lince" role="button" tabindex="0" aria-label="Ver caso: Lince — Fraude en canales de venta de seguros">
           <div class="art" style="background:radial-gradient(circle at 50% 40%,#16243a,#0a1322)">
             <svg viewBox="0 0 240 135" aria-hidden="true">
               <g stroke="#9fb2cc" stroke-width=".8" opacity=".45">
@@ -567,7 +574,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- RADAR -->
       <article class="card rev" data-areas="seguros farmacia economia" style="--sig:var(--cyan)">
-        <div class="card-media" data-open="radar">
+        <div class="card-media" data-open="radar" role="button" tabindex="0" aria-label="Ver caso: Radar Farma &amp; Seguros RD">
           <img src="assets/radar.jpg" alt="Radar Farma & Seguros RD — página pública" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
           <div class="new-tag">EN VIVO</div>
@@ -594,7 +601,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- XPHARMACARE -->
       <article class="card rev" data-areas="farmacia seguros" style="--sig:var(--green)">
-        <div class="card-media" data-open="xpharma">
+        <div class="card-media" data-open="xpharma" role="button" tabindex="0" aria-label="Ver caso: XPharmaCare — Inteligencia de Cliente en Salud">
           <img src="assets/mando.jpg" alt="XPharmaCare — Centro de Mando" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
           <div class="media-tag">PLATAFORMA · 4 MÓDULOS · POWER BI</div>
@@ -618,7 +625,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- RIESGO CARTERA -->
       <article class="card rev" data-areas="seguros economia" style="--sig:var(--blue)">
-        <div class="card-media" data-open="riesgocartera">
+        <div class="card-media" data-open="riesgocartera" role="button" tabindex="0" aria-label="Ver caso: Motor de Inteligencia de Riesgo de Cartera">
           <img src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
           <div class="media-tag">STREAMLIT · SHAP · ESCENARIO MACRO</div>
@@ -642,7 +649,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- RIESGOS NATURALES -->
       <article class="card rev" data-areas="seguros" style="--sig:var(--orange)">
-        <div class="card-media split" data-open="naturales">
+        <div class="card-media split" data-open="naturales" role="button" tabindex="0" aria-label="Ver caso: La Española bajo riesgo: sismos y huracanes">
           <img src="assets/sismos.gif" alt="Animación de sismos en La Española" loading="lazy">
           <img src="assets/huracanes.gif" alt="Animación de huracanes cerca de La Española" loading="lazy">
           <div class="new-tag" data-pub="2026-10-03">NUEVO</div>
@@ -669,7 +676,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- CORRUPCION -->
       <article class="card rev" data-areas="farmacia economia" style="--sig:var(--gold)">
-        <div class="card-media" data-open="corrupcion">
+        <div class="card-media" data-open="corrupcion" role="button" tabindex="0" aria-label="Ver caso: ¿La corrupción mata? Los datos dicen que sí.">
           <img class="chart-dark" src="assets/corrupcion-1.png" alt="Gráfico: años de vida robados por la corrupción, República Dominicana encabeza la lista" loading="lazy">
           <div class="play"><span><svg class="ext" viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span></div>
           <div class="media-tag">INVESTIGACIÓN · PYTHON (OLS)</div>
@@ -692,7 +699,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
       <!-- JOINLESS -->
       <article class="card rev" data-areas="software" style="--sig:var(--violet)">
-        <div class="card-media" data-open="joinless">
+        <div class="card-media" data-open="joinless" role="button" tabindex="0" aria-label="Ver caso: joinless — Paquete de R">
           <div class="art" style="background:linear-gradient(135deg,#0b1728,#102842)">
             <svg viewBox="0 0 200 110" aria-hidden="true">
               <g fill="none" stroke="#a78bfa" stroke-width="1.2" opacity=".95">
@@ -1067,6 +1074,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
     <footer><span>BRAYLIN A. JIMÉNEZ REYNOSO · IA Y DATOS PARA SEGUROS Y FARMACIA</span><span>© 2026 · HECHO CON DATOS</span></footer>
   </div>
 </section>
+
+</main>
 
 <!-- MODAL -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -1520,6 +1529,10 @@ mCopy.addEventListener('click',async()=>{
 mPrev.addEventListener('click',()=>irA(-1));
 mNext.addEventListener('click',()=>irA(1));
 document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>openModal(el.dataset.open)));
+// Portadas con role="button": Enter y Espacio abren el caso
+document.querySelectorAll('[role="button"][data-open]').forEach(el=>el.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(el.dataset.open)}
+}));
 modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
 document.addEventListener('keydown',e=>{
   if(!modal.classList.contains('open'))return;
