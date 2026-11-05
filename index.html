@@ -253,6 +253,11 @@ section{padding:calc(var(--sec-gap)/2) 0;position:relative}
 .card .pitch{font-size:14.5px;color:#c3d0e4;line-height:1.55}
 .kpis{display:flex;flex-wrap:wrap;gap:0;margin-top:4px;border-top:1px solid var(--line-soft)}
 .kpi{padding:13px 16px 4px 0;margin-right:16px}
+@media(max-width:560px){
+  .kpis{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}
+  .kpi{margin-right:0;padding-right:0}
+  .card-body{padding:20px 18px 22px}
+}
 .kpi .k{font-family:var(--serif);font-size:24px;line-height:1}
 .kpi .kl{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 .card-foot{margin-top:auto;padding-top:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
