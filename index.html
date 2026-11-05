@@ -9,6 +9,7 @@
 <meta name="theme-color" content="#07111f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_DO">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="Braylin Jiménez · IA y datos para seguros y farmacia">
 <meta property="og:description" content="Economista y científico de datos en Santo Domingo. Llevo la IA a producción en seguros y farmacia: 8 modelos en producción, detección de fraude y analítica del sector en República Dominicana.">
 <meta property="og:url" content="https://braylinjr.github.io/">
@@ -17,6 +18,9 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Braylin Jiménez · IA y datos para seguros y farmacia · 8 modelos en producción, RD$2M+ en primas, 3x más aciertos">
 <link rel="canonical" href="https://braylinjr.github.io/">
+<link rel="alternate" hreflang="es" href="https://braylinjr.github.io/">
+<link rel="alternate" hreflang="en" href="https://braylinjr.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://braylinjr.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Braylin Jiménez · IA y datos para seguros y farmacia">
 <meta name="twitter:description" content="Economista y científico de datos en Santo Domingo. Llevo la IA a producción en seguros y farmacia: 8 modelos en producción, detección de fraude y analítica del sector en República Dominicana.">
@@ -33,7 +37,13 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1b2a'/%3E%3Crect x='5' y='20' width='4' height='7' rx='1' fill='%2300c9d4'/%3E%3Crect x='11' y='14' width='4' height='13' rx='1' fill='%2300c9d4'/%3E%3Crect x='17' y='9' width='4' height='18' rx='1' fill='%2300c9d4'/%3E%3Crect x='23' y='5' width='4' height='22' rx='1' fill='%2300c9d4' opacity='.6'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="assets/apple-icon.png">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+// JS activo + idioma inicial: ?lang= → elección guardada → idioma del navegador
+(function(d){d.classList.add('js');var l=null;try{l=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(l!=='en'&&l!=='es'){try{l=localStorage.getItem('idioma')}catch(e){}}
+if(l!=='en'&&l!=='es'){l=String((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().indexOf('en')===0?'en':'es'}
+window.IDIOMA0=l;if(l==='en'){d.classList.add('i18n-pend');setTimeout(function(){d.classList.remove('i18n-pend')},1500)}})(document.documentElement);
+</script>
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,12 +116,22 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
   .progress{animation:progreso linear both;animation-timeline:scroll(root)}
   @keyframes progreso{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 }
+/* Selector de idioma */
+.navlinks{margin-left:auto}
+.lang{display:inline-flex;align-items:center;margin-left:16px;border:1px solid var(--line);border-radius:100px;padding:2px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em}
+.lang button{font:inherit;letter-spacing:inherit;color:var(--muted);background:transparent;border:0;border-radius:100px;padding:5px 9px;cursor:pointer;transition:color .2s,background .2s}
+.lang button:hover{color:var(--text)}
+.lang button[aria-pressed="true"]{color:var(--text);background:rgba(66,232,255,.16)}
+.lang button:focus-visible{outline:2px solid var(--cyan);outline-offset:1px}
+html:not(.js) .lang{display:none}
+html.i18n-pend body{visibility:hidden}
 .menu-btn{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;place-items:center}
 .menu-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
 @media(max-width:1180px){.brand .full{display:none}}
 @media(min-width:1181px){.brand .short{display:none}}
 @media(max-width:960px){
-  .menu-btn{display:grid}
+  .menu-btn{display:grid;order:3}
+  .lang{order:2;margin-left:auto;margin-right:10px}
   .navlinks{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;padding:8px 18px 18px;background:rgba(7,17,31,.97);border-bottom:1px solid var(--line-soft)}
   nav.open .navlinks{display:flex}
   .navlinks a{padding:12px 0;width:100%;font-size:15px;border-bottom:1px solid var(--line-soft)}
@@ -499,6 +519,10 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <a class="gh"href="https://github.com/braylinjr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
       </span>
     </div>
+    <div class="lang" role="group" aria-label="Idioma · Language">
+      <button type="button" data-lang="es" lang="es" aria-label="Español" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+    </div>
   </div>
   <div class="progress" aria-hidden="true"></div>
 </nav>
@@ -511,9 +535,9 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   <div class="red-fade" aria-hidden="true"></div>
   <div class="wrap">
     <div class="eyebrow rev">IA Y DATOS PARA SEGUROS Y FARMACIA — SANTO DOMINGO, RD</div>
-    <h1 class="hero-h rev">Datos que se vuelven <em>decisiones</em>.</h1>
-    <p class="hero-sub rev">Soy <b>Braylin Jiménez</b>, economista y científico de datos. Llevo la IA a producción en seguros y farmacia en República Dominicana. En Humano Seguros lidero la inteligencia de clientes con <b>8 modelos en producción</b> que han generado <b>más de RD$2M en primas</b> y aciertan hasta <b>3 veces más</b> que la segmentación tradicional.</p>
-    <div class="rev"><span class="now"><i></i><span><b>Coordinador de Inteligencia de Clientes</b> en Humano Seguros · Líder de la Escuela de Ciencia de Datos · Maestría en Gestión de Sistemas y Servicios de Salud (PUCMM) y Programa de Gestión de Seguros (UNIBE), en curso</span></span></div>
+    <h1 class="hero-h rev" data-i18n="hero-h">Datos que se vuelven <em>decisiones</em>.</h1>
+    <p class="hero-sub rev" data-i18n="hero-sub">Soy <b>Braylin Jiménez</b>, economista y científico de datos. Llevo la IA a producción en seguros y farmacia en República Dominicana. En Humano Seguros lidero la inteligencia de clientes con <b>8 modelos en producción</b> que han generado <b>más de RD$2M en primas</b> y aciertan hasta <b>3 veces más</b> que la segmentación tradicional.</p>
+    <div class="rev"><span class="now"><i></i><span data-i18n="now"><b>Coordinador de Inteligencia de Clientes</b> en Humano Seguros · Líder de la Escuela de Ciencia de Datos · Maestría en Gestión de Sistemas y Servicios de Salud (PUCMM) y Programa de Gestión de Seguros (UNIBE), en curso</span></span></div>
     <div class="cta-row rev">
       <a class="btn pri" href="#proyectos">Ver casos <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
       <a class="btn" href="#conferencias"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Invítame a hablar</a>
@@ -893,11 +917,11 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         <div class="org">Humano Seguros (Grupo Humano) · Distrito Nacional</div>
         <div class="desc">Lidero la estrategia de datos para optimizar la decisión ejecutiva y la retención en el sector asegurador.</div>
         <ul>
-          <li>Diseño y despliegue de <b>8 modelos predictivos en producción</b> (propensión, churn, cross-sell y scoring de comportamiento) que han generado <b>RD$2M+ en primas</b>, con un <b>lift de hasta 3x</b> frente a la segmentación tradicional; explicabilidad SHAP y documentación de supuestos y versiones.</li>
-          <li>Trabajo con <b>Auditoría Interna y Riesgos</b> para que los modelos respondan a riesgos reales del negocio, integrando fuentes estructuradas y no estructuradas.</li>
-          <li>Pipelines ETL a gran escala en R, SQL y Python: <b>1,257 h de eficiencia operativa al año</b>.</li>
-          <li><b>+70% de visibilidad ejecutiva</b> con la automatización de <b>52+ dashboards</b> de riesgo, retención y rentabilidad, y soluciones en <b>Power Apps</b> para la captura de datos operativos.</li>
-          <li>Líder de la <b>Escuela de Ciencia de Datos</b> (70+ colaboradores) y de la ruta Data Science del <b>Datathon Humano 2026</b>.</li>
+          <li data-i18n="tr1">Diseño y despliegue de <b>8 modelos predictivos en producción</b> (propensión, churn, cross-sell y scoring de comportamiento) que han generado <b>RD$2M+ en primas</b>, con un <b>lift de hasta 3x</b> frente a la segmentación tradicional; explicabilidad SHAP y documentación de supuestos y versiones.</li>
+          <li data-i18n="tr2">Trabajo con <b>Auditoría Interna y Riesgos</b> para que los modelos respondan a riesgos reales del negocio, integrando fuentes estructuradas y no estructuradas.</li>
+          <li data-i18n="tr3">Pipelines ETL a gran escala en R, SQL y Python: <b>1,257 h de eficiencia operativa al año</b>.</li>
+          <li data-i18n="tr4"><b>+70% de visibilidad ejecutiva</b> con la automatización de <b>52+ dashboards</b> de riesgo, retención y rentabilidad, y soluciones en <b>Power Apps</b> para la captura de datos operativos.</li>
+          <li data-i18n="tr5">Líder de la <b>Escuela de Ciencia de Datos</b> (70+ colaboradores) y de la ruta Data Science del <b>Datathon Humano 2026</b>.</li>
         </ul>
       </div>
       <div class="tnode">
@@ -906,9 +930,9 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         <div class="org">Sistema Único de Beneficiarios (SIUBEN)</div>
         <div class="desc">Análisis de Big Data poblacional con modelos de regresión y estadística inferencial para orientar la estrategia de política pública.</div>
         <ul>
-          <li>Rol clave en el <b>diseño metodológico</b> de proyectos interinstitucionales de alto impacto con <b>INDOTEL, MINERD y MEPyD</b>.</li>
-          <li>Pipelines ETL avanzados que mejoraron de forma notable la <b>calidad de los datos</b> y su preparación para la toma de decisiones.</li>
-          <li><b>Análisis de cohortes</b> para identificar patrones demográficos y socioeconómicos críticos.</li>
+          <li data-i18n="tr6">Rol clave en el <b>diseño metodológico</b> de proyectos interinstitucionales de alto impacto con <b>INDOTEL, MINERD y MEPyD</b>.</li>
+          <li data-i18n="tr7">Pipelines ETL avanzados que mejoraron de forma notable la <b>calidad de los datos</b> y su preparación para la toma de decisiones.</li>
+          <li data-i18n="tr8"><b>Análisis de cohortes</b> para identificar patrones demográficos y socioeconómicos críticos.</li>
         </ul>
       </div>
       <div class="tnode">
@@ -917,8 +941,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         <div class="org">Red Nacional de Cobros de Impagados</div>
         <div class="desc">Recuperación de cartera de alto volumen con estrategias de negociación basadas en datos.</div>
         <ul>
-          <li>Análisis de <b>patrones de mora y riesgo de impago</b> para priorizar gestiones y estructurar planes de pago personalizados.</li>
-          <li>Mejora de la tasa de recuperación y del flujo de caja con monitoreo riguroso de <b>KPIs financieros</b>.</li>
+          <li data-i18n="tr9">Análisis de <b>patrones de mora y riesgo de impago</b> para priorizar gestiones y estructurar planes de pago personalizados.</li>
+          <li data-i18n="tr10">Mejora de la tasa de recuperación y del flujo de caja con monitoreo riguroso de <b>KPIs financieros</b>.</li>
         </ul>
       </div>
       <div class="tnode">
@@ -927,8 +951,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         <div class="org">SaluDom</div>
         <div class="desc">Análisis financiero y control de ingresos para optimizar la liquidez de la empresa.</div>
         <ul>
-          <li>Analítica de datos para <b>auditar comisiones</b> y modelar flujos de pago.</li>
-          <li>Evaluación de riesgo financiero con <b>análisis de crédito estructurado</b> y cumplimiento fiscal y regulatorio (formatos 607 y 608).</li>
+          <li data-i18n="tr11">Analítica de datos para <b>auditar comisiones</b> y modelar flujos de pago.</li>
+          <li data-i18n="tr12">Evaluación de riesgo financiero con <b>análisis de crédito estructurado</b> y cumplimiento fiscal y regulatorio (formatos 607 y 608).</li>
         </ul>
       </div>
     </div>
@@ -1080,7 +1104,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 <!-- CONTACTO -->
 <section id="contacto" class="contact">
   <div class="wrap">
-    <h2 class="rev">Conversemos sobre <em>datos</em> y decisiones.</h2>
+    <h2 class="rev" data-i18n="contacto-h">Conversemos sobre <em>datos</em> y decisiones.</h2>
     <p class="lead rev">Abierto a conferencias, paneles, consultorías y formación de equipos en datos para seguros y farmacia.</p>
     <div class="clinks rev">
       <a class="clink primary" href="mailto:braylinjr1511@gmail.com">
@@ -1121,9 +1145,9 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
     <button class="modal-x" data-close aria-label="Cerrar">×</button>
     <div class="m-pad" id="modal-content"></div>
     <div class="m-nav">
-      <button type="button" class="m-navbtn" id="m-prev">← <span class="m-lbl">Caso </span>anterior</button>
+      <button type="button" class="m-navbtn" id="m-prev" data-i18n="m-prev">← <span class="m-lbl">Caso </span>anterior</button>
       <button type="button" class="m-navbtn m-copy" id="m-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copiar enlace</button>
-      <button type="button" class="m-navbtn" id="m-next"><span class="m-lbl">Caso </span>siguiente →</button>
+      <button type="button" class="m-navbtn" id="m-next" data-i18n="m-next"><span class="m-lbl">Caso </span>siguiente →</button>
     </div>
   </div>
   <div class="m-toast" id="m-toast" role="status" aria-live="polite"></div>
@@ -1352,7 +1376,309 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 }
 </script>
 
+<!-- Inglés: textos de la página (t), bloques con formato (h). El español vive en el HTML. -->
+<script id="i18n-en" type="application/json">
+{
+"title": "Braylin Jiménez · AI and data for insurance and pharma",
+"t": {
+"Saltar al contenido": "Skip to content",
+"Abrir menú": "Open menu",
+"Casos": "Cases",
+"Conferencias": "Speaking",
+"Trayectoria": "Experience",
+"Formación": "Education",
+"Contacto": "Contact",
+"IA Y DATOS PARA SEGUROS Y FARMACIA — SANTO DOMINGO, RD": "AI AND DATA FOR INSURANCE AND PHARMA — SANTO DOMINGO, DR",
+"Ver casos": "See cases",
+"Invítame a hablar": "Invite me to speak",
+"Descargar CV": "Download CV",
+"Modelos de IA en producción": "AI models in production",
+"Primas generadas con modelos": "Premiums generated with models",
+"Más aciertos que la segmentación tradicional": "More accurate than traditional segmentation",
+"Ahorro operativo al año": "Operating hours saved per year",
+"Colaboradores formados": "Employees trained",
+".º": "st",
+"Resultados en Humano Seguros, 2025–2026.": "Results at Humano Seguros, 2025–2026.",
+"Pulso del sector": "Industry pulse",
+"Indicadores en vivo desde el Radar Farma & Seguros RD": "Live indicators from the Radar Farma & Seguros RD",
+"Cargando datos…": "Loading data…",
+"Abrir el Radar →": "Open the Radar →",
+"01 / Casos": "01 / Cases",
+"Casos seleccionados": "Selected cases",
+"Casos de seguros, farmacia y salud, todos con código abierto. Cada uno indica de dónde salen sus datos.": "Insurance, pharma and health cases, all open source. Each one shows where its data comes from.",
+"Filtrar casos por sector": "Filter cases by sector",
+"Todos": "All",
+"Seguros": "Insurance",
+"Farmacia y salud": "Pharma and health",
+"Economía": "Economics",
+"Riesgo": "Risk",
+"IA generativa": "Generative AI",
+"Salud": "Health",
+"Automatización": "Automation",
+"Geoespacial": "Geospatial",
+"Datos sintéticos": "Synthetic data",
+"Datos públicos en vivo": "Live public data",
+"Datos públicos": "Public data",
+"Software publicado": "Published software",
+"Datos de ejemplo (IBM Telco)": "Sample data (IBM Telco)",
+"Datos públicos (BCRD)": "Public data (BCRD)",
+"Origen de los datos: Generados por el propio código del proyecto": "Data source: generated by the project's own code",
+"Origen de los datos: BCRD, reguladores y prensa": "Data source: BCRD, regulators and press",
+"Origen de los datos: Generados para el proyecto con contexto de República Dominicana": "Data source: generated for the project with Dominican Republic context",
+"Origen de los datos: Cartera y variables macro simuladas por el propio código": "Data source: portfolio and macro variables simulated by the project's own code",
+"Origen de los datos: USGS y NOAA": "Data source: USGS and NOAA",
+"Origen de los datos: V-Dem y Banco Mundial": "Data source: V-Dem and World Bank",
+"Origen de los datos: Paquete de R de código abierto": "Data source: open-source R package",
+"Publicado en GitHub": "Published on GitHub",
+"Ver caso: Lince — Fraude en canales de venta de seguros": "View case: Lince — Fraud in insurance sales channels",
+"Ver caso: Radar Farma & Seguros RD": "View case: Radar Farma & Seguros RD",
+"Ver caso: XPharmaCare — Inteligencia de Cliente en Salud": "View case: XPharmaCare — Healthcare Customer Intelligence",
+"Ver caso: Motor de Inteligencia de Riesgo de Cartera": "View case: Portfolio Risk Intelligence Engine",
+"Ver caso: La Española bajo riesgo: sismos y huracanes": "View case: Hispaniola at risk: earthquakes and hurricanes",
+"Ver caso: ¿La corrupción mata? Los datos dicen que sí.": "View case: Does corruption kill? The data says yes.",
+"Ver caso: joinless — Paquete de R": "View case: joinless — R package",
+"XGBOOST · SHAP · IA LOCAL (OLLAMA)": "XGBOOST · SHAP · LOCAL AI (OLLAMA)",
+"PYTHON · GITHUB ACTIONS · PÁGINA PÚBLICA": "PYTHON · GITHUB ACTIONS · PUBLIC PAGE",
+"PLATAFORMA · 4 MÓDULOS · POWER BI": "PLATFORM · 4 MODULES · POWER BI",
+"STREAMLIT · SHAP · ESCENARIO MACRO": "STREAMLIT · SHAP · MACRO SCENARIO",
+"SERIE · R · USGS + NOAA": "SERIES · R · USGS + NOAA",
+"INVESTIGACIÓN · PYTHON (OLS)": "RESEARCH · PYTHON (OLS)",
+"PAQUETE DE R · PUBLICADO": "R PACKAGE · PUBLISHED",
+"EN VIVO": "LIVE",
+"NUEVO": "NEW",
+"DIRECTOR → ENCARGADO → INTERMEDIARIO": "DIRECTOR → MANAGER → INTERMEDIARY",
+"Radar Farma & Seguros RD — página pública": "Radar Farma & Seguros RD — public page",
+"XPharmaCare — Centro de Mando": "XPharmaCare — Command Center",
+"Motor de Riesgo de Cartera: variables que mueven el riesgo (SHAP) y poder de separación por decil": "Portfolio Risk Engine: variables that drive risk (SHAP) and separation power by decile",
+"Animación de sismos en La Española": "Animation of earthquakes in Hispaniola",
+"Animación de huracanes cerca de La Española": "Animation of hurricanes near Hispaniola",
+"Gráfico: años de vida robados por la corrupción, República Dominicana encabeza la lista": "Chart: years of life stolen by corruption, with the Dominican Republic at the top of the list",
+"Lince — Fraude en canales de venta de seguros": "Lince — Fraud in insurance sales channels",
+"Ataca un fraude poco estudiado: intermediarios que emiten pólizas, cobran la comisión y las dejan cancelar en 90 días. Un modelo XGBoost a nivel de intermediario señala a los sospechosos con su porqué (SHAP) y un agente de IA que corre 100% en local redacta el informe de cada caso.": "Tackles an under-studied fraud: intermediaries who issue policies, collect the commission and let them lapse within 90 days. An intermediary-level XGBoost model flags suspects with the reasons why (SHAP), and an AI agent that runs 100% locally writes the report for each case.",
+"AUC-PR (azar: 0.08)": "AUC-PR (random: 0.08)",
+"Pólizas sintéticas": "Synthetic policies",
+"Intermediarios evaluados": "Intermediaries assessed",
+"Ver caso completo": "View full case",
+"Repositorio": "Repository",
+"El pulso del mercado farmacéutico y asegurador dominicano en una sola página: indicadores del Banco Central, normas de los reguladores y titulares de prensa, clasificados y priorizados con reglas públicas. Se actualiza solo cada 6 horas, sin intervención manual.": "The pulse of the Dominican pharma and insurance market on a single page: Central Bank indicators, regulators' rules and press headlines, classified and prioritized with public rules. It updates itself every 6 hours, with no manual work.",
+"Fuentes monitoreadas": "Sources monitored",
+"Indicadores BCRD": "BCRD indicators",
+"c/6 h": "every 6 h",
+"Actualización automática": "Automatic updates",
+"Ver en vivo": "See it live",
+"XPharmaCare — Inteligencia de Cliente en Salud": "XPharmaCare — Healthcare Customer Intelligence",
+"Plataforma integral que convierte 8,000 clientes y RD$97.3M en ingresos en decisiones concretas de retención: predice el abandono, mide su valor económico, entiende al paciente crónico y dirige la inversión solo a quien la oferta hace cambiar de opinión.": "An end-to-end platform that turns 8,000 customers and RD$97.3M in revenue into concrete retention decisions: it predicts churn, measures its economic value, understands chronic patients and targets spending only at the customers the offer actually persuades.",
+"Ingreso analizado": "Revenue analyzed",
+"ROI de retención": "Retention ROI",
+"Ahorro vs. \"todos\"": "Savings vs. \"everyone\"",
+"Adherencia global": "Overall adherence",
+"Motor de Inteligencia de Riesgo de Cartera": "Portfolio Risk Intelligence Engine",
+"Sistema de detección temprana de deterioro que evalúa 20,000 pólizas activas en tiempo real. Integra un simulador de escenario macro (inflación, tasa de política monetaria, desempleo e IMAE), explicabilidad SHAP por póliza y descarga operativa para el equipo de gestión.": "An early-warning system for portfolio deterioration that scores 20,000 active policies in real time. It combines a macro scenario simulator (inflation, monetary policy rate, unemployment and the IMAE activity index), per-policy SHAP explanations and an operational download for the management team.",
+"Prima analizada": "Premium analyzed",
+"Lift top decil": "Top-decile lift",
+"Prima en riesgo": "Premium at risk",
+"Pólizas en alerta": "Policies on alert",
+"La Española bajo riesgo: sismos y huracanes": "Hispaniola at risk: earthquakes and hurricanes",
+"Serie de visualización con datos públicos que muestra, año por año, dónde ha temblado la isla y por dónde han pasado las tormentas. Mapas y animaciones en R, con la lectura cuidadosa que exige el dato: más registros no siempre significa más riesgo. Una base para pensar el riesgo catastrófico en los seguros del país.": "A visualization series built on public data that shows, year by year, where the island has shaken and where storms have passed. Maps and animations in R, read with the care the data demands: more records do not always mean more risk. A starting point for thinking about catastrophe risk in the country's insurance industry.",
+"Sismos M4+ desde 1975": "M4+ earthquakes since 1975",
+"Ocurrieron en el mar": "Occurred at sea",
+"Tormentas a <100 km": "Storms within 100 km",
+"Ver serie completa": "View full series",
+"Sismos": "Earthquakes",
+"Huracanes": "Hurricanes",
+"¿La corrupción mata? Los datos dicen que sí.": "Does corruption kill? The data says yes.",
+"Investigación de la Maestría en Gestión de Sistemas y Servicios de Salud (PUCMM). Pone a prueba la premisa \"a mayor PIB, mejor salud\" y encuentra que invertir no basta si el sistema tiene fugas: la integridad institucional es infraestructura vital.": "Research from the Master's in Health Systems and Services Management (PUCMM). It tests the premise \"higher GDP, better health\" and finds that spending is not enough if the system leaks: institutional integrity is vital infrastructure.",
+"Años de vida \"robados\"": "Years of life \"stolen\"",
+"Muertes anuales evitables": "Avoidable deaths per year",
+"Serie histórica": "Time series",
+"joinless — Paquete de R": "joinless — R package",
+"Software estadístico que estima la relación entre dos conjuntos de datos mediante muestreo aleatorio, sin necesidad de una llave de unión perfecta. Publicado para optimizar uniones de datos complejas (record linkage).": "Statistical software that estimates the relationship between two datasets through random sampling, without needing a perfect join key. Published to improve complex data joins (record linkage).",
+"Ver detalle": "View details",
+"Más análisis": "More analysis",
+"Salud, economía y clientes, fuera de los casos principales.": "Health, economics and customers, beyond the main cases.",
+"Churn para mipymes": "Churn for small businesses",
+"Dashboard de abandono de clientes con un conjunto de datos de ejemplo (IBM Telco).": "Customer churn dashboard built on a sample dataset (IBM Telco).",
+"Jun 2026 · R + SQL + Power BI · Ver caso →": "Jun 2026 · R + SQL + Power BI · View case →",
+"Centinela — Readmisiones hospitalarias": "Centinela — Hospital readmissions",
+"Prioriza pacientes por riesgo de reingreso a menos de 30 días, con el porqué de cada caso y un simulador para puntuar pacientes nuevos.": "Ranks patients by their risk of readmission within 30 days, with the reasons for each case and a simulator to score new patients.",
+"69K+ pacientes · 130 hospitales · top 10% capta ~1 de 4 reingresos": "69K+ patients · 130 hospitals · top 10% captures ~1 in 4 readmissions",
+"Inflación en salud, RD 2010–2026": "Health inflation, DR 2010–2026",
+"Con series oficiales del BCRD: en 16 años los costos de salud no bajaron un solo mes y crecieron más que la inflación general.": "Using official BCRD series: in 16 years, health costs did not fall in a single month and grew faster than overall inflation.",
+"IPC Salud +109% vs. IPC General +98%": "Health CPI +109% vs. overall CPI +98%",
+"02 / Escenario": "02 / Stage",
+"Hablo sobre cómo llevar la IA a producción en seguros y farmacia, con casos reales y sin humo.": "I talk about taking AI into production in insurance and pharma, with real cases and no hype.",
+"IA que sí llega a producción": "AI that actually reaches production",
+"Lo que aprendí poniendo 8 modelos a trabajar en una aseguradora: datos, equipos y gobierno de modelos.": "What I learned putting 8 models to work at an insurer: data, teams and model governance.",
+"Para:": "For:",
+"aseguradoras, ARS, banca": "insurers, health insurers (ARS), banks",
+"El fraude que nadie mide": "The fraud nobody measures",
+"Intermediarios que cobran la comisión y dejan cancelar la póliza, y cómo detectarlos con datos.": "Intermediaries who collect the commission and let the policy lapse, and how to detect them with data.",
+"aseguradoras, auditoría, riesgo": "insurers, audit, risk",
+"El pulso del mercado farmacéutico y asegurador dominicano": "The pulse of the Dominican pharma and insurance market",
+"Qué dicen los datos públicos del sector y cómo convertirlos en decisiones.": "What the industry's public data says and how to turn it into decisions.",
+"laboratorios, farmacias, gremios": "drug makers, pharmacies, trade associations",
+"Formatos": "Formats",
+"Conferencia de 30–45 min": "30–45 min talk",
+"Taller práctico": "Hands-on workshop",
+"Experiencia": "Experience",
+"Panelista en \"El Futuro es STEM\", Club Juvenil UNESCO RD": "Panelist at \"El Futuro es STEM\" (The Future is STEM), UNESCO Youth Club DR",
+"Escuela de Ciencia de Datos de Grupo Humano · 70+ colaboradores": "Grupo Humano Data Science School · 70+ employees",
+"Líder de ruta en el Datathon Humano 2026": "Track lead at Datathon Humano 2026",
+"Ficha de ponente (PDF)": "Speaker one-pager (PDF)",
+"03 / Docencia": "03 / Teaching",
+"Docencia": "Teaching",
+"Formo equipos para que los datos se usen en decisiones reales.": "I train teams so data gets used in real decisions.",
+"2026 · HUMANO SEGUROS Y ARS PRIMERA": "2026 · HUMANO SEGUROS AND ARS PRIMERA",
+"Escuela de Ciencia de Datos": "Data Science School",
+"Lidero el programa interno de formación para colaboradores de distintas áreas, muchos sin experiencia previa programando: fundamentos de Python, exploración de datos antes de modelar y modelos supervisados (regresión, clasificación, métricas y cómo evitar el sobreajuste).": "I lead the in-house training program for employees from different areas, many with no prior programming experience: Python fundamentals, exploring data before modeling, and supervised models (regression, classification, metrics and how to avoid overfitting).",
+"Líder de ruta · Datathon Humano 2026": "Track lead · Datathon Humano 2026",
+"Dirección de equipos en la ruta de Data Science, con desafíos de analítica avanzada aplicada al sector asegurador.": "Led teams in the Data Science track, with advanced analytics challenges applied to the insurance industry.",
+"2026 · CO-FUNDADOR": "2026 · CO-FOUNDER",
+"Cursos en vivo para profesionales y estudiantes: R para análisis de datos y SQL para análisis de datos, con datos del contexto dominicano y proyecto final aplicado.": "Live courses for professionals and students: R for data analysis and SQL for data analysis, using Dominican data and an applied final project.",
+"04 / Reconocimientos": "04 / Recognition",
+"Reconocimientos": "Recognition",
+"Resultados validados por terceros.": "Results recognized by third parties.",
+"★ RECONOCIMIENTO ESPECIAL": "★ SPECIAL RECOGNITION",
+"Líder de Ciencia de Datos": "Data Science Leader",
+"ESCUELA DE DATOS · GRUPO HUMANO · AGO 2026": "ESCUELA DE DATOS · GRUPO HUMANO · AUG 2026",
+"Reconocimiento por liderar la Ruta de Ciencia de Datos de la Escuela de Datos 2026, el programa interno de formación en análisis y ciencia de datos para colaboradores de Humano Seguros y ARS Primera. Diseñé el contenido e impartí las sesiones, desde los fundamentos de Python hasta modelos supervisados.": "Recognized for leading the Data Science Track of Escuela de Datos 2026, the in-house training program in data analysis and data science for employees of Humano Seguros and ARS Primera. I designed the content and taught the sessions, from Python fundamentals to supervised models.",
+"★ 2.º LUGAR GENERAL": "★ 2ND PLACE OVERALL",
+"★ 1.er LUGAR · BUSINESS INTELLIGENCE": "★ 1ST PLACE · BUSINESS INTELLIGENCE",
+"Segundo lugar general y primer lugar en Business Intelligence entre los equipos de Grupo Humano. Construimos un tablero de la cartera de Salud Internacional que prioriza a quién retener e incluye una calculadora de lo que se gana al retener a un cliente y de lo que se pierde si se va. Lo completamos con un modelo de siguiente mejor acción por cliente y por seguro, y con segmentos de empresas y de personas que describen sus hábitos y la estrategia de venta para cada uno.": "Second place overall and first place in Business Intelligence among Grupo Humano's teams. We built a dashboard for the International Health portfolio that prioritizes whom to retain and includes a calculator of what is gained by keeping a customer and what is lost if they leave. We completed it with a next-best-action model by customer and by product, plus company and individual segments that describe their habits and the sales strategy for each one.",
+"05 / Recorrido": "05 / Path",
+"De cobros y cuentas por cobrar a liderar la inteligencia de clientes de una aseguradora.": "From collections and accounts receivable to leading customer intelligence at an insurer.",
+"ABR 2025 — PRESENTE": "APR 2025 — PRESENT",
+"Coordinador de Inteligencia de Clientes": "Customer Intelligence Coordinator",
+"Lidero la estrategia de datos para optimizar la decisión ejecutiva y la retención en el sector asegurador.": "I lead the data strategy to improve executive decision-making and retention in insurance.",
+"MAY 2024 — ABR 2025": "MAY 2024 — APR 2025",
+"Técnico de Datos Estadísticos": "Statistical Data Technician",
+"Análisis de Big Data poblacional con modelos de regresión y estadística inferencial para orientar la estrategia de política pública.": "Analysis of population-level big data with regression models and inferential statistics to guide public policy strategy.",
+"OCT 2022 — ABR 2024": "OCT 2022 — APR 2024",
+"Gestor de Cobros": "Collections Agent",
+"Recuperación de cartera de alto volumen con estrategias de negociación basadas en datos.": "High-volume portfolio recovery using data-driven negotiation strategies.",
+"Encargado de Cuentas por Cobrar": "Accounts Receivable Lead",
+"Análisis financiero y control de ingresos para optimizar la liquidez de la empresa.": "Financial analysis and revenue control to optimize the company's liquidity.",
+"06 / Formación": "06 / Education",
+"Una base que une economía, contabilidad, gestión de salud, datos y dirección de proyectos.": "A foundation that brings together economics, accounting, health management, data and project management.",
+"En curso": "In progress",
+"Maestría en Gestión de Sistemas y Servicios de Salud": "Master's in Health Systems and Services Management",
+"Programa Especializado en Gestión de Seguros": "Specialized Program in Insurance Management",
+"Diploma en Innovación y Gestión de Proyectos": "Diploma in Innovation and Project Management",
+"Máster en Big Data & Business Intelligence": "Master's in Big Data & Business Intelligence",
+"Licenciatura en Economía": "Bachelor's in Economics",
+"Técnico en Contabilidad y Finanzas": "Technical Degree in Accounting and Finance",
+"07 / Cómo trabajo": "07 / How I work",
+"Cómo trabajo": "How I work",
+"Machine learning, economía, salud y riesgo son mis herramientas. La pregunta siempre es la misma: ¿qué decisión cambia con este dato?": "Machine learning, economics, health and risk are my tools. The question is always the same: what decision does this data change?",
+"Diagrama: machine learning, economía, salud y riesgo convergen en una decisión": "Diagram: machine learning, economics, health and risk converge on one decision",
+"ECONOMÍA": "ECONOMICS",
+"SALUD": "HEALTH",
+"RIESGO": "RISK",
+"Una": "One",
+"decisión": "decision",
+"Lenguajes y datos": "Languages and data",
+"Machine learning e IA": "Machine learning and AI",
+"Modelado": "Modeling",
+"propensión · churn · uplift · fraude": "propensity · churn · uplift · fraud",
+"explicabilidad": "explainability",
+"LLMs locales": "Local LLMs",
+"BI y producto": "BI and product",
+"Ingeniería": "Engineering",
+"pipelines automatizados": "automated pipelines",
+"Certificaciones": "Certifications",
+"Estadística Inferencial en R": "Inferential Statistics in R",
+"Bases de datos SQL": "SQL Databases",
+"Business Intelligence y Data Management": "Business Intelligence and Data Management",
+"Idiomas": "Languages",
+"Español · nativo": "Spanish · native",
+"Inglés · Avanzado": "English · Advanced",
+"C1 en EF SET (61/100) · 2026": "C1 on EF SET (61/100) · 2026",
+"Abierto a conferencias, paneles, consultorías y formación de equipos en datos para seguros y farmacia.": "Open to talks, panels, consulting and data training for insurance and pharma teams.",
+"Currículum": "Résumé",
+"Descargar CV (PDF)": "Download CV (PDF, in Spanish)",
+"Ver repositorios": "View repositories",
+"Teléfono": "Phone",
+"Ubicación": "Location",
+"Santo Domingo, RD": "Santo Domingo, DR",
+"BRAYLIN A. JIMÉNEZ REYNOSO · IA Y DATOS PARA SEGUROS Y FARMACIA": "BRAYLIN A. JIMÉNEZ REYNOSO · AI AND DATA FOR INSURANCE AND PHARMA",
+"© 2026 · HECHO CON DATOS": "© 2026 · MADE WITH DATA",
+"Cerrar": "Close",
+"Copiar enlace": "Copy link"
+},
+"h": {
+"hero-h": "Data that turns into <em>decisions<\/em>.",
+"hero-sub": "I'm <b>Braylin Jiménez<\/b>, an economist and data scientist. I take AI into production in insurance and pharma in the Dominican Republic. At Humano Seguros I lead customer intelligence with <b>8 models in production<\/b> that have generated <b>over RD$2M in premiums<\/b> and are up to <b>3 times more accurate<\/b> than traditional segmentation.",
+"now": "<b>Customer Intelligence Coordinator<\/b> at Humano Seguros · Lead of the Data Science School · Master's in Health Systems and Services Management (PUCMM) and Insurance Management Program (UNIBE), in progress",
+"contacto-h": "Let's talk about <em>data<\/em> and decisions.",
+"m-prev": "← Previous<span class=\"m-lbl\"> case<\/span>",
+"m-next": "Next<span class=\"m-lbl\"> case<\/span> →",
+"tr1": "Design and deployment of <b>8 predictive models in production<\/b> (propensity, churn, cross-sell and behavioral scoring) that have generated <b>RD$2M+ in premiums<\/b>, with a <b>lift of up to 3x<\/b> over traditional segmentation; SHAP explainability and documentation of assumptions and versions.",
+"tr2": "Work with <b>Internal Audit and Risk<\/b> so that models respond to real business risks, integrating structured and unstructured sources.",
+"tr3": "Large-scale ETL pipelines in R, SQL and Python: <b>1,257 h of operational efficiency per year<\/b>.",
+"tr4": "<b>+70% executive visibility<\/b> by automating <b>52+ dashboards<\/b> for risk, retention and profitability, plus <b>Power Apps<\/b> solutions for capturing operational data.",
+"tr5": "Lead of the <b>Data Science School<\/b> (70+ employees) and of the Data Science track at <b>Datathon Humano 2026<\/b>.",
+"tr6": "Key role in the <b>methodological design<\/b> of high-impact inter-agency projects with <b>INDOTEL, MINERD and MEPyD<\/b>.",
+"tr7": "Advanced ETL pipelines that markedly improved <b>data quality<\/b> and its readiness for decision-making.",
+"tr8": "<b>Cohort analysis<\/b> to identify critical demographic and socioeconomic patterns.",
+"tr9": "Analysis of <b>delinquency patterns and default risk<\/b> to prioritize collection efforts and structure personalized payment plans.",
+"tr10": "Higher recovery rate and better cash flow through rigorous monitoring of <b>financial KPIs<\/b>.",
+"tr11": "Data analytics to <b>audit commissions<\/b> and model payment flows.",
+"tr12": "Financial risk assessment with <b>structured credit analysis<\/b> and tax and regulatory compliance (forms 607 and 608)."
+}
+}
+</script>
+
+<!-- Inglés: detalle de los casos (mismas claves y estructura que proj-data) -->
+<script id="proj-data-en" type="application/json">
+{"xpharma":{"sig":"var(--green)","eyebrow":"Customer intelligence platform","title":"XPharmaCare — Healthcare Customer Intelligence","tags":[["ml","ML"],["ec","Economics"],["sa","Health"],["ri","Risk"]],"origen":{"label":"Synthetic data","base":"Generated for this project using a Dominican Republic context"},"sintetico":true,"lead":"An end-to-end Power BI platform for a health insurer/pharmaceutical company, organized into four modules. Built on a base of 8,000 customers and RD$97.3M in revenue, it turns customer behavior into retention decisions that can be acted on the same day.","clips":[{"src":"assets/mando.mp4","poster":"assets/mando.jpg","label":"Command Center","cap":"Executive KPIs, churn-risk distribution, customer map by province, and chronic diseases."},{"src":"assets/clientes.mp4","poster":"assets/clientes.jpg","label":"Customers & Products","cap":"Customer segmentation, multidimensional profile, and profitability by medication and sales channel."},{"src":"assets/retencion.mp4","poster":"assets/retencion.jpg","label":"Retention & Operations","cap":"Retention engine with an uplift model, plus an operational pulse (call center sentiment and adherence)."}],"sections":[{"h":"What it solves","items":["<b>Command Center:<\/b> an executive view on a single screen — total revenue, churn rate (48.7%), adherence (79.2%), average CLV, and cost and net revenue after retention.","<b>Customers & Products:<\/b> segments each customer (High-Value Chronic, At-Risk Chronic, Sporadic…) and profiles them by value, loyalty, frequency, adherence, and tenure. Includes each customer's churn probability and profitability by product and channel.","<b>Retention Engine (uplift):<\/b> instead of contacting everyone, it sorts customers into Persuadable, Sure Thing, Lost Cause, and Sleeping Dog, so money is spent only where the offer actually changes the decision.","<b>Operational Pulse:<\/b> sentiment analysis of interactions (call center), overall adherence, and the branch network."]},{"h":"Impact","items":["<b>Retention ROI of x3.31<\/b> by targeting spend with the uplift model.","<b>RD$2.7M in savings<\/b> compared with a \"contact everyone\" strategy.","The whole chain connects data, model, and visualization so the sales team can act without waiting for an analyst."]}],"stack":"Python (main) · Power BI · R · SQL · uplift and churn modeling","links":[{"url":"https://github.com/braylinjr/xpharmacare","label":"View repository on GitHub"}]},"riesgocartera":{"sig":"var(--blue)","eyebrow":"Risk intelligence engine · Insurance","title":"Portfolio Risk Intelligence Engine","tags":[["ml","ML"],["ec","Economics"],["ri","Risk"]],"origen":{"label":"Synthetic data","base":"Portfolio and macro variables simulated by the project's own code"},"sintetico":true,"lead":"A risk intelligence engine for insurance portfolios, built in Streamlit. Working on a base of 20,000 active policies and DOP 132M in monthly premiums, it predicts deterioration at the policy level, adjusts it for a macroeconomic scenario (inflation, monetary policy rate, unemployment, and IMAE), and produces the action list the management team needs to step in before late payments turn into delinquency. Includes a macro scenario simulator and SHAP explainability.","clips":[{"src":"assets/riesgo-cartera-demo.mp4","poster":"assets/riesgo-cartera.jpg","label":"System demo","cap":"Macro scenario simulator, policy-level scoring with SHAP, and an operational download for the management team."}],"sections":[{"h":"What it solves","items":["<b>Macro scenario simulator:<\/b> adjust inflation, the monetary policy rate, unemployment, and IMAE growth — the portfolio recalculates premiums at risk, the distribution by band, and policy alerts in real time.","<b>Early detection of deterioration:<\/b> the model produces a base score for each policy and adjusts it for current macro stress. Each policy is placed in a band (Green, Yellow, Orange, Red) with a matching action.","<b>SHAP explainability:<\/b> it doesn't just predict which policy is at risk. It explains why — days past due, late payments, sales channel, change in renewal premium.","<b>Actionable operations:<\/b> the team downloads a CSV listing policies prioritized by adjusted score and risk band. 861 policies need immediate follow-up under the current scenario."]},{"h":"Impact","items":["<b>DOP 132.0M<\/b> in monthly premiums assessed in real time.","<b>DOP 26.8M<\/b> in premiums at risk identified under the base scenario.","<b>3x lift<\/b> in the top decile.","<b>861 policies<\/b> on immediate alert, ready for operational follow-up.","<b>4 macro variables<\/b> with instant recalibration; the layer is ready to connect to Central Bank (BCRD) data series."]}],"stack":"Python · Streamlit · Scikit-learn · SHAP · Pandas · macro layer ready for BCRD series","links":[{"url":"https://github.com/BraylinJR/modelo_riesgo_cartera","label":"View repository on GitHub"}]},"lince":{"sig":"var(--red)","eyebrow":"Fraud detection · Insurance · Local AI","title":"Lince — Fraud in insurance sales channels","tags":[["ml","ML"],["ri","Risk"],["ia","Generative AI"]],"origen":{"label":"Synthetic data","base":"Generated by the project's own code"},"lead":"Most insurance fraud projects focus on false claims. Lince tackles an often-overlooked angle: sales-channel fraud. The scheme is <b>mass early cancellation<\/b>: an intermediary issues policies, collects the upfront commission, and the policies are canceled within the first 90 days, leaving the insurer with the acquisition cost and without the premiums that justified it.","sections":[{"h":"How it works","items":["<b>Realistic synthetic data:<\/b> ~34,000 policies issued by 150 intermediaries under a hierarchical sales structure (director → manager → intermediary) across 15 provinces. The fraud pattern is planted in 8% of the intermediaries, with deliberate <b>label noise<\/b> to simulate imperfect audits.","<b>XGBoost model at the intermediary level<\/b> (not the policy level, to avoid data leakage), with stratified cross-validation and out-of-fold scores. The hierarchy and zone are intentionally left out as features and used afterward to aggregate risk.","<b>SHAP explainability:<\/b> every alert comes with the factors that explain it.","<b>100% local AI agent (Ollama):<\/b> takes the ranking of suspects and writes an investigation report for each case, in plain language for a non-technical risk team. No data ever leaves the computer."]},{"h":"Results","items":["<b>AUC-ROC ~0.91<\/b> and <b>AUC-PR ~0.72<\/b> versus a random baseline of 0.08.","<b>Favorite finding:<\/b> some fraudulent intermediaries carried a negative label (the audit didn't confirm them), yet the model still flags them with very high scores. It finds them by their behavior, not their label: exactly the cases that should be re-investigated first.","<b>Responsible design:<\/b> the agent's prompt forbids claiming guilt. The score is a statistical suspicion, not proof."]}],"note":"The entire project uses 100% synthetic data generated by its own code; no figure comes from any company's real data. The repository contains the methodological prototype (PolyForm Noncommercial 1.0.0 license); the product version, Lince Pro, is closed-source software.","stack":"Python · XGBoost · SHAP · Pandas · Ollama (local LLM)","links":[{"url":"https://github.com/BraylinJR/lince","label":"View repository on GitHub"},{"url":"https://github.com/BraylinJR/lince/blob/HEAD/lince_publico/docs/Lince_Documento_Metodologico.pdf","label":"Methodology document (PDF)","alt":true,"icon":"doc"}]},"churn":{"sig":"var(--violet)","eyebrow":"Customer churn dashboard · Small businesses","title":"Churn for small businesses","tags":[["ml","ML"],["ec","Economics"],["ri","Risk"]],"origen":{"label":"Sample data (IBM Telco)","base":"Public dataset from IBM"},"lead":"Anticipating customer churn is no longer just for large companies. I built this dashboard with small businesses in mind: simple, visual, and actionable. It tells you who is leaving, when, and why — so you can act in time.","clips":[{"src":"assets/ibm.mp4","poster":"assets/ibm.jpg","label":"Customer Overview","cap":"360 customer view: churn risk, CLTV, and segmentation by geography and offer."}],"sections":[{"h":"How it works","items":["Predicts <b>churn risk (0–1)<\/b> in clear levels: Low / Medium / High / Critical.","The engine is a <b>logistic regression in R (tidymodels)<\/b> with close to <b>95% accuracy<\/b>.","It is <b>automated end to end with SQL/MySQL<\/b>: the data updates, the model recalculates, and Power BI refreshes the risk on its own.","Organizes the customer base into <b>value tiers (CLTV)<\/b> — Strategic, Growth, Core, Long Tail — to prioritize where to invest.","A foundation ready for <b>clustering<\/b> and profiling the typical customer.","Includes a <b>downloadable detail sheet<\/b> with every customer and their risk level, so you can act right away."]}],"stack":"R (tidymodels) · SQL / MySQL · Power BI","links":[{"url":"https://github.com/braylinjr/customer-churn-mipyme","label":"View repository on GitHub"}]},"radar":{"sig":"var(--cyan)","eyebrow":"Data product · Automation · Public page","title":"Radar Farma & Seguros RD","tags":[["ec","Economics"],["sa","Health"],["sw","Automation"]],"origen":{"label":"Live public data","base":"BCRD, regulators, and the press"},"lead":"A free, public, self-updating page that brings together Central Bank indicators, regulatory documents, and Dominican Republic headlines about <b>pharmacies, laboratories, medicines, and insurance<\/b>. Every 6 hours it collects, classifies, prioritizes, and publishes with no manual intervention.","clips":[{"src":"assets/radar-demo.mp4","poster":"assets/radar-demo.jpg","label":"Page walkthrough","cap":"BCRD economic indicators, high-priority items, regulation, and classified news on the public page."}],"sections":[{"h":"How it works","items":["<b>Collects<\/b> from 30+ sources (RSS, news sitemaps, and the pages of agencies such as SIS, SISALRIL, DIGEMAPS, and CNSS). If one fails, it carries on with the rest.","<b>Classifies<\/b> each headline by sector (Pharmacy, Laboratories, ARS (health insurers), General insurance, Regulation), by topic (prices, regulation, mergers, results, health alerts…), and by company or agency, using keyword rules.","<b>Prioritizes<\/b> with explicit rules and shows the reason: high if it mentions a numbered law, decree, or resolution, a reform, a rate, or a change in coverage.","<b>Removes duplicates<\/b> across outlets and keeps the alternative links.","<b>Reads 6 official BCRD indicators:<\/b> year-over-year and year-to-date inflation, the monetary policy rate, IMAE, real GDP of the health sector, and inflation for the Health group."]},{"h":"Engineering","items":["Runs automatically every 6 hours with <b>GitHub Actions<\/b> and publishes to <b>GitHub Pages<\/b>.","<b>Automated tests<\/b> on every change and a per-source status panel, with an alert after 3 consecutive failures; if an indicator fails, it keeps the last good value, marked as outdated.","<b>Respects media rights:<\/b> it stores only the title, outlet, date, and link; it does not copy text or images.","Page with search, filters, a weekly chart by topic, a weekly summary, light/dark mode, and a mobile-friendly design."]}],"note":"Independent personal project. It does not represent the position of any company.","stack":"Python · GitHub Actions · GitHub Pages · YAML · JavaScript","links":[{"url":"https://braylinjr.github.io/radar-farma-seguros-rd/#indicadores","label":"Open the live page","icon":"ext"},{"url":"https://github.com/BraylinJR/radar-farma-seguros-rd","label":"Repository","alt":true}]},"corrupcion":{"sig":"var(--gold)","eyebrow":"Research · Public health and economics","title":"Does corruption kill? The data says yes.","tags":[["ec","Economics"],["sa","Health"],["ri","Risk"]],"origen":{"label":"Public data","base":"V-Dem and World Bank"},"lead":"As part of the Master's in Health Systems and Services Management (PUCMM), I began a research project to test a basic premise: \"the higher the GDP, the better the health outcomes\". When I crossed economic growth with cardiovascular mortality in the Dominican Republic, the data showed inconsistencies. The answer lay in what happens when corruption blocks that investment.","gallery":[{"img":"assets/corrupcion-1.png","w":1280,"h":768,"cap":"Years of life \"stolen\" by corruption — the DR tops the list (-7.8 years)."},{"img":"assets/corrupcion-2.png","w":1280,"h":768,"cap":"Lives lost each year to corruption (cardiovascular mortality)."},{"img":"assets/corrupcion-3.png","w":907,"h":732,"cap":"Heat map: correlation between corruption and public health."},{"img":"assets/corrupcion-4.png","w":907,"h":732,"cap":"The same correlation matrix on a monochrome scale."}],"sections":[{"h":"How the damage happens","items":["↑ Corruption → ↓ real investment in health → ↓ quality of services → ↓ life expectancy.","Investing resources isn't enough if the system leaks. Transparency is not an ethical luxury: it is vital infrastructure for turning the health budget into lives."]},{"h":"Findings for the DR","items":["<b>7.82 years of life stolen:<\/b> the drop in life expectancy attributable to systemic inefficiency.","<b>10,069 deaths per year:<\/b> cardiovascular deaths that, statistically, would not occur in a transparent environment.","For every <b>+0.1 in the corruption index<\/b>, life expectancy falls by an average of <b>0.96 years<\/b> (≈ 11 months)."]}],"note":"Technical note: the V-Dem index (v2x_corr) runs from 0 to 1; a change of 0.1 represents 10% of the institutional-integrity spectrum. This is a correlational analysis of the 2000–2019 series, projected onto the 2025 population to quantify the human impact today.","stack":"Python · Pandas · statsmodels (OLS regression)","src":"Sources: Public Sector Corruption Index (V-Dem) · World Bank Open Data · WHO Global Health Observatory · Oficina Nacional de Estadística (DR)","links":[{"url":"https://github.com/braylinjr/corrupcion-salud-rd","label":"View repository on GitHub"}]},"naturales":{"sig":"var(--orange)","eyebrow":"Series · Natural hazards of Hispaniola","title":"Hispaniola at risk: earthquakes and hurricanes","tags":[["ri","Risk"],["geo","Geospatial"]],"origen":{"label":"Public data","base":"USGS and NOAA"},"lead":"It started with a question: on September 27, 2026, the ground shook near Guaymate (4.8) and almost no one noticed. How often does the island really shake? That curiosity grew into a personal series using public data on the natural hazards of Hispaniola: each installment brings together decades of records, overlays them on the geography, and tells the story through a map and a year-by-year animation, with R scripts anyone can reproduce. The underlying question is about risk and insurance: not whether it will happen again, but when, and whether we are protected.","clips":[{"src":"assets/sismos.mp4","poster":"assets/sismos-poster.jpg","label":"The island that shakes","cap":"Earthquakes of magnitude 4 or greater on Hispaniola, 1975–2026 (USGS)."},{"src":"assets/huracanes.mp4","poster":"assets/huracanes-poster.jpg","label":"In the path of hurricanes","cap":"Storms that passed within 100 km of the island since 1950 (IBTrACS, NOAA)."}],"gallery":[{"img":"assets/sismos-mapa.jpg","w":1280,"h":800,"cap":"Earthquake map with the strongest events highlighted."},{"img":"assets/huracanes-mapa.jpg","w":1280,"h":800,"cap":"Tracks: the strongest hurricanes are shown in color, according to their strength along each segment."}],"sections":[{"h":"The island that shakes","items":["<b>980 earthquakes<\/b> of magnitude 4 or greater since 1975; <b>93<\/b> of magnitude 5 or greater and <b>6<\/b> of magnitude 6 or greater.","<b>48%<\/b> occurred at sea. <b>180<\/b> occurred within 100 km of Santo Domingo and another 180 within 100 km of Santiago.","The strongest: Haiti 2021 (7.2), Haiti 2010 (7.0), and a 6.9 off San Pedro de Macorís in 1984."]},{"h":"In the path of hurricanes","items":["<b>73 storms<\/b> have passed within 100 km of the island since 1950.","Among the strongest: Flora (1963), Cleo (1964), Inez (1966), David (1979), Allen (1980), and Irma (2017).","Each segment is colored by the storm's strength at that moment, to show where storms intensified or weakened."]},{"h":"Reading the data correctly","items":["More events are recorded today than in the past, but <b>not because there is more activity<\/b>: instruments and satellites now detect what used to go unrecorded.","The maps show where events have occurred, not where they will occur; and a nearby track does not always mean damage."]}],"stack":"R · ggplot2 · sf · gganimate · rnaturalearth","src":"Sources: USGS Earthquake Catalog · IBTrACS (NOAA). Public domain data.","links":[{"url":"https://github.com/BraylinJR/la-isla-que-tiembla","label":"Repository · Earthquakes"},{"url":"https://github.com/BraylinJR/bajo-la-ruta-de-los-huracanes","label":"Repository · Hurricanes","alt":true}]},"joinless":{"sig":"var(--violet)","eyebrow":"Statistical software · R package","title":"joinless — R package","tags":[["ml","ML"],["sw","Software"]],"origen":{"label":"Published software","base":"Open-source R package"},"lead":"joinless is a published R package that estimates the relationship between two datasets through random sampling. It grew out of a common problem when working with real-world data: joining tables that don't share a perfect key. Instead of forcing an exact join, it statistically estimates how the datasets correspond.","sections":[{"h":"What it's for","items":["Optimizes <b>complex data joins<\/b> where no reliable common key exists (record linkage, fuzzy matching).","Uses <b>random sampling<\/b> to estimate the relationship between the datasets, instead of deterministic matching.","Published as a reusable R package."]}],"stack":"R · package design","links":[{"url":"https://github.com/braylinjr/joinless","label":"View repository on GitHub"}]}}
+</script>
+
 <script>
+// ---------- Idiomas: el español vive en el HTML; el inglés sale de #i18n-en y #proj-data-en ----------
+const I18N=JSON.parse(document.getElementById('i18n-en').textContent);
+const DATA_EN=(el=>el?JSON.parse(el.textContent):{})(document.getElementById('proj-data-en'));
+const TITLE_ES=document.title;
+let LANG='es';
+const tr=(es,en)=>LANG==='en'?en:es;
+const I18N_NODOS=[],I18N_ATRS=[],I18N_BLOQUES=[];
+(function indexar(){
+  const norm=x=>x.replace(/\s+/g,' ').trim();
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const en=I18N.h[el.dataset.i18n];if(en!=null)I18N_BLOQUES.push({el,es:el.innerHTML,en})});
+  const fuera=el=>!el||el.closest('[data-i18n],script,style,#modal-content,#pulso-grid,#pulso-news');
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+  for(let n;(n=w.nextNode());){
+    const k=norm(n.nodeValue);
+    if(!k||!Object.prototype.hasOwnProperty.call(I18N.t,k)||fuera(n.parentElement))continue;
+    const m=n.nodeValue.match(/^(\s*)[\s\S]*?(\s*)$/);
+    I18N_NODOS.push({n,es:n.nodeValue,en:m[1]+I18N.t[k]+m[2]});
+  }
+  document.querySelectorAll('[aria-label],[title],[alt]').forEach(el=>['aria-label','title','alt'].forEach(a=>{
+    const v=el.getAttribute(a),k=v&&norm(v);
+    if(k&&Object.prototype.hasOwnProperty.call(I18N.t,k))I18N_ATRS.push({el,a,es:v,en:I18N.t[k]});
+  }));
+})();
+const invitar=document.getElementById('invitar'),MAILTO_ES=invitar?invitar.getAttribute('href'):'';
+const MAILTO_EN='mailto:braylinjr1511@gmail.com?subject='+encodeURIComponent('Speaking invitation')+'&body='+encodeURIComponent('Hi Braylin,\r\nEvent: \r\nDate and place: \r\nAudience and number of attendees: \r\nTopic you are interested in: \r\nFormat (talk, panel or workshop): ');
+const langBtns=document.querySelectorAll('.lang [data-lang]');
+function setLang(l,guardar=true){
+  LANG=l==='en'?'en':'es';const en=LANG==='en';
+  document.documentElement.lang=LANG;
+  I18N_BLOQUES.forEach(o=>{o.el.innerHTML=en?o.en:o.es});
+  I18N_NODOS.forEach(o=>{o.n.nodeValue=en?o.en:o.es});
+  I18N_ATRS.forEach(o=>o.el.setAttribute(o.a,en?o.en:o.es));
+  document.title=en?I18N.title:TITLE_ES;
+  if(invitar)invitar.setAttribute('href',en?MAILTO_EN:MAILTO_ES);
+  langBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===LANG));
+  if(guardar){
+    try{localStorage.setItem('idioma',LANG)}catch(e){}
+    const u=new URL(location.href);if(en)u.searchParams.set('lang','en');else u.searchParams.delete('lang');history.replaceState(null,'',u);
+  }
+  document.dispatchEvent(new Event('idioma'));
+}
+langBtns.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang!==LANG)setLang(b.dataset.lang)}));
+if(window.IDIOMA0==='en')setLang('en',false);
+document.documentElement.classList.remove('i18n-pend');
+
 // Aparición al desplazarse; sin IntersectionObserver todo se muestra de inmediato
 if('IntersectionObserver' in window){
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
@@ -1498,10 +1824,10 @@ function tagHtml(tags){return tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</sp
 function clipHtml(c){return `<div class="m-video"><video controls playsinline preload="none" poster="${c.poster}" src="${c.src}"></video></div><p class="m-vcap">${c.cap}</p>`}
 
 function buildModal(key){
-  const d=DATA[key];
+  const es=DATA[key],d=(LANG==='en'&&DATA_EN[key])||es;
   modalBox.style.setProperty('--sig',d.sig||'var(--cyan)');
   let html=`<div class="m-eyebrow">${d.eyebrow}</div><h3 id="modal-title">${d.title}</h3><div class="m-tags">${tagHtml(d.tags)}</div>`;
-  if(d.origen) html+=`<div class="m-origin"><span class="origin">${d.origen.label.startsWith('Software')?ICON.pkg:ICON.db} ${d.origen.label}</span><span>Base: ${d.origen.base}</span></div>`;
+  if(d.origen) html+=`<div class="m-origin"><span class="origin">${es.origen.label.startsWith('Software')?ICON.pkg:ICON.db} ${d.origen.label}</span><span>${tr('Base','Source')}: ${d.origen.base}</span></div>`;
   html+=`<div class="m-body"><p>${d.lead}</p>`;
   if(d.clips){
     if(d.clips.length>1){
@@ -1513,9 +1839,9 @@ function buildModal(key){
     html+=`<div class="m-gallery ${d.galleryCols===1?'':'g2'}">`+d.gallery.map(g=>`<figure><img loading="lazy" src="${g.img}" ${g.w?`width="${g.w}" height="${g.h}"`:''} alt=""><figcaption>${g.cap}</figcaption></figure>`).join('')+`</div>`;
   }
   d.sections.forEach(s=>{html+=`<h4>${s.h}</h4><ul>`+s.items.map(it=>`<li>${it}</li>`).join('')+`</ul>`;});
-  if(d.sintetico) html+=`<div class="m-note">Los datos son sintéticos y replican un problema real de seguros y farmacia. Ninguna cifra viene de una empresa.</div>`;
+  if(d.sintetico) html+=`<div class="m-note">${tr('Los datos son sintéticos y replican un problema real de seguros y farmacia. Ninguna cifra viene de una empresa.','The data is synthetic and replicates a real insurance and pharma problem. No figure comes from a company.')}</div>`;
   if(d.note) html+=`<div class="m-note">${d.note}</div>`;
-  html+=`<h4>Herramientas</h4><p>${d.stack}</p>`;
+  html+=`<h4>${tr('Herramientas','Tools')}</h4><p>${d.stack}</p>`;
   if(d.src) html+=`<div class="m-src">${d.src}</div>`;
   if(d.links) html+=`<div class="m-ctas">`+d.links.map(l=>`<a class="m-cta ${l.alt?'alt':''}" href="${l.url}" target="_blank" rel="noopener">${ICON[l.icon||'gh']} ${l.label}</a>`).join('')+`</div>`;
   html+=`</div>`;
@@ -1577,10 +1903,12 @@ function copiarRespaldo(t){
   modal.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();mCopy.focus();return ok;
 }
 mCopy.addEventListener('click',async()=>{
-  const url='https://braylinjr.github.io/#caso-'+curKey;let ok=true;
+  const url=`https://braylinjr.github.io/${LANG==='en'?'?lang=en':''}#caso-${curKey}`;let ok=true;
   try{await navigator.clipboard.writeText(url)}catch(e){ok=copiarRespaldo(url)}
-  avisar(ok?'Enlace copiado':'No se pudo copiar el enlace');
+  avisar(ok?tr('Enlace copiado','Link copied'):tr('No se pudo copiar el enlace','Could not copy the link'));
 });
+// Al cambiar de idioma con la ventana abierta, se vuelve a construir en el idioma nuevo
+document.addEventListener('idioma',()=>{if(modal.classList.contains('open')&&curKey){buildModal(curKey);navState()}});
 mPrev.addEventListener('click',()=>irA(-1));
 mNext.addEventListener('click',()=>irA(1));
 document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>openModal(el.dataset.open)));
@@ -1626,22 +1954,35 @@ function sparkline(serie,w=80,h=24){
   const pts=v.map((y,i)=>`${(i*w/(v.length-1)).toFixed(1)},${(h-2-(y-lo)/((hi-lo)||1)*(h-4)).toFixed(1)}`).join(' ');
   return `<svg viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
 }
-const FLECHA={sube:['↑','sube'],baja:['↓','baja'],igual:['→','sin cambio']};
+const FLECHA={sube:['↑','sube','up'],baja:['↓','baja','down'],igual:['→','sin cambio','no change']};
 function hace(h){
-  if(h<1)return 'hace menos de 1 hora';
-  if(h<48){const n=Math.round(h);return `hace ${n} hora${n===1?'':'s'}`}
-  const d=Math.round(h/24);return `hace ${d} días`;
+  if(h<1)return tr('hace menos de 1 hora','less than 1 hour ago');
+  if(h<48){const n=Math.round(h);return tr(`hace ${n} hora${n===1?'':'s'}`,`${n} hour${n===1?'':'s'} ago`)}
+  const d=Math.round(h/24);return tr(`hace ${d} días`,`${d} days ago`);
 }
+// El Radar publica en español: en inglés se traducen los nombres conocidos y las palabras de fecha
+const PULSO_EN={inflacion_salud:'Health inflation',inflacion_interanual:'Year-on-year inflation',tpm:'Monetary policy rate (MPR)',salud_actividad:'Health activity (real GDP)'};
+const PALABRAS_EN={enero:'January',febrero:'February',marzo:'March',abril:'April',mayo:'May',junio:'June',julio:'July',agosto:'August',septiembre:'September',setiembre:'September',octubre:'October',noviembre:'November',diciembre:'December',
+  ene:'Jan',feb:'Feb',mar:'Mar',abr:'Apr',jun:'Jun',jul:'Jul',ago:'Aug',sep:'Sep',sept:'Sep',oct:'Oct',nov:'Nov',dic:'Dec',
+  interanual:'year-on-year',preliminar:'preliminary',vigente:'in effect',desde:'since',trimestre:'quarter',mensual:'monthly',anual:'annual'};
+const fechaEN=x=>String(x??'').replace(/[a-záéíóúñ]+/gi,w=>PALABRAS_EN[w.toLowerCase()]||w);
+let pulsoUlt=null;
 function pintarPulso(box,tarjetas,res,horas){
+  pulsoUlt=[box,tarjetas,res,horas];
+  const en=LANG==='en';
   document.getElementById('pulso-grid').innerHTML=tarjetas.map(t=>{
-    const [fl,txt]=FLECHA[t.direccion]||FLECHA.igual;
-    return `<div class="pk"><div class="pk-n" title="${esc(t.nombre)}">${esc(t.nombre)}</div><div class="pk-v">${esc(t.texto_valor)}<span class="pk-d" role="img" aria-label="${txt}" title="${esc(t.comparacion||txt)}">${fl}</span></div><div class="pk-p">${esc(t.periodo)}</div>${sparkline(t.serie)}</div>`;
+    const [fl,txtEs,txtEn]=FLECHA[t.direccion]||FLECHA.igual,txt=en?txtEn:txtEs;
+    const nombre=en?(PULSO_EN[t.id]||t.nombre):t.nombre,periodo=en?fechaEN(t.periodo):t.periodo;
+    return `<div class="pk"><div class="pk-n" title="${esc(nombre)}">${esc(nombre)}</div><div class="pk-v">${esc(t.texto_valor)}<span class="pk-d" role="img" aria-label="${txt}" title="${esc(en?txt:(t.comparacion||txt))}">${fl}</span></div><div class="pk-p">${esc(periodo)}</div>${sparkline(t.serie)}</div>`;
   }).join('');
   const alta=res&&res.por_prioridad?res.por_prioridad.alta:null;
-  if(res&&Number.isFinite(+res.total))document.getElementById('pulso-news').innerHTML=`<b>${esc(res.total)}</b> noticias del sector esta semana${alta!=null?` · <b>${esc(alta)}</b> de prioridad alta`:''}`;
-  document.getElementById('pulso-upd').textContent=`Actualizado ${hace(horas)} · Fuente: BCRD vía Radar Farma & Seguros RD`;
+  if(res&&Number.isFinite(+res.total))document.getElementById('pulso-news').innerHTML=en
+    ?`<b>${esc(res.total)}</b> industry news items this week${alta!=null?` · <b>${esc(alta)}</b> high priority`:''}`
+    :`<b>${esc(res.total)}</b> noticias del sector esta semana${alta!=null?` · <b>${esc(alta)}</b> de prioridad alta`:''}`;
+  document.getElementById('pulso-upd').textContent=tr(`Actualizado ${hace(horas)} · Fuente: BCRD vía Radar Farma & Seguros RD`,`Updated ${hace(horas)} · Source: BCRD via Radar Farma & Seguros RD`);
   box.removeAttribute('aria-busy');
 }
+document.addEventListener('idioma',()=>{if(pulsoUlt)pintarPulso(...pulsoUlt)});
 function plegarPulso(box){
   box.classList.add('plegado');box.removeAttribute('aria-busy');
   const fin=()=>{box.hidden=true};

@@ -33,6 +33,15 @@ Cada caso tiene tres piezas en `index.html`:
 
 Enlaces útiles: `/#caso-lince` abre un caso directamente; `/?f=seguros` abre la página con un filtro aplicado.
 
+## Idiomas (español / inglés)
+
+El botón **ES / EN** de la barra cambia el idioma sin recargar. El español vive en el HTML (es lo que ven los buscadores y quien no tiene JavaScript); el inglés sale de dos bloques JSON en `index.html`:
+
+- `<script id="i18n-en">` — `t`: texto exacto en español → inglés (sirve para textos, `aria-label`, `title` y `alt`); `h`: bloques con formato interno (negritas, cursivas) marcados en el HTML con `data-i18n="clave"`.
+- `<script id="proj-data-en">` — el detalle de los casos, con las mismas claves y estructura que `proj-data`.
+
+Idioma inicial: `?lang=en` o `?lang=es` en el enlace → la última elección (se guarda en el navegador) → el idioma del navegador. Al **cambiar un texto en español hay que cambiar también su entrada en `t`** (la clave es el texto en español); si no coincide, ese texto se queda en español. Las cifras no se traducen.
+
 ## Pulso del sector
 
 La franja bajo la portada lee los datos que el [Radar Farma & Seguros RD](https://braylinjr.github.io/radar-farma-seguros-rd/) publica cada 6 horas:
