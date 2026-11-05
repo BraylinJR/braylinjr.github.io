@@ -143,10 +143,10 @@ section{padding:74px 0;position:relative}
 .chip:hover{color:var(--text);border-color:var(--line)}
 .chip.active{color:#07111f;background:var(--ca,var(--cyan));border-color:transparent;font-weight:600}
 .chip.active .dot{background:#07111f}
-.chip[data-f="ml"]{--cd:var(--blue);--ca:var(--blue)}
-.chip[data-f="ec"]{--cd:var(--gold);--ca:var(--gold)}
-.chip[data-f="sa"]{--cd:var(--green);--ca:var(--green)}
-.chip[data-f="ri"]{--cd:var(--red);--ca:var(--red)}
+.chip[data-f="seguros"]{--cd:var(--blue);--ca:var(--blue)}
+.chip[data-f="farmacia"]{--cd:var(--green);--ca:var(--green)}
+.chip[data-f="economia"]{--cd:var(--gold);--ca:var(--gold)}
+.chip[data-f="software"]{--cd:var(--violet);--ca:var(--violet)}
 
 /* ---------- PROJECT GRID ---------- */
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
@@ -207,6 +207,8 @@ section{padding:74px 0;position:relative}
 .mini .mt{font-family:var(--serif);font-size:18px;font-weight:500;line-height:1.2}
 .mini p{font-size:13px;color:var(--muted);line-height:1.5}
 .mini .mm{margin-top:auto;padding-top:6px;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ac)}
+.mini .mp{font-size:13px;color:var(--muted);line-height:1.5}
+button.mini{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%}
 
 /* ---------- DOCENCIA ---------- */
 .teach-grid{display:grid;grid-template-columns:1fr;gap:14px}
@@ -391,123 +393,21 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 <section id="proyectos">
   <div class="wrap">
     <div class="shead rev">
-      <div><div class="idx">02 / Trabajo</div><h2>Proyectos seleccionados</h2></div>
-      <p>Casos de inteligencia de clientes, salud, economía y seguros, todos con código abierto en GitHub. Filtra por área o explóralos todos.</p>
+      <div><div class="idx">02 / Trabajo</div><h2>Casos seleccionados</h2></div>
+      <p>Casos de seguros, farmacia y salud, todos con código abierto. Cada uno indica de dónde salen sus datos.</p>
     </div>
-    <div class="filters rev">
-      <button class="chip active" data-f="all">Todos <span class="n"></span></button>
-      <button class="chip" data-f="ml"><span class="dot"></span>Machine Learning <span class="n"></span></button>
-      <button class="chip" data-f="ec"><span class="dot"></span>Economía <span class="n"></span></button>
-      <button class="chip" data-f="sa"><span class="dot"></span>Salud <span class="n"></span></button>
-      <button class="chip" data-f="ri"><span class="dot"></span>Riesgo <span class="n"></span></button>
+    <div class="filters rev" role="group" aria-label="Filtrar casos por sector">
+      <button class="chip active" data-f="all" aria-pressed="true">Todos <span class="n"></span></button>
+      <button class="chip" data-f="seguros" aria-pressed="false"><span class="dot"></span>Seguros <span class="n"></span></button>
+      <button class="chip" data-f="farmacia" aria-pressed="false"><span class="dot"></span>Farmacia y salud <span class="n"></span></button>
+      <button class="chip" data-f="economia" aria-pressed="false"><span class="dot"></span>Economía <span class="n"></span></button>
+      <button class="chip" data-f="software" aria-pressed="false"><span class="dot"></span>Software <span class="n"></span></button>
     </div>
 
     <div class="pgrid">
 
-      <!-- XPHARMACARE -->
-      <article class="card rev" data-areas="ml ec sa ri" style="--sig:var(--green)">
-        <div class="card-media" data-open="xpharma">
-          <img src="assets/mando.jpg" alt="XPharmaCare — Centro de Mando" loading="lazy">
-          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-          <div class="media-tag">PLATAFORMA · 4 MÓDULOS · POWER BI</div>
-        </div>
-        <div class="card-body">
-          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span></div>
-          <h3>XPharmaCare — Inteligencia de Cliente en Salud</h3>
-          <p class="pitch">Plataforma integral que convierte 8,000 clientes y RD$97.3M en ingresos en decisiones concretas de retención. Es el proyecto donde se unen las cuatro áreas: predice el abandono, mide su valor económico, entiende al paciente crónico y dirige la inversión solo a quien la oferta hace cambiar de opinión.</p>
-          <div class="kpis">
-            <div class="kpi"><div class="k">RD$97.3M</div><div class="kl">Ingreso analizado</div></div>
-            <div class="kpi"><div class="k">x3.31</div><div class="kl">ROI de retención</div></div>
-            <div class="kpi"><div class="k">RD$2.7M</div><div class="kl">Ahorro vs. "todos"</div></div>
-            <div class="kpi"><div class="k">79.2%</div><div class="kl">Adherencia global</div></div>
-          </div>
-          <div class="card-foot">
-            <button class="open-btn" data-open="xpharma">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/xpharmacare" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- RADAR -->
-      <article class="card rev" data-areas="ec sa" style="--sig:var(--cyan)">
-        <div class="card-media" data-open="radar">
-          <img src="assets/radar.jpg" alt="Radar Farma & Seguros RD — página pública" loading="lazy">
-          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-          <div class="new-tag">EN VIVO</div>
-          <div class="media-tag">PYTHON · GITHUB ACTIONS · PÁGINA PÚBLICA</div>
-        </div>
-        <div class="card-body">
-          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag sw">Automatización</span></div>
-          <h3>Radar Farma &amp; Seguros RD</h3>
-          <p class="pitch">El pulso del mercado farmacéutico y asegurador dominicano en una sola página: indicadores del Banco Central, normas de los reguladores y titulares de prensa, clasificados y priorizados con reglas públicas. Se actualiza solo cada 6 horas, sin intervención manual.</p>
-          <div class="kpis">
-            <div class="kpi"><div class="k">30+</div><div class="kl">Fuentes monitoreadas</div></div>
-            <div class="kpi"><div class="k">6</div><div class="kl">Indicadores BCRD</div></div>
-            <div class="kpi"><div class="k">c/6 h</div><div class="kl">Actualización automática</div></div>
-          </div>
-          <div class="card-foot">
-            <button class="open-btn" data-open="radar">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="links">
-              <a class="repo-link live" href="https://braylinjr.github.io/radar-farma-seguros-rd/#indicadores" target="_blank" rel="noopener"><i></i>Ver en vivo</a>
-              <a class="repo-link" href="https://github.com/BraylinJR/radar-farma-seguros-rd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- RIESGO CARTERA -->
-      <article class="card rev" data-areas="ml ec ri" style="--sig:var(--blue)">
-        <div class="card-media" data-open="riesgocartera">
-          <img src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
-          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-          <div class="media-tag">STREAMLIT · SHAP · DATOS BCRD</div>
-        </div>
-        <div class="card-body">
-          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag ri">Riesgo</span></div>
-          <h3>Motor de Inteligencia de Riesgo de Cartera</h3>
-          <p class="pitch">Sistema de detección temprana de deterioro que evalúa 20,000 pólizas activas en tiempo real. Integra un simulador de escenario macro con variables BCRD, explicabilidad SHAP por póliza y descarga operativa para el equipo de gestión.</p>
-          <div class="kpis">
-            <div class="kpi"><div class="k">DOP 132.0M</div><div class="kl">Prima analizada</div></div>
-            <div class="kpi"><div class="k">3x</div><div class="kl">Lift top decil</div></div>
-            <div class="kpi"><div class="k">DOP 26.8M</div><div class="kl">Prima en riesgo</div></div>
-            <div class="kpi"><div class="k">861</div><div class="kl">Pólizas en alerta</div></div>
-          </div>
-          <div class="card-foot">
-            <button class="open-btn" data-open="riesgocartera">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="links"><a class="repo-link" href="https://github.com/BraylinJR/modelo_riesgo_cartera" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- RIESGOS NATURALES -->
-      <article class="card rev" data-areas="ri" style="--sig:var(--orange)">
-        <div class="card-media split" data-open="naturales">
-          <img src="assets/sismos.gif" alt="Animación de sismos en La Española" loading="lazy">
-          <img src="assets/huracanes.gif" alt="Animación de huracanes cerca de La Española" loading="lazy">
-          <div class="new-tag">NUEVO</div>
-          <div class="media-tag">SERIE · R · USGS + NOAA</div>
-        </div>
-        <div class="card-body">
-          <div class="tags"><span class="tag ri">Riesgo</span><span class="tag geo">Geoespacial</span></div>
-          <h3>La Española bajo riesgo: sismos y huracanes</h3>
-          <p class="pitch">Serie de visualización con datos públicos que muestra, año por año, dónde ha temblado la isla y por dónde han pasado las tormentas. Mapas y animaciones en R, con la lectura cuidadosa que exige el dato: más registros no siempre significa más riesgo.</p>
-          <div class="kpis">
-            <div class="kpi"><div class="k">980</div><div class="kl">Sismos M4+ desde 1975</div></div>
-            <div class="kpi"><div class="k">48%</div><div class="kl">Ocurrieron en el mar</div></div>
-            <div class="kpi"><div class="k">73</div><div class="kl">Tormentas a &lt;100 km</div></div>
-          </div>
-          <div class="card-foot">
-            <button class="open-btn" data-open="naturales">Ver serie completa <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="links">
-              <a class="repo-link" href="https://github.com/BraylinJR/la-isla-que-tiembla" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Sismos</a>
-              <a class="repo-link" href="https://github.com/BraylinJR/bajo-la-ruta-de-los-huracanes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Huracanes</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
       <!-- LINCE -->
-      <article class="card rev" data-areas="ml ri" style="--sig:var(--red)">
+      <article class="card rev" data-areas="seguros" style="--sig:var(--red)">
         <div class="card-media" data-open="lince">
           <div class="art" style="background:radial-gradient(circle at 50% 40%,#16243a,#0a1322)">
             <svg viewBox="0 0 240 135" aria-hidden="true">
@@ -549,31 +449,110 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
         </div>
       </article>
 
-      <!-- CHURN -->
-      <article class="card rev" data-areas="ml ec ri" style="--sig:var(--violet)">
-        <div class="card-media" data-open="churn">
-          <img src="assets/ibm.jpg" alt="Dashboard de Churn" loading="lazy">
+      <!-- RADAR -->
+      <article class="card rev" data-areas="seguros farmacia economia" style="--sig:var(--cyan)">
+        <div class="card-media" data-open="radar">
+          <img src="assets/radar.jpg" alt="Radar Farma & Seguros RD — página pública" loading="lazy">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-          <div class="media-tag">DASHBOARD · R + SQL + POWER BI</div>
+          <div class="new-tag">EN VIVO</div>
+          <div class="media-tag">PYTHON · GITHUB ACTIONS · PÁGINA PÚBLICA</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag sw">Automatización</span></div>
+          <h3>Radar Farma &amp; Seguros RD</h3>
+          <p class="pitch">El pulso del mercado farmacéutico y asegurador dominicano en una sola página: indicadores del Banco Central, normas de los reguladores y titulares de prensa, clasificados y priorizados con reglas públicas. Se actualiza solo cada 6 horas, sin intervención manual.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">30+</div><div class="kl">Fuentes monitoreadas</div></div>
+            <div class="kpi"><div class="k">6</div><div class="kl">Indicadores BCRD</div></div>
+            <div class="kpi"><div class="k">c/6 h</div><div class="kl">Actualización automática</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="radar">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links">
+              <a class="repo-link live" href="https://braylinjr.github.io/radar-farma-seguros-rd/#indicadores" target="_blank" rel="noopener"><i></i>Ver en vivo</a>
+              <a class="repo-link" href="https://github.com/BraylinJR/radar-farma-seguros-rd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- XPHARMACARE -->
+      <article class="card rev" data-areas="farmacia seguros" style="--sig:var(--green)">
+        <div class="card-media" data-open="xpharma">
+          <img src="assets/mando.jpg" alt="XPharmaCare — Centro de Mando" loading="lazy">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="media-tag">PLATAFORMA · 4 MÓDULOS · POWER BI</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag sa">Salud</span><span class="tag ri">Riesgo</span></div>
+          <h3>XPharmaCare — Inteligencia de Cliente en Salud</h3>
+          <p class="pitch">Plataforma integral que convierte 8,000 clientes y RD$97.3M en ingresos en decisiones concretas de retención: predice el abandono, mide su valor económico, entiende al paciente crónico y dirige la inversión solo a quien la oferta hace cambiar de opinión.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">RD$97.3M</div><div class="kl">Ingreso analizado</div></div>
+            <div class="kpi"><div class="k">x3.31</div><div class="kl">ROI de retención</div></div>
+            <div class="kpi"><div class="k">RD$2.7M</div><div class="kl">Ahorro vs. "todos"</div></div>
+            <div class="kpi"><div class="k">79.2%</div><div class="kl">Adherencia global</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="xpharma">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/xpharmacare" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIESGO CARTERA -->
+      <article class="card rev" data-areas="seguros economia" style="--sig:var(--blue)">
+        <div class="card-media" data-open="riesgocartera">
+          <img src="assets/riesgo-cartera.jpg" alt="Motor de Inteligencia de Riesgo de Cartera" loading="lazy">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="media-tag">STREAMLIT · SHAP · DATOS BCRD</div>
         </div>
         <div class="card-body">
           <div class="tags"><span class="tag ml">ML</span><span class="tag ec">Economía</span><span class="tag ri">Riesgo</span></div>
-          <h3>Customer Intelligence — Predicción de Churn</h3>
-          <p class="pitch">Anticipar el abandono de clientes ya no es solo para grandes empresas. Un dashboard simple, visual y accionable pensado para MIPYMES: dice quién se va, cuándo y por qué, para actuar a tiempo.</p>
+          <h3>Motor de Inteligencia de Riesgo de Cartera</h3>
+          <p class="pitch">Sistema de detección temprana de deterioro que evalúa 20,000 pólizas activas en tiempo real. Integra un simulador de escenario macro con variables BCRD, explicabilidad SHAP por póliza y descarga operativa para el equipo de gestión.</p>
           <div class="kpis">
-            <div class="kpi"><div class="k">AUC-ROC 0.87</div><div class="kl">Acierto del modelo</div></div>
-            <div class="kpi"><div class="k">4 niveles</div><div class="kl">Score de riesgo accionable</div></div>
-            <div class="kpi"><div class="k">100%</div><div class="kl">Automatizado</div></div>
+            <div class="kpi"><div class="k">DOP 132.0M</div><div class="kl">Prima analizada</div></div>
+            <div class="kpi"><div class="k">3x</div><div class="kl">Lift top decil</div></div>
+            <div class="kpi"><div class="k">DOP 26.8M</div><div class="kl">Prima en riesgo</div></div>
+            <div class="kpi"><div class="k">861</div><div class="kl">Pólizas en alerta</div></div>
           </div>
           <div class="card-foot">
-            <button class="open-btn" data-open="churn">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="links"><a class="repo-link" href="https://github.com/braylinjr/customer-churn-mipyme" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+            <button class="open-btn" data-open="riesgocartera">Ver caso completo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links"><a class="repo-link" href="https://github.com/BraylinJR/modelo_riesgo_cartera" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Repositorio</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIESGOS NATURALES -->
+      <article class="card rev" data-areas="seguros" style="--sig:var(--orange)">
+        <div class="card-media split" data-open="naturales">
+          <img src="assets/sismos.gif" alt="Animación de sismos en La Española" loading="lazy">
+          <img src="assets/huracanes.gif" alt="Animación de huracanes cerca de La Española" loading="lazy">
+          <div class="new-tag">NUEVO</div>
+          <div class="media-tag">SERIE · R · USGS + NOAA</div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag ri">Riesgo</span><span class="tag geo">Geoespacial</span></div>
+          <h3>La Española bajo riesgo: sismos y huracanes</h3>
+          <p class="pitch">Serie de visualización con datos públicos que muestra, año por año, dónde ha temblado la isla y por dónde han pasado las tormentas. Mapas y animaciones en R, con la lectura cuidadosa que exige el dato: más registros no siempre significa más riesgo. Una base para pensar el riesgo catastrófico en los seguros del país.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">980</div><div class="kl">Sismos M4+ desde 1975</div></div>
+            <div class="kpi"><div class="k">48%</div><div class="kl">Ocurrieron en el mar</div></div>
+            <div class="kpi"><div class="k">73</div><div class="kl">Tormentas a &lt;100 km</div></div>
+          </div>
+          <div class="card-foot">
+            <button class="open-btn" data-open="naturales">Ver serie completa <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="links">
+              <a class="repo-link" href="https://github.com/BraylinJR/la-isla-que-tiembla" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Sismos</a>
+              <a class="repo-link" href="https://github.com/BraylinJR/bajo-la-ruta-de-los-huracanes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.6 2.3 5.5 2.6 5.5 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Huracanes</a>
+            </div>
           </div>
         </div>
       </article>
 
       <!-- CORRUPCION -->
-      <article class="card rev" data-areas="ec sa ri" style="--sig:var(--gold)">
+      <article class="card rev" data-areas="farmacia economia" style="--sig:var(--gold)">
         <div class="card-media" data-open="corrupcion">
           <img src="assets/corrupcion-1.png" alt="Años de vida robados por la corrupción" loading="lazy">
           <div class="play"><span><svg class="ext" viewBox="0 0 24 24"><path d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span></div>
@@ -596,7 +575,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       </article>
 
       <!-- JOINLESS -->
-      <article class="card rev" data-areas="ml" style="--sig:var(--violet)">
+      <article class="card rev" data-areas="software" style="--sig:var(--violet)">
         <div class="card-media" data-open="joinless">
           <div class="art" style="background:linear-gradient(135deg,#0b1728,#102842)">
             <svg viewBox="0 0 200 110" aria-hidden="true">
@@ -626,8 +605,9 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
     </div>
 
     <div class="more rev">
-      <div class="more-head"><h3>Otros análisis</h3><p>Salud y economía, más allá de los proyectos principales.</p></div>
+      <div class="more-head"><h3>Más análisis</h3><p>Salud, economía y clientes, fuera de los casos principales.</p></div>
       <div class="mgrid">
+        <button type="button" class="mini vi mini-open" data-open="churn"><span class="mt">Churn para mipymes</span><span class="mp">Dashboard de abandono de clientes con un conjunto de datos de ejemplo (IBM Telco).</span><span class="mm">R + SQL + Power BI · Ver caso →</span></button>
         <div class="mini sa"><div class="mt">Centinela — Readmisiones hospitalarias</div><p>Prioriza pacientes por riesgo de reingreso a menos de 30 días, con el porqué de cada caso y un simulador para puntuar pacientes nuevos.</p><div class="mm">69K+ pacientes · 130 hospitales · top 10% capta ~1 de 4 reingresos</div></div>
         <div class="mini ec"><div class="mt">Inflación en salud, RD 2010–2026</div><p>Con series oficiales del BCRD: en 16 años los costos de salud no bajaron un solo mes y crecieron más que la inflación general.</p><div class="mm">IPC Salud +109% vs. IPC General +98%</div></div>
       </div>
@@ -905,7 +885,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
   "eyebrow":"Plataforma de inteligencia de cliente",
   "title":"XPharmaCare — Inteligencia de Cliente en Salud",
   "tags":[["ml","ML"],["ec","Economía"],["sa","Salud"],["ri","Riesgo"]],
-  "lead":"Una plataforma integral en Power BI para una aseguradora/farmacéutica de salud, organizada en cuatro módulos. Sobre una base de 8,000 clientes y RD$97.3M en ingresos, traduce el comportamiento del cliente en decisiones de retención que se pueden ejecutar el mismo día. Es el proyecto que mejor resume mi trabajo: une las cuatro áreas en una sola herramienta.",
+  "lead":"Una plataforma integral en Power BI para una aseguradora/farmacéutica de salud, organizada en cuatro módulos. Sobre una base de 8,000 clientes y RD$97.3M en ingresos, traduce el comportamiento del cliente en decisiones de retención que se pueden ejecutar el mismo día.",
   "clips":[
     {"src":"assets/mando.mp4","poster":"assets/mando.jpg","label":"Centro de Mando","cap":"KPIs ejecutivos, distribución de riesgo de abandono, mapa de clientes por provincia y enfermedades crónicas."},
     {"src":"assets/clientes.mp4","poster":"assets/clientes.jpg","label":"Clientes & Productos","cap":"Segmentación de clientes, perfil multidimensional y rentabilidad por medicamento y canal de venta."},
@@ -980,8 +960,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
  },
  "churn": {
   "sig":"var(--violet)",
-  "eyebrow":"Dashboard de churn para MIPYMES",
-  "title":"Customer Intelligence — Predicción de Churn",
+  "eyebrow":"Dashboard de abandono de clientes · Mipymes",
+  "title":"Churn para mipymes",
   "tags":[["ml","ML"],["ec","Economía"],["ri","Riesgo"]],
   "lead":"Anticipar el abandono de clientes ya no es solo para grandes empresas. Construí este dashboard pensado para MIPYMES: simple, visual y accionable. Dice quién se va, cuándo y por qué — para actuar a tiempo.",
   "clips":[{"src":"assets/ibm.mp4","poster":"assets/ibm.jpg","label":"Customer Overview","cap":"Visión 360 del cliente: riesgo de churn, CLTV, segmentación geográfica y por oferta."}],
@@ -1126,7 +1106,7 @@ const cards=document.querySelectorAll('.card');
 const count=f=>[...cards].filter(c=>f==='all'||c.dataset.areas.split(' ').includes(f)).length;
 chips.forEach(c=>{c.querySelector('.n').textContent=count(c.dataset.f)});
 function applyFilter(f){
-  chips.forEach(c=>c.classList.toggle('active',c.dataset.f===f));
+  chips.forEach(c=>{const on=c.dataset.f===f;c.classList.toggle('active',on);c.setAttribute('aria-pressed',on)});
   cards.forEach(card=>card.classList.toggle('hide',!(f==='all'||card.dataset.areas.split(' ').includes(f))));
 }
 chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.f)));
