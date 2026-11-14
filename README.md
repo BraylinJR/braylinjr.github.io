@@ -14,7 +14,25 @@ Portafolio profesional de Braylin A. Jiménez Reynoso, economista y científico 
 | `robots.txt`, `sitemap.xml` | Indicaciones para buscadores |
 | `.nojekyll` | Indica a GitHub Pages que publique los archivos tal cual |
 
-Orden de la página: portada y cifras → Pulso del sector → 01 Casos → 02 Conferencias → 03 Docencia → 04 Reconocimientos → 05 Trayectoria → 06 Formación → 07 Cómo trabajo → Contacto.
+Orden de la página: portada y cifras → Pulso del sector → 01 Casos → 02 Publicaciones → 03 Conferencias → 04 Docencia → 05 Reconocimientos → 06 Trayectoria → 07 Formación → 08 Cómo trabajo → Contacto.
+
+## Agregar una publicación (paper o informe)
+
+1. **Limpia los metadatos** del PDF (autor, programa, fechas, XMP) y deja solo título, autor y palabras clave.
+2. **Archivos** en `assets/publicaciones/`, con nombre `apellido-año-tema-corto`:
+   - `….pdf` — el documento.
+   - `….jpg` — portada: la mitad superior de la primera página, unos 490 × 615 px.
+3. **La tarjeta** — copia un `<article class="paper">` completo dentro de `<div class="papers">` (el más nuevo va primero) y cambia:
+   - `id="pub-…"` (sirve como enlace directo: `/#pub-…`).
+   - Tipo, fecha, páginas e idioma en `.paper-meta`; título, autores, resumen, tres cifras (`.kpis`) y etiquetas.
+   - Los enlaces al PDF y a la portada.
+   - Los ids de la cita: `aria-controls`/`id` de `.cite-box` y los `data-copy`/`id` de APA y BibTeX deben ser únicos.
+   - Opcional: `<div class="new-tag" data-pub="AAAA-MM-DD">NUEVO</div>` (desaparece sola a los 60 días).
+   - Cuando tenga DOI, quita `hidden` del botón DOI, pon el enlace `https://doi.org/…` y agrega el DOI a las citas.
+4. **Inglés** — en `<script id="i18n-en">`: los textos nuevos en `t` y el resumen en `h` (marcado con `data-i18n="pub-…-abs"`).
+5. **Buscadores** — agrega una entrada `ScholarlyArticle` al bloque JSON-LD de publicaciones en `<head>` y la URL del PDF a `sitemap.xml`.
+
+El efecto morado (borde, brillo y el destello que cruza la tarjeta) se aplica solo a toda tarjeta `.paper`; no hay que tocar CSS ni JavaScript.
 
 ## Agregar un caso
 
