@@ -28,6 +28,7 @@ Orden de la página: portada y cifras → Pulso del sector → 01 Casos → 02 P
    - Los enlaces al PDF y a la portada.
    - Los ids de la cita: `aria-controls`/`id` de `.cite-box` y los `data-copy`/`id` de APA y BibTeX deben ser únicos.
    - Opcional: `<div class="new-tag" data-pub="AAAA-MM-DD">NUEVO</div>` (desaparece sola a los 60 días).
+   - Si hay versión en inglés: `data-href-en` en la portada y en "Leer en línea", `data-src-en` en la imagen de portada (al cambiar a EN apuntan al PDF en inglés), un botón de descarga por idioma y el título en inglés en `h` con `data-i18n="pub-…-title"`.
    - Cuando tenga DOI, quita `hidden` del botón DOI, pon el enlace `https://doi.org/…` y agrega el DOI a las citas.
 4. **Inglés** — en `<script id="i18n-en">`: los textos nuevos en `t` y el resumen en `h` (marcado con `data-i18n="pub-…-abs"`).
 5. **Buscadores** — agrega una entrada `ScholarlyArticle` al bloque JSON-LD de publicaciones en `<head>` y la URL del PDF a `sitemap.xml`.
