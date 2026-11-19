@@ -2297,5 +2297,64 @@ async function cargarPulso(){
 }
 cargarPulso();
 </script>
+<!-- Analítica de visitas (GoatCounter): panel en https://braylinjr.goatcounter.com -->
+<script data-goatcounter="https://braylinjr.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+/* Eventos de interacción: aparecen en GoatCounter como "rutas" con prefijo (caso:, descarga:, salida:…). */
+(()=>{
+  const enviados=new Set();
+  function evento(nombre,unaVez){
+    if(unaVez){if(enviados.has(nombre))return;enviados.add(nombre)}
+    const gc=window.goatcounter;
+    if(gc&&typeof gc.count==='function')gc.count({path:nombre,title:nombre,event:true});
+  }
+  const archivo=u=>decodeURIComponent(String(u).split(/[?#]/)[0].split('/').pop()||u);
+  document.addEventListener('click',e=>{
+    const el=e.target.closest('a,button,[data-open]');
+    if(!el)return;
+    const d=el.dataset;
+    if(d.open)return evento('caso: '+d.open);
+    if(d.lang)return evento('idioma: '+d.lang);
+    if(d.f)return evento('filtro: '+d.f);
+    if(d.clip!==undefined)return evento('video-pestaña: '+(el.textContent||'').trim());
+    if(el.hasAttribute('data-cite'))return evento('citar: '+(el.getAttribute('aria-controls')||'').replace(/^cita-/,''));
+    if(d.copy)return evento('copiar: '+d.copy);
+    if(el.id==='m-copy')return evento('copiar: enlace del caso');
+    if(el.id==='m-prev'||el.id==='m-next')return evento('caso-nav: '+el.id.slice(2));
+    if(el.tagName!=='A')return;
+    const href=el.getAttribute('href')||'';
+    if(href.startsWith('mailto:'))return evento('contacto: '+(el.id==='invitar'?'invitación a conferencia':'email'));
+    if(href.startsWith('tel:'))return evento('contacto: teléfono');
+    if(href.startsWith('#'))return;
+    if(el.hasAttribute('download'))return evento('descarga: '+archivo(href));
+    if(/\.pdf($|[?#])/i.test(href))return evento('leer-pdf: '+archivo(href));
+    try{
+      const u=new URL(href,location.href);
+      if(u.host!==location.host||el.target==='_blank')
+        return evento('salida: '+u.host+u.pathname.replace(/\/$/,''));
+    }catch(_){}
+  },true);
+  // Videos reproducidos (incluye los que se crean al abrir un caso)
+  document.addEventListener('play',e=>{
+    if(e.target.tagName==='VIDEO')evento('video: '+archivo(e.target.currentSrc||e.target.src),true);
+  },true);
+  // Hasta dónde baja el visitante
+  const marcas=[25,50,75,100];
+  addEventListener('scroll',()=>{
+    const h=document.documentElement,max=h.scrollHeight-innerHeight;
+    if(max<=0)return;
+    const p=Math.round(scrollY/max*100);
+    marcas.forEach(m=>{if(p>=m-2)evento('scroll: '+m+'%',true)});
+  },{passive:true});
+  // Tiempo activo en la página (solo cuenta mientras la pestaña está visible)
+  let segs=0;
+  const tiempos={30:'30 s',120:'2 min',300:'5 min',600:'10 min'};
+  setInterval(()=>{
+    if(document.visibilityState!=='visible')return;
+    segs+=5;
+    if(tiempos[segs])evento('tiempo: '+tiempos[segs]+'+',true);
+  },5000);
+})();
+</script>
 </body>
 </html>
