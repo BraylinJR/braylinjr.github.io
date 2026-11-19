@@ -191,6 +191,10 @@ header>.wrap{position:relative;z-index:1}
 .stat .l{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:9px}
 @media(max-width:680px){.stat{flex:1 1 42%;border-right:none;padding:22px 18px 18px 0}}
 .stat .cnt{display:inline-block;text-align:right}
+.stat.gold .n{color:var(--gold);text-shadow:0 0 28px rgba(255,209,102,.35)}
+.stat.gold .l{color:var(--gold)}
+a.stat.gold{transition:background-color .25s}
+a.stat.gold:hover .l{color:var(--white)}
 .stats-note{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted)}
 
 .js .rev{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -657,9 +661,10 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <div class="stat"><div class="n"><span class="cnt" data-to="3">3</span><span class="u">x</span></div><div class="l">Más aciertos que la segmentación tradicional</div></div>
       <div class="stat"><div class="n"><span class="cnt" data-to="1257">1,257</span><span class="u">h</span></div><div class="l">Ahorro operativo al año</div></div>
       <div class="stat"><div class="n"><span class="cnt" data-to="70">70</span><span class="u">+</span></div><div class="l">Colaboradores formados</div></div>
+      <a class="stat gold" href="#pub-politica-monetaria-rd"><div class="n" data-i18n="stat-bcrd-n">5<span class="u ord">.º</span></div><div class="l">Concurso Anual de Economía · BCRD 2026</div></a>
       <div class="stat"><div class="n">1<span class="u ord">.º</span></div><div class="l">Datathon Humano 2025 · Business Intelligence</div></div>
     </div>
-    <p class="stats-note rev">Resultados en Humano Seguros, 2025–2026.</p>
+    <p class="stats-note rev">Resultados en Humano Seguros, 2025–2026, y en el Concurso Anual de Economía del Banco Central de la República Dominicana, 2026.</p>
   </div>
 </header>
 
@@ -1617,7 +1622,8 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 "Ahorro operativo al año": "Operating hours saved per year",
 "Colaboradores formados": "Employees trained",
 ".º": "st",
-"Resultados en Humano Seguros, 2025–2026.": "Results at Humano Seguros, 2025–2026.",
+"Resultados en Humano Seguros, 2025–2026, y en el Concurso Anual de Economía del Banco Central de la República Dominicana, 2026.": "Results at Humano Seguros, 2025–2026, and in the Central Bank of the Dominican Republic's Annual Economics Competition, 2026.",
+"Concurso Anual de Economía · BCRD 2026": "BCRD Annual Economics Competition 2026",
 "Pulso del sector": "Industry pulse",
 "Indicadores en vivo desde el Radar Farma & Seguros RD": "Live indicators from the Radar Farma & Seguros RD",
 "Cargando datos…": "Loading data…",
@@ -1867,6 +1873,7 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 "hero-sub": "I'm <b>Braylin Jiménez<\/b>, an economist and data scientist. I take AI into production in insurance and pharma in the Dominican Republic. At Humano Seguros I lead customer intelligence with <b>8 models in production<\/b> that have generated <b>over RD$2M in premiums<\/b> and are up to <b>3 times more accurate<\/b> than traditional segmentation.",
 "now": "<b>Customer Intelligence Coordinator<\/b> at Humano Seguros · Lead of the Data Science School · Master's in Health Systems and Services Management (PUCMM) and Insurance Management Program (UNIBE), in progress",
 "contacto-h": "Let's talk about <em>data<\/em> and decisions.",
+"stat-bcrd-n": "5<span class=\"u ord\">th<\/span>",
 "pub-pm-title": "Heterogeneous Effects of Monetary Policy on Labor Income, Employment Transitions and Remittances in the Dominican Republic",
 "pub-pm-abs": "Who bears the burden of monetary policy adjustment? Using ENCFT panel microdata (2016–2025) and a new series of monetary shocks built from the Central Bank's Macroeconomic Expectations Survey, the paper estimates local projections by income quintile. The average effect on labor income is zero, but there is an <b>asymmetry in the second quintile<\/b>: expansions bring gains that contractions do not reverse. And a 100 basis point contractionary surprise <b>raises remittances by 4% to 5%<\/b>.",
 "pub-brecha-title": "Beyond Access: The Digital Divide as a Mechanism for Reproducing Inequality in the Dominican Republic, 2015–2022",
