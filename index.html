@@ -38,6 +38,14 @@
 <!-- Publicaciones (una entrada por documento) -->
 <script type="application/ld+json">
 [{ "@context":"https://schema.org", "@type":"ScholarlyArticle",
+   "headline":"Efectos heterogéneos de la política monetaria sobre el ingreso laboral, las transiciones de empleo y las remesas en la República Dominicana",
+   "author":[{"@type":"Person","name":"Braylin Alexander Jiménez Reynoso","url":"https://braylinjr.github.io/"},{"@type":"Person","name":"Jhustyn Mayobanex Estevez Cortes"}],
+   "datePublished":"2026-07", "inLanguage":"es", "genre":"Trabajo de investigación",
+   "award":"5.º lugar, Concurso Anual de Economía Biblioteca Juan Pablo Duarte, Banco Central de la República Dominicana, 2026",
+   "keywords":"política monetaria; mercado laboral; informalidad; distribución del ingreso; remesas; República Dominicana",
+   "url":"https://braylinjr.github.io/#pub-politica-monetaria-rd",
+   "encoding":{"@type":"MediaObject","encodingFormat":"application/pdf","inLanguage":"es","contentUrl":"https://braylinjr.github.io/assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.pdf"} },
+ { "@context":"https://schema.org", "@type":"ScholarlyArticle",
    "headline":"Más allá del acceso: la brecha digital como mecanismo de reproducción de la desigualdad en la República Dominicana, 2015–2022",
    "author":{"@type":"Person","name":"Braylin A. Jiménez Reynoso","url":"https://braylinjr.github.io/"},
    "datePublished":"2026-11", "inLanguage":"es", "genre":"Documento de trabajo",
@@ -409,6 +417,21 @@ button.mini{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 .copy-btn .c2,.copy-btn.ok .c1{display:none}
 .copy-btn.ok .c2{display:inline}
 .paper-note{font-size:12px;color:var(--muted-2);line-height:1.5}
+/* Variante dorada: trabajos premiados */
+.paper.gold{--sig:var(--gold);--pv:#ffd166;--pv-2:#f2b33d;border-color:rgba(255,209,102,.35);
+  background-image:linear-gradient(150deg,rgba(255,209,102,.09),rgba(255,209,102,.015) 55%,transparent)}
+.paper.gold::after{background:linear-gradient(105deg,transparent 0%,rgba(255,209,102,.07) 30%,rgba(255,224,150,.28) 50%,rgba(255,209,102,.07) 70%,transparent 100%)}
+.paper.gold:hover,.paper.gold:focus-within{background-color:rgba(255,209,102,.06);
+  box-shadow:0 0 0 1px rgba(255,209,102,.4),0 0 46px -8px rgba(255,209,102,.5),0 30px 80px -30px rgba(0,0,0,.85)}
+.paper.gold:hover .paper-cover{box-shadow:0 22px 48px -16px rgba(255,209,102,.6)}
+.paper.gold .pbtn.pri:hover{box-shadow:0 12px 30px -10px rgba(255,209,102,.7)}
+.paper.gold .pbtn[aria-expanded="true"]{background-color:rgba(255,209,102,.12)}
+.paper.gold .cite-box{border-color:rgba(255,209,102,.3)}
+.paper.gold .copy-btn{border-color:rgba(255,209,102,.35)}
+.paper-award{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:#1d1405;background:linear-gradient(135deg,#ffe08a,#ffd166 45%,#f2b33d);border-radius:100px;padding:6px 14px;box-shadow:0 8px 24px -10px rgba(255,209,102,.7);
+  margin-right:78px} /* deja sitio a la etiqueta NUEVO */
+@media(max-width:720px){.paper-award{margin-right:0}}
 @media(max-width:720px){
   .paper{grid-template-columns:96px 1fr;gap:18px;padding:22px 18px}
   .paper-meta{padding-right:0;gap:4px 12px}
@@ -458,6 +481,12 @@ button.mini{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 .award .award-meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;margin-bottom:16px}
 .award p{color:#c3d0e4;max-width:780px;font-size:15px}
 .award p + p{margin-top:12px}
+.award.gold{border-color:rgba(255,209,102,.45);background:linear-gradient(150deg,rgba(255,209,102,.14),rgba(255,209,102,.03) 60%,rgba(255,255,255,.02))}
+.award.gold::before{background:radial-gradient(circle,rgba(255,209,102,.32),transparent 70%)}
+.award.gold .medal{color:#1d1405;background:linear-gradient(135deg,#ffe08a,#ffd166 45%,#f2b33d);border-color:transparent;font-weight:600}
+.award.gold .award-meta{color:var(--gold)}
+.award-link{display:inline-flex;margin-top:14px;font-family:var(--mono);font-size:12.5px;color:var(--gold);border-bottom:1px solid rgba(255,209,102,.4);padding-bottom:2px}
+.award-link:hover{color:var(--white);border-color:var(--white)}
 
 /* ---------- TIMELINE ---------- */
 .tl{position:relative;margin-left:6px}
@@ -888,6 +917,48 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 
     <div class="papers">
 
+      <!-- POLÍTICA MONETARIA RD · 5.º LUGAR CONCURSO BCRD 2026 (tarjeta dorada: class="paper gold") -->
+      <article class="paper gold rev" id="pub-politica-monetaria-rd">
+        <div class="new-tag" data-pub="2026-11-18">NUEVO</div>
+        <a class="paper-cover" href="assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.pdf" target="_blank" rel="noopener" aria-label="Abrir el PDF: Efectos heterogéneos de la política monetaria">
+          <img src="assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.jpg" width="493" height="638" loading="lazy" alt="Primera página del documento">
+        </a>
+        <div class="paper-body">
+          <div class="paper-award">★ 5.º lugar · Concurso Anual de Economía BCRD 2026</div>
+          <div class="paper-meta"><span>Trabajo premiado</span><span><time datetime="2026-07">Jul 2026</time></span><span>En español</span></div>
+          <h3 data-i18n="pub-pm-title">Efectos heterogéneos de la política monetaria sobre el ingreso laboral, las transiciones de empleo y las remesas en la República Dominicana</h3>
+          <div class="authors">Braylin Alexander Jiménez Reynoso y Jhustyn Mayobanex Estevez Cortes</div>
+          <p class="abs" data-i18n="pub-pm-abs">¿Sobre quién recae el ajuste de la política monetaria? Con microdatos de panel de la ENCFT (2016–2025) y una serie nueva de choques monetarios construida con la Encuesta de Expectativas Macroeconómicas del BCRD, el trabajo estima proyecciones locales por quintil de ingreso. El efecto promedio sobre el ingreso laboral es nulo, pero hay <b>asimetría en el segundo quintil</b>: las expansiones dejan ganancias que las contracciones no revierten. Y una sorpresa contractiva de 100 puntos básicos <b>eleva las remesas entre 4% y 5%</b>.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="k">+4–5%</div><div class="kl">Remesas tras un alza sorpresa de 100 pb</div></div>
+            <div class="kpi"><div class="k">35</div><div class="kl">Trimestres de panel ENCFT</div></div>
+            <div class="kpi"><div class="k">1.ª</div><div class="kl">Serie de choques basada en la EEM</div></div>
+          </div>
+          <div class="tags"><span class="tag ec">Economía</span><span class="tag ec">Política monetaria</span><span class="tag ml">Econometría</span><span class="tag sa">Mercado laboral</span></div>
+          <div class="paper-actions">
+            <a class="pbtn pri" href="assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Leer en línea</a>
+            <a class="pbtn" href="assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.pdf" download="Jimenez-Reynoso_Estevez-Cortes_2026_Politica-monetaria-RD.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF</a>
+            <button type="button" class="pbtn" data-cite aria-expanded="false" aria-controls="cita-politica-monetaria-rd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-1.5 5-4 6M15 7h4v4c0 3-1.5 5-4 6"/></svg>Cómo citar</button>
+          </div>
+          <div class="cite-box" id="cita-politica-monetaria-rd">
+            <div>
+              <div class="cite-h">APA 7 <button type="button" class="copy-btn" data-copy="cita-pm-apa"><span class="c1">Copiar</span><span class="c2">Copiada ✓</span></button></div>
+              <p class="cite-txt" id="cita-pm-apa" lang="es">Jiménez Reynoso, B. A., y Estevez Cortes, J. M. (2026). <i>Efectos heterogéneos de la política monetaria sobre el ingreso laboral, las transiciones de empleo y las remesas en la República Dominicana</i> [Trabajo premiado con el 5.º lugar, Concurso Anual de Economía Biblioteca Juan Pablo Duarte]. Banco Central de la República Dominicana. https://braylinjr.github.io/assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.pdf</p>
+            </div>
+            <div>
+              <div class="cite-h">BibTeX <button type="button" class="copy-btn" data-copy="cita-pm-bib"><span class="c1">Copiar</span><span class="c2">Copiada ✓</span></button></div>
+<pre class="cite-bib" id="cita-pm-bib" lang="es">@misc{jimenezreynoso2026politica,
+  author = {Jiménez Reynoso, Braylin Alexander and Estevez Cortes, Jhustyn Mayobanex},
+  title  = {Efectos heterogéneos de la política monetaria sobre el ingreso laboral, las transiciones de empleo y las remesas en la República Dominicana},
+  year   = {2026},
+  note   = {5.º lugar, Concurso Anual de Economía Biblioteca Juan Pablo Duarte, Banco Central de la República Dominicana},
+  url    = {https://braylinjr.github.io/assets/publicaciones/jimenez-reynoso-estevez-cortes-2026-politica-monetaria-rd.pdf}
+}</pre>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <!-- BRECHA DIGITAL RD 2015-2022 -->
       <article class="paper rev" id="pub-brecha-digital-rd">
         <div class="new-tag" data-pub="2026-11-14">NUEVO</div>
@@ -1022,6 +1093,15 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
       <p>Resultados validados por terceros.</p>
     </div>
     <div class="premios-grid rev">
+      <div class="award gold">
+        <div class="award-top">
+          <span class="medal">★ 5.º LUGAR</span>
+        </div>
+        <h3>Concurso Anual de Economía Biblioteca Juan Pablo Duarte</h3>
+        <div class="award-meta">BANCO CENTRAL DE LA REPÚBLICA DOMINICANA · 2026</div>
+        <p>Quinto lugar, junto a Jhustyn Mayobanex Estevez Cortes, en el concurso de investigación económica del Banco Central de la República Dominicana, con un trabajo que mide sobre quién recae el ajuste de la política monetaria: el ingreso laboral, las transiciones de empleo y las remesas de los hogares dominicanos, por quintil de ingreso.</p>
+        <a class="award-link" href="#pub-politica-monetaria-rd">Ver el trabajo →</a>
+      </div>
       <div class="award">
         <div class="award-top">
           <span class="medal">★ RECONOCIMIENTO ESPECIAL</span>
@@ -1763,13 +1843,32 @@ footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--muted-2)
 "Copiar": "Copy",
 "Copiada ✓": "Copied ✓",
 "Abrir el PDF: Más allá del acceso": "Open the PDF: Beyond access",
-"Primera página del documento": "First page of the paper"
+"Primera página del documento": "First page of the paper",
+"★ 5.º lugar · Concurso Anual de Economía BCRD 2026": "★ 5th place · BCRD Annual Economics Competition 2026",
+"Trabajo premiado": "Award-winning paper",
+"En español": "In Spanish",
+"Braylin Alexander Jiménez Reynoso y Jhustyn Mayobanex Estevez Cortes": "Braylin Alexander Jiménez Reynoso and Jhustyn Mayobanex Estevez Cortes",
+"Remesas tras un alza sorpresa de 100 pb": "Remittances after a 100 bp surprise hike",
+"Trimestres de panel ENCFT": "Quarters of ENCFT panel data",
+"Serie de choques basada en la EEM": "Shock series built on the EEM survey",
+"1.ª": "1st",
+"Política monetaria": "Monetary policy",
+"Mercado laboral": "Labor market",
+"Descargar PDF": "Download PDF",
+"Abrir el PDF: Efectos heterogéneos de la política monetaria": "Open the PDF: Heterogeneous effects of monetary policy",
+"★ 5.º LUGAR": "★ 5TH PLACE",
+"Concurso Anual de Economía Biblioteca Juan Pablo Duarte": "Juan Pablo Duarte Library Annual Economics Competition",
+"BANCO CENTRAL DE LA REPÚBLICA DOMINICANA · 2026": "CENTRAL BANK OF THE DOMINICAN REPUBLIC · 2026",
+"Quinto lugar, junto a Jhustyn Mayobanex Estevez Cortes, en el concurso de investigación económica del Banco Central de la República Dominicana, con un trabajo que mide sobre quién recae el ajuste de la política monetaria: el ingreso laboral, las transiciones de empleo y las remesas de los hogares dominicanos, por quintil de ingreso.": "Fifth place, together with Jhustyn Mayobanex Estevez Cortes, in the economic research competition of the Central Bank of the Dominican Republic, with a paper that measures who bears the burden of monetary policy adjustment: labor income, employment transitions and remittances of Dominican households, by income quintile.",
+"Ver el trabajo →": "See the paper →"
 },
 "h": {
 "hero-h": "Data that turns into <em>decisions<\/em>.",
 "hero-sub": "I'm <b>Braylin Jiménez<\/b>, an economist and data scientist. I take AI into production in insurance and pharma in the Dominican Republic. At Humano Seguros I lead customer intelligence with <b>8 models in production<\/b> that have generated <b>over RD$2M in premiums<\/b> and are up to <b>3 times more accurate<\/b> than traditional segmentation.",
 "now": "<b>Customer Intelligence Coordinator<\/b> at Humano Seguros · Lead of the Data Science School · Master's in Health Systems and Services Management (PUCMM) and Insurance Management Program (UNIBE), in progress",
 "contacto-h": "Let's talk about <em>data<\/em> and decisions.",
+"pub-pm-title": "Heterogeneous Effects of Monetary Policy on Labor Income, Employment Transitions and Remittances in the Dominican Republic",
+"pub-pm-abs": "Who bears the burden of monetary policy adjustment? Using ENCFT panel microdata (2016–2025) and a new series of monetary shocks built from the Central Bank's Macroeconomic Expectations Survey, the paper estimates local projections by income quintile. The average effect on labor income is zero, but there is an <b>asymmetry in the second quintile<\/b>: expansions bring gains that contractions do not reverse. And a 100 basis point contractionary surprise <b>raises remittances by 4% to 5%<\/b>.",
 "pub-brecha-title": "Beyond Access: The Digital Divide as a Mechanism for Reproducing Inequality in the Dominican Republic, 2015–2022",
 "pub-brecha-abs":"Between 2015 and 2022 internet access among Dominican households doubled while inequality fell. Does one explain the other? Using the ENHOGAR survey, its microdata on 35,678 households and regional panels, the paper shows it does not: the expansion was <b>regressive in absolute terms<\/b>, the main barrier is <b>price<\/b> rather than coverage, and the digital divide works as a <b>mechanism that reproduces<\/b> future inequality.",
 "m-prev": "← Previous<span class=\"m-lbl\"> case<\/span>",
